@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="https://dyne.org/docs/jaromail/">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Jaromail Manual</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Jaromail Manual</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#jaromail1-self-sovereign-e-mail-management" class="nav-link">jaromail(1) -- self-sovereign e-mail management</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#architecture" class="nav-link">Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#setup" class="nav-link">Setup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#configuration" class="nav-link">Configuration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#workflow" class="nav-link">Workflow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#searching" class="nav-link">Searching</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#compute-and-visualize-statistics" class="nav-link">Compute and visualize statistics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#addressbook" class="nav-link">Addressbook</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#filters" class="nav-link">Filters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#shell-environment" class="nav-link">Shell environment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="jaromail1-self-sovereign-e-mail-management">jaromail(1) -- self-sovereign e-mail management</h1>
+<p>Jaro Mail is an integrated suite of interoperable tools to manage e-mail
+communication in a private and efficient way, without relying too much
+on on-line services, in fact encouraging users to store their email
+locally.</p>
+<p>Rather than reinventing the wheel, this suite reuses existing free and
+open source tools and protocols and is mainly targeted for GNU/Linux/BSD
+desktop usage.</p>
+<p>This manual illustrates the usage of Jaro Mail. The newest version of
+this manual is made available on
+<a href="http://files.dyne.org/jaromail/jaromail-manual.pdf">http://files.dyne.org/jaromail/jaromail-manual.pdf</a></p>
+<h3 id="features">Features</h3>
+<p><img alt="" src="jaromail-shot.jpg" /></p>
+<ul>
+<li>Minimalistic and efficient interface with message threading</li>
+<li>Targets intensive usage of e-mails and mailinglists</li>
+<li>Stores e-mails locally in a reliable format (maildir)</li>
+<li>Integrates whitelisting and blacklisting, local and remote</li>
+<li>Can do search and backup by advanced expressions</li>
+<li>Automatically generates filter rules (sieve)</li>
+<li>Imports and exports VCard contacts to addressbook</li>
+<li>Computes and shows statistics on mail traffic</li>
+<li>Facilitates sending anonymous emails (Mixmaster)</li>
+<li>Encrypted password storage using OS native keyrings</li>
+<li>Advanced maildir tools (merge, backup, address extraction)</li>
+<li>Defers connections for off-line operations</li>
+<li>Checks SSL/TLS certificates when fetching and sending mails</li>
+<li>Supports strong encryption messaging (GnuPG)</li>
+<li>Multi platform: GNU/Linux/BSD, Apple/OSX</li>
+<li>Old school, used by its author for the past 10 years</li>
+</ul>
+<h3 id="vision">Vision</h3>
+<p>The internet offers plenty of free services, on the wave of the Web2.0
+fuzz and the community boom, while all private informations are hosted
+on servers owned by global corporations and monopolies.</p>
+<p>It is important to keep in mind that no-one else better than you can
+ensure the privacy of your personal data. Server hosted services and web
+integrated technologies gather all data into huge information pools that
+are made available to established economical and cultural regimes.</p>
+<p>The vision behind this software is that of sharing a simple and
+consistent way to operate e-mail communication with tools that are
+available on most platforms and can be as well used remotely over a
+secure shell connection.</p>
+<p>Jaro Mail aims to facilitate the task of downloading and storing e-mail
+archives off-line in a way that they can be still accessible in more
+than 10 years time and independently of any software. Nowadays many
+users have the habit of keeping all their e-mails on servers, accessing
+them through an often clumsy web interface, while downloading them can
+free space and improve their privacy.</p>
+<h2 id="architecture">Architecture</h2>
+<p>JaroMail is a usable terminal interface that easily sets up and
+integrates the following components to manage large e-mail folders
+locally:</p>
+<table>
+<thead>
+<tr>
+<th>Acronym</th>
+<th>Function</th>
+<th>Software</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MUA</td>
+<td>Mail User Agent</td>
+<td><a href="http://www.mutt.org">Mutt</a></td>
+</tr>
+<tr>
+<td>MTA</td>
+<td>Mail Transport Agent</td>
+<td><a href="http://www.fetchmail.info">Fetchmail</a></td>
+</tr>
+<tr>
+<td>LDA</td>
+<td>Local Delivery Agent</td>
+<td><a href="https://github.com/leahneukirchen/mblaze">Mblaze</a></td>
+</tr>
+<tr>
+<td>MDA</td>
+<td>Remote Delivery Agent</td>
+<td><a href="http://en.wikipedia.org/wiki/Sieve_(mail_filtering_language)">Sieve</a></td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>Mail delivery agent</td>
+<td><a href="http://msmtp.sourceforge.net">MSmtp</a></td>
+</tr>
+<tr>
+<td>ANON</td>
+<td>Anonymous delivery</td>
+<td><a href="http://mixmaster.sourceforge.net/">MixMaster</a></td>
+</tr>
+<tr>
+<td>SEARCH</td>
+<td>Mail Search engine</td>
+<td><a href="http://notmuchmail.org/">Notmuch</a></td>
+</tr>
+<tr>
+<td>ABOOK</td>
+<td>Contacts Addressbook</td>
+<td><a href="http://abook.sf.net">ABook</a></td>
+</tr>
+<tr>
+<td>GPG</td>
+<td>Cryptographic Agent</td>
+<td><a href="http://www.gnupg.org">GnuPG</a></td>
+</tr>
+<tr>
+<td>STORE</td>
+<td>Cryptographic Storage</td>
+<td><a href="http://www.dyne.org/software/Tomb">Tomb</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="setup">Setup</h2>
+<h3 id="build">Build</h3>
+<p>Some dependencies are needed in order to build this software. The
+Makefile for GNU/Linux configures the build environment automatically on
+Debian and Fedora systems, using their packaging to install all needed
+packages.</p>
+<p>The dependencies to be installed on the system for JaroMail are:</p>
+<pre><code>gcc bison flex make autoconf automake sqlite3 libglib2.0-dev libgnome-keyring-dev
+</code></pre>
+<h3 id="install">Install</h3>
+<p>To install the following programs need to be installed:</p>
+<pre><code>fetchmail msmtp neomutt direnv mblaze pinentry abook wipe notmuch alot
+</code></pre>
+<p>Then <code>make install</code> will put all jaromail files in <code>/usr/local/share/jaromail</code>.</p>
+<h3 id="appleosx">Apple/OSX</h3>
+<p>Apple/OSX users that have no experience in building software can obtain
+a pre-built universal binary from our download zone on
+<a href="http://files.dyne.org/jaromail/binary">http://files.dyne.org/jaromail/binary</a></p>
+<p>One can simply drag JaroMail into Applications. When started JaroMail
+opens a Terminal window preconfigured with its environment, to activate
+it for any terminal add this to `\~/.profile`:</p>
+<p><code>export PATH=/Applications/JaroMail.app/Contents/Resources/jaro/bin:$PATH</code></p>
+<h3 id="use">Use</h3>
+<p>Make a directory where all the emails and settings needs to be, change
+to the directory and init the environment:</p>
+<p><code>mkdir $HOME/gmail-alternative</code></p>
+<p><code>cd $HOME/gmail-alternative</code></p>
+<p><code>jaro init</code></p>
+<p>Every installation of Jaro Mail is fully reentrant, meaning the
+directory where it gets initialised contains all maildirs,
+configurations, filters, whitelist, addressbooks and other necessary
+files.</p>
+<p>A single user can have multiple Jaro Mail folders on the same system
+to permit the complete separation of E-Mail identities.</p>
+<p>If called from outside the installation directory, the <strong>jaro</strong> command
+will use the environmental variable <strong>\$JAROMAILDIR</strong> to find out the
+active installation being in use. If one is using a different
+installation path then should first change that, i.e:</p>
+<p><code>export JAROMAILDIR=$HOME/OtherIdentities/Luther/Mail</code></p>
+<h2 id="configuration">Configuration</h2>
+<p>The place where Jaro Mail is initialized, its folder contains all
+configuration files.</p>
+<p>From now own, we will call this place the <strong>MAILDIR</strong>.</p>
+<p>Configurations are in readable plain text files that can be edited
+using any editor. Inside them there are comments to explain the
+settings: all comment lines start by \'#\' and will be ignored by
+JaroMail.</p>
+<p>The most important files to start configuring are:</p>
+<ul>
+<li><code>Accounts/default.txt</code> : main account configuration (there can be more than one file in the <code>Accounts/</code> folder)</li>
+<li><code>Aliases.txt</code> : more email addresses one may receive on the configured accounts</li>
+<li><code>Filters.txt</code> : Full set of mailinglist sorting rules</li>
+<li><code>Applications.txt</code> : mime type associations to programs used to open attachments</li>
+<li><code>Mutt.txt</code> : mutt specific custom configurations</li>
+</ul>
+<h3 id="accounts">Accounts</h3>
+<p>Inside the Mail directory is found the folder <strong>Accounts</strong> with brief
+instructions and default templates to fill with Imap and Smtp account
+configurations to fetch mail. A default template will be found in fresh
+installations: <strong>Accounts/default.txt</strong>. The configuration can be edited
+with one\'s favourite text editor, the format of the file is pretty
+self-explanatory.</p>
+<p>It is possible to have more than one account (simply as a new file in
+the Accounts/ directory) and refer to it using the <code>-a</code> commandline
+option. For instance when we configure <code>Accounts/gamer.txt</code> as an
+alternative mailbox then we can connect it using <code>jaro peek -a gamer</code></p>
+<p>Config files in <code>Accounts</code> can also contain <code>my_hdr</code> that will
+configure custom header lines (for instance GPG-ID or X-Organisation)
+that will be added to the mails sent. For more information about the
+vast amount of configurations supported please refer to the Mutt
+documentation[^1].</p>
+<h3 id="organization">Organization</h3>
+<p>One of the main goals for Jaro Mail is to organize the e-mail workflow
+so that one\'s attention is dedicated to important communications,
+rather than being constantly distracted by various degrees of spam and
+the need to weed it out of the mailbox. This ambitious task is pursued
+by realizing an integrated approach consisting of flexible whitelisting
+and the distinction between mails from known people and the rest.</p>
+<h3 id="folders">Folders</h3>
+<p>First lets start with a categorization of the standard maildirs and a
+brief description for each. This information is <strong>very important</strong> to
+understand how Jaro Mail works: these maildirs are standard in Jaro
+Mail, here they are listed in order of priority</p>
+<p>Folder             What goes in there</p>
+<hr />
+<p><strong>known</strong>          Mails whose sender is known (Whitelist)
+  <strong>priv</strong>           Unknown sender, we are among explicit recipients
+  <strong>unsorted</strong>       Unknown sender, we are not among recipients
+  <strong>zz.blacklist</strong>   Mails whose sender is not desired (Blacklist)
+  <strong>zz.spam</strong>        Mails that are tagged as spam (server-side)
+  <strong>zz.bounces</strong>     Mail bounces like mailman and similar</p>
+<p>The advantage using such a folder organization is that every time we
+open up the mail reader we will be presented with something we are
+likely to be most interested in (known people replying our mails) and
+progressively, as we will have the time to scroll through, mails from
+\"new people\" or mass mailings of sort.</p>
+<p>This setup is handy especially considering it produces <strong>sieve</strong> filters
+that can be uploaded to mail servers and processed server-side. Imagine
+having your email on a fixed computer, but occasionally checking it from
+a mobile phone: server-side filtering will save you time by presenting a
+clean INBOX of whitelisted contacts for the mobile phone use.</p>
+<p>Please note this organization does not includes spam, which is
+supposedly weeded out on the server via spamlists: White/Blacklisting
+has more to do with our own selection of content sources than with the
+generic protection from random pieces of information.</p>
+<p>At last, anything that is matched by filters configured in
+<strong>Filters.txt</strong> will be saved into the named maildir, whose name can be
+freely choosen.</p>
+<h3 id="whitelist">Whitelist</h3>
+<p>The way whitelisting works if quite crucial to this setup and, at the
+same time, is fairly simple since it does not include any automatic
+detection, learning filters, Markov chains or Bayesian A/I. We believe
+the user should be in full control of prioritizing communication
+channels and at the same time constantly able to tweak the setup in an
+easy way.</p>
+<p>To whitelist an address is sufficient to send it an e-mail: at the
+moment the message is sent Jaro Mail will remember the destination
+address and prioritize all messages coming back from it. This we call
+implicit whitelisting.</p>
+<p>To explicitly whitelist an address from inside the mail reader index
+press [ <strong>a</strong> ] while selecting an email, this will add in the
+whitelist the sender address (From: header). If you want to add all
+addresses reached by the mail (From: To: and Cc: fields) use the same
+letter capitalized pressing shift [ <strong>A</strong> ].</p>
+<p>All addresses selected this way will have the privilege of ending up in
+your <strong>known/</strong> folder, plus their name and e-mail will be completed
+automatically when composing a new email, pressing the <strong>Tab</strong> key while
+indicating them among the recipients.</p>
+<h3 id="blacklist">Blacklist</h3>
+<p>To blacklist an address instead one can use the [ <strong>z</strong> ] key while an
+e-mail is selected on the index: the sender indicated in the From: field
+will be downgraded to the very bottom of your priorities, closes to spam
+than the rest, the most infamous <strong>zz.blacklist/</strong> folder.</p>
+<h3 id="organization-in-brief">Organization In Brief</h3>
+<p>Below a recapitulation of keys related to the white and blacklisting
+functionality, to be used in the e-mail index or when an e-mail is open
+inside the mail user agent:</p>
+<p>List    Key             Function                  Fields</p>
+<hr />
+<p>White   <strong>a</strong>           Add the sender address    From:
+  White   <strong>A</strong> (shift)   Add all addresses         From: To: Cc:
+  Black   <strong>z</strong>           Blacklist the sender      From:
+  Black   <strong>Z</strong> (shift)   Blacklist all addresses   From: To: Cc:</p>
+<h2 id="workflow">Workflow</h2>
+<p>This section goes through a scenario of simple usage for Jaro Mail</p>
+<h3 id="fetch-and-read-your-mail-at-home">Fetch and read your mail at home</h3>
+<p>As you acces your computer where Jaro Mail has been configured, you can
+open a Terminal and type:</p>
+<pre><code class="language-example">jaro fetch
+</code></pre>
+<p>This will download all new mails.</p>
+<p>If you have configured <strong>fetchall</strong> among the imap account options, then
+will delete them from the server, freeing online space.</p>
+<p>If you have configured the <strong>keep</strong> option, which is the default, Jaro
+Mail will only download the email that you have not yet read and in any
+case it won\'t delete anything from the server. Remove the <strong>keep</strong>
+option to delete on the server all emails that are downloaded.</p>
+<pre><code class="language-example">jaro
+</code></pre>
+<p>This will launch mutt on the first folder containing unread emails,
+starting from the <strong>known</strong> folder, then <strong>priv</strong>, then all the
+destinations specified by <strong>Filters.txt</strong> exactly in the ascending order
+they are listed in that configuration file..</p>
+<p>From there on, pressing <strong>=</strong> or <strong>c</strong> you can change to other folders
+and your <strong>unsorted</strong> mails.</p>
+<h3 id="write-a-new-mail">Write a new mail</h3>
+<p>If you like to write a mail to someone, hit <strong>m</strong> and write the
+recipient address, you will be then asked about any additional Cc:
+recipients.</p>
+<p>If you don\'t remember the emails of the recipients, you can just type
+their name or parts of the email you remember, then press the [ <strong>Tab</strong>
+] key for completion. A list of addresses may popup with matches found
+in your whitelist addressbook to help remind who are you looking for.</p>
+<p>The email is composed using a special <a href="http://www.vim.org/">Vim</a>
+configuration that facilitates justifying text to 72 columns using [
+<strong>ctrl-j</strong> ]. After composing the email you will be able to review it
+and change:</p>
+<ul>
+<li>the From: field using [ <strong>ESC f</strong> ]</li>
+<li>the recipient in the To: field using [ <strong>t</strong> ]</li>
+<li>the recipients in the Cc: field using [ <strong>c</strong> ]</li>
+<li>the subject string using [ <strong>s</strong> ]</li>
+</ul>
+<p>You\'ll also be able to add more attachments by pressing <strong>a</strong> and use
+the arrow keys to move over the existing ones and delete them using [
+<strong>D</strong> ] (please note that is a uppercase D, because lowercase d will
+just add a description for the attachment).</p>
+<p>At last, when ready, pressing <strong>y</strong> will queue the email into the
+outbox, ready for sending.</p>
+<p>One can review at any time the sending queue, which is just another
+maildir named <strong>outbox</strong></p>
+<pre><code class="language-example">jaro outbox
+</code></pre>
+<p>Mails can be deleted from this view using [ <strong>d</strong> ] or edited using [
+<strong>e</strong> ] which will allow tweaking of both the header and body of the
+email.</p>
+<p>Once sure the outbox contains all what needs to be sent, make sure the
+computer is connected to the Internet and issue the <strong>send</strong> command:</p>
+<pre><code class="language-example">jaro send
+</code></pre>
+<p>Jaro Mail will send all emails in outbox, one by one, listing their
+recipients and size while doing so. If successful, mails will be removed
+from the outbox and put into the <strong>sent</strong> folder, which can be accessed
+from inside mutt or with the command <strong>jaro open sent</strong>.</p>
+<h3 id="write-a-new-email-from-the-commandline">Write a new email from the commandline</h3>
+<p>Jaro Mail supports a lot of commandline operations based on stdin/stdout
+pipes, which makes it pretty easy to use in scripts that send emails and
+attachments.</p>
+<p>If you have written a plain-text email using your favorite editor, you
+can send it quickly using the commandline: save the email into a txt
+file and then pipe it into <strong>jaro compose</strong> followed by a list of
+recipients and, optionally a list of filenames to attach. For example:</p>
+<pre><code class="language-example">cat Greetings.txt | jaro compose friends@dyne.org picture01.jpg jingle02.mp3 ~/myicons/*
+</code></pre>
+<p>The command above may send an email with various separate attachments
+(using MIME encapsulation): a picture, an hopefully small audio file and
+a list of icons which are all the files contained into the myicons/
+directory. In this case the recipient will be friends@dyne.org, but may
+be any other email address found on the commandline in any position.</p>
+<p>Once executed you will find this email in <strong>jaro outbox</strong>, ready to be
+reviewed and sent with <strong>jaro send</strong>.</p>
+<h3 id="reply-messages">Reply messages</h3>
+<p>While browsing through the index of emails in various folders, one can
+reply any of them just by pressing the [ <strong>r</strong> ] key, which will ask
+if the original message should be quoted and then open your favorite
+editor to compose your text.</p>
+<p>If the email you are replying has been sent to multiple recipients (for
+instance using multiple addresses in the Cc: or From: fields) they will
+all be included, but you will have the possibility to exclude them by
+hand, editing the Cc: field. To remove them all at once use [
+<strong>ctrl-k</strong> ] just like deliting a line on the terminal.</p>
+<p>It is also possible to forward a message to someone else than the
+sender, for instance to submit it to his or her attention, or that of a
+mailinglist. To do that, you can use the [ <strong>f</strong> ] key which will
+present you with the full message and the possibility to write something
+on top of it, to describe its contents to its new recipients. Forwards
+include all attachments and are sent as attachments themselves, but this
+behavious can be changed as a confirmation to \"send forward as attach\"
+is asked.</p>
+<h3 id="peek-without-downloading-anything">Peek without downloading anything</h3>
+<p>If you are around and like to see your new mails without downloading
+them, then you can use the <strong>peek</strong> function:</p>
+<pre><code class="language-example">jaro peek
+</code></pre>
+<p>This will open the default configured IMAP account and folder over SSL
+protocol (securing the data transfer) and allow you to browse, read and
+reply your emails without downloading them.</p>
+<p>Using peek you can reply and even delete emails, but be careful since
+what you delete here will be removed from the server and won\'t be there
+when you download it from home.</p>
+<p>This functionality can be also very useful if you are from a slow
+connection and need to delete some email that is clogging it and that
+you are not able to download because of its size.</p>
+<p>The peek command will automatically open the INBOX, but also other
+remote imap folders can be specified, like for instance <strong>priv</strong> or
+<strong>unsorted</strong> if whitelisting is also setup server-side (the sieve
+filters generated by Jaro Mail need to be uploaded on the server). To
+have a list of imap folders on the server a command is also available:</p>
+<pre><code class="language-example">jaro imap listfolders
+</code></pre>
+<p>Will list on the terminal all folders found on the imap account, one per
+line.</p>
+<h3 id="save-important-emails-for-later">Save important emails for later</h3>
+<p>Sometimes one can be on the rush while reading emails (local or via
+imap) and flagging them as important can be useful to keep focus on
+priorities. In some cases it is very useful to save such important
+messages locally for later reference, for instance in a folder keeping
+messages that need to be remembered and that will constitute a kind of
+TODO list (a\'la GTD).</p>
+<p>Jaro Mail implements such functionalities: by pressing the [ <strong>F</strong> ]
+key (uppercase) one can flag an email, which will turn bright-green in
+the index. In addition to that there is a folder called <strong>remember/</strong>
+where one can copy emails on the fly using the [ <strong>R</strong> ] key
+(uppercase) any time. Messages will be duplicated into the remember
+folder (which of course can be opened with the command <strong>jaro
+remember</strong>) so they can also be edited with annotations on the task they
+refer to, for instance using the [ <strong>e</strong> ] key, without affecting the
+original message.</p>
+<h3 id="workflow-in-brief">Workflow in brief</h3>
+<p>Below a recapitulation of keys commonly used in our workflow</p>
+<p>Key       Function</p>
+<hr />
+<p><strong>m</strong>     Compose a new message
+  <strong>Tab</strong>   Complete addresses and folders input
+  <strong>r</strong>     Reply to the sender of a message
+  <strong>d</strong>     Delete a message
+  <strong>y</strong>     Send a message (queue in outbox)
+  <strong>f</strong>     Forward a message to new recipients
+  <strong>=</strong>     List all filtered maildir folders
+  <strong>c</strong>     Change to another folder
+  <strong>F</strong>     Flag a message as important
+  <strong>R</strong>     Copy a message to remember
+  <strong>s</strong>     Move a message to another folder
+  <strong>C</strong>     Copy a message to another folder</p>
+<h2 id="searching">Searching</h2>
+<p>Searching across all your emails it is as important as demanding of a
+task. Jaro Mail implements it using <a href="https://notmuchmail.org/">Notmuch</a>
+which is relying on the <a href="http://xapian.org">Xapian</a> search engine,
+completely relying on local computations made on your machine, there is
+no data at all being communicated on-line.</p>
+<p>To index and tag all your emails that are locally archived in Jaro Mail
+use:</p>
+<pre><code class="language-example">jaro index
+</code></pre>
+<p>This will take a while and increase the size of the storage of about one
+sixth of its total occupation, but will definitely come useful when in
+need of searching rapidly across all available emails. To run a search
+for emails containing the \'<em>open source</em>\' string, do</p>
+<pre><code class="language-example">jaro search open source
+</code></pre>
+<p>To search for all emails containing this string and dated between now
+and the last two weeks, do</p>
+<pre><code class="language-example">jaro search open source date:2w..
+</code></pre>
+<p>The search command prints out a list of found filenames which may be
+useful to a script, but less useful to a human. In order to read a quick
+summary of the emails found it is possible to pipe the results into the
+<strong>headers</strong> command which will print out date, sender and subject of
+each file</p>
+<pre><code class="language-example">jaro search open source date:2w.. | jaro headers
+</code></pre>
+<p>Searching has also an interactive interface called <strong>alot</strong> which pops
+up to show search results and browse through them, refine the terms and
+in general operate on emails with the usual keys. One can also reply to
+emails directly from alot:</p>
+<pre><code class="language-example">jaro alot search expression strings folder:known
+</code></pre>
+<p>To restrict the search to a single folder, one can use the <strong>folder:</strong>
+prefix to search terms. Tags can be used also with <strong>tag:</strong> as well
+dates can be specified with ranges using <strong>date:</strong>. Consecutive string
+expressions are aloud to refine the search match, connected with logical
+and/or, plus also the header to search can be indicated, as for instance
+<strong>from:</strong> or <strong>to:</strong>. Read more about this below in the <em>Search term</em>
+and <em>Date and time search</em> sections (extracts from the
+<strong>notmuch-search-terms</strong> manpage) and on the notmuch webpage at
+<a href="http://notmuchmail.org">http://notmuchmail.org</a></p>
+<p>With the <strong>addr</strong> command the search will be run on the whitelist
+addressbook entries instead of actual email contents.</p>
+<pre><code class="language-example">jaro addr joe
+</code></pre>
+<p>Will list all addresses matching the string \'joe\' inside the
+<em>whitelist</em> addressbook. Also the blacklist can be searched this way
+adding the switch <strong>-l blacklist</strong>.</p>
+<h3 id="combining-terms">Combining terms</h3>
+<p>In addition to individual terms, multiple terms can be combined with
+Boolean operators ( <strong>and</strong>, <strong>or</strong>, <strong>not</strong> , etc.). Each term in the
+query will be implicitly connected by a logical AND if no explicit
+operator is provided.</p>
+<p>Parentheses can also be used to control the combination of the Boolean
+operators, but will have to be protected from interpretation by the
+shell, (such as by putting quotation marks around any parenthesized
+expression).</p>
+<h3 id="search-terms">Search terms</h3>
+<p>The search terms can consist of free-form text (and quoted phrases)
+which will match all messages that contain all of the given
+terms/phrases in the body, the subject, or any of the sender or
+recipient headers.</p>
+<p>As a special case, a search string consisting of exactly a single
+asterisk \"*\" will match all messages.</p>
+<p>In addition to free text, the following prefixes can be used to force
+terms to match against specific portions of an email, (where
+\&lt;brackets> indicate user-supplied values):</p>
+<pre><code class="language-example">from:&lt;name-or-address&gt;
+to:&lt;name-or-address&gt;
+subject:&lt;word-or-quoted-phrase&gt;
+attachment:&lt;word&gt;
+tag:&lt;tag&gt; (or is:&lt;tag&gt;)
+id:&lt;message-id&gt;
+thread:&lt;thread-id&gt;
+folder:&lt;directory-path&gt;
+date:&lt;since&gt;..&lt;until&gt;
+</code></pre>
+<p>The <em>from:</em> prefix is used to match the name or address of the sender of
+an email message.</p>
+<p>The <em>to:</em> prefix is used to match the names or addresses of any
+recipient of an email message, (whether To, Cc, or Bcc).</p>
+<p>Any term prefixed with <em>subject:</em> will match only text from the subject
+of an email. Searching for a phrase in the subject is supported by
+including quotation marks around the phrase, immediately following
+<em>subject:</em>.</p>
+<p>The /<attachment:/> prefix can be used to search for specific filenames
+(or extensions) of attachments to email messages.</p>
+<p>For /<tag:/> and <em>is:</em> valid tag values include <em>inbox</em> and <em>unread</em> by
+default for new messages added by <em>notmuch new</em> as well as any other tag
+values added manually with <em>notmuch tag</em>.</p>
+<p>For <em>id:</em>, message ID values are the literal contents of the Message-ID:
+header of email messages, but without the \'\&lt;\', \'>\' delimiters.</p>
+<p>The <em>thread:</em> prefix can be used with the thread ID values that are
+generated internally by notmuch (and do not appear in email messages).
+These thread ID values can be seen in the first column of output from
+<em>notmuch search</em></p>
+<p>The <em>folder:</em> prefix can be used to search for email message files that
+are contained within particular directories within the mail store. If
+the same email message has multiple message files associated with it,
+it\'s sufficient for a match that at least one of the files is contained
+within a matching directory. Only the directory components below the
+top-level mail database path are available to be searched.</p>
+<h3 id="date-and-time-search">Date and time search</h3>
+<p>See <em>DATE AND TIME SEARCH</em> below for details on the range expression,
+and supported syntax for \&lt;since> and \&lt;until> date and time
+expressions.</p>
+<p>The <em>date:</em> prefix can be used to restrict the results to only messages
+within a particular time range (based on the Date: header) with a range
+syntax of:</p>
+<pre><code class="language-example">date:&lt;since&gt;..&lt;until&gt;
+</code></pre>
+<p>The syntax <em>\&lt;initial-timestamp>..\&lt;final-timestamp></em> can be
+represented using the number of seconds since 1970-01-01 00:00:00 UTC.</p>
+<p>The search syntax also understands a variety of standard and natural
+ways of expressing dates and times, both in absolute terms
+\'<em>2012-10-24</em>\' and in relative terms \'<em>yesterday</em>\'. Any number of
+relative terms can be combined \'<em>1 hour 25 minutes</em>\' and an absolute
+date/time can be combined with relative terms to further adjust it. A
+non-exhaustive description of the syntax supported for absolute and
+relative terms is given below.</p>
+<h4 id="the-range-expression">The range expression</h4>
+<pre><code class="language-example">date:&lt;since&gt;..&lt;until&gt;
+</code></pre>
+<p>The above expression restricts the results to only messages from
+\&lt;since> to \&lt;until>, based on the Date: header.</p>
+<p>\&lt;since> and \&lt;until> can describe imprecise times, such as
+\"yesterday\". In this case, \&lt;since> is taken as the earliest time it
+could describe (the beginning of yesterday) and \&lt;until> is taken as
+the latest time it could describe (the end of yesterday). Similarly,
+date:january..february matches from the beginning of January to the end
+of February.</p>
+<p>Currently, we do not support spaces in range expressions. You can
+replace the spaces with \'\_\', or (in most cases) \'-\', or (in some
+cases) leave the spaces out altogether. Examples in this man page use
+spaces for clarity.</p>
+<p>Open-ended ranges are supported (since Xapian 1.2.1), i.e. it\'s
+possible to specify date:..\&lt;until> or date:\&lt;since>.. to not limit
+the start or end time, respectively.</p>
+<p>Entering date:expr without \"..\" (for example date:yesterday) won\'t
+work, as it\'s not interpreted as a range expression at all. You can
+achieve the expected result by duplicating the expr both sides of \"..\"
+(for example date:yesterday..yesterday).</p>
+<h3 id="relative-date-and-time">Relative date and time</h3>
+<pre><code class="language-example">[N|number]
+   (years|months|weeks|days|hours|hrs|minutes|mins|seconds|secs) [...]
+</code></pre>
+<p>All refer to past, can be repeated and will be accumulated.</p>
+<p>Units can be abbreviated to any length, with the otherwise ambiguous
+single m being m for minutes and M for months.</p>
+<p>Number can also be written out one, two, ..., ten, dozen, hundred.
+Additionally, the unit may be preceded by \"last\" or \"this\" (e.g.,
+\"last week\" or \"this month\").</p>
+<p>When combined with absolute date and time, the relative date and time
+specification will be relative from the specified absolute date and
+time.</p>
+<p>Examples:</p>
+<pre><code class="language-example">5M2d
+</code></pre>
+<pre><code class="language-example">two weeks
+</code></pre>
+<h4 id="absolute-time-formats">Absolute time formats</h4>
+<pre><code class="language-example">H[H]:MM[:SS]
+[(am|a.m.|pm|p.m.)]
+H[H] (am|a.m.|pm|p.m.)
+HHMMSS
+now
+noon
+midnight
+</code></pre>
+<p>Examples:</p>
+<pre><code class="language-example">17:05
+</code></pre>
+<pre><code class="language-example">5pm
+</code></pre>
+<h4 id="absolute-date-formats">Absolute date formats</h4>
+<pre><code class="language-example">YYYY-MM[-DD]
+DD-MM[-[YY]YY]
+MM-YYYY
+M[M]/D[D][/[YY]YY]
+M[M]/YYYY
+D[D].M[M][.[YY]YY]
+D[D][(st|nd|rd|th)] Mon[thname] [YYYY]
+Mon[thname] D[D][(st|nd|rd|th)] [YYYY]
+Wee[kday]
+</code></pre>
+<p>Month names can be abbreviated at three or more characters.</p>
+<p>Weekday names can be abbreviated at three or more characters.</p>
+<p>Examples:</p>
+<pre><code class="language-example">2012-07-31
+</code></pre>
+<pre><code class="language-example">31-07-2012
+</code></pre>
+<pre><code class="language-example">7/31/2012
+</code></pre>
+<pre><code class="language-example">August 3
+</code></pre>
+<h4 id="time-zones">Time zones</h4>
+<pre><code class="language-example">(+|-)HH:MM
+</code></pre>
+<pre><code class="language-example">(+|-)HH[MM]
+</code></pre>
+<p>Some time zone codes.</p>
+<p>Examples:</p>
+<pre><code class="language-example">UTC
+EET
+</code></pre>
+<h2 id="compute-and-visualize-statistics">Compute and visualize statistics</h2>
+<p>The <strong>stats</strong> command is useful to quickly visualize statistics
+regarding folder usage as well the frequency of emails found in a stream
+from stdin. Such streams can be produced by the <strong>search</strong> and
+<strong>extract</strong> commands for instance and passed to stats in order to have a
+more graphical (yet ASCII based) visualization of results.</p>
+<p>For example lets visualize the frequency of email domain hosts in our
+whitelist:</p>
+<pre><code class="language-example">jaro addr | jaro stat emails
+</code></pre>
+<p>Will print out bars and domains in descending order, highlighting the
+most frequent email domain in our contacts, which turns out to be very
+often gmail.com, unfortunately for our own privacy.</p>
+<p>To visualize the frequency of traffic across our filtered folders in the
+past month:</p>
+<pre><code class="language-example">jaro search date:1w.. | jaro stat folders
+</code></pre>
+<p>Will show quantities of mails filed to folders during the past week,
+quickly highlighting the mailinglists that have seen more recent
+activity.</p>
+<p>To see who is most active in a mailinglist which is filtered to a
+folder:</p>
+<pre><code class="language-example">jaro search folder:org.dyne.dng | jaro extract stdin from | jaro stat names
+</code></pre>
+<p>Will give an overview on who is the most prolific writer in the
+<em>org.dyne.dng</em> mailinglist, filed into the folder by a rule in
+<strong>Filters.txt</strong> like:</p>
+<pre><code class="language-example">to    dng@lists.dyne       save         org.dyne.dng
+</code></pre>
+<p>Please note the <strong>extract</strong> command is there to extract email addresses
+and names found in the <em>From:</em> field of all search hits, the command is
+explained better in the next chapter: [Addressbook][]*.</p>
+<h3 id="replay-results-of-expensive-operations">Replay results of expensive operations</h3>
+<p>Working on the commandline can have some disadvantages. One of them is
+that if one runs a long operation to see its result and forgets to save
+it also on a file (i.e. using tee) the operation needs to be re-run and
+saved.</p>
+<p>Jaro Mail helps the user to <strong>replay</strong> the last output print by saving
+it everytime in its own cache. Replay can also save per-command outputs
+so that long pipe chains can be repeated selectively by naming the
+command. Only some commands have the replay capability, to have a list
+of available replays on your system do, based on your last run commands:</p>
+<pre><code class="language-example">jaro replay list
+</code></pre>
+<p>To replay the last search command and pipe it into headers to have a
+better view of it:</p>
+<pre><code class="language-example">jaro replay search | jaro headers
+</code></pre>
+<p>For instance imagine giving the command that searches for all mails sent
+to <em>nettime-l</em> and extracts all addresses in the <em>From:</em> including
+duplicates, then sorts them and eliminates duplicates</p>
+<pre><code class="language-example">jaro search to:nettime-l | jaro extract stdin from | sort | uniq
+</code></pre>
+<p>Depending from the size of your nettime archives, this operation may
+take some time and one may not want to repeat it in order to compute
+some stats on the extract result. So one can go on and send the old
+output to a new command:</p>
+<pre><code class="language-example">jaro replay extract | jaro stat names
+</code></pre>
+<p>This will print out statistics about the most prolific write to the
+nettime list according to your archives.</p>
+<h3 id="statistics-in-brief">Statistics in brief</h3>
+<p>All <strong>stats</strong> commands takes lists of addresses or email messages from
+stdin.</p>
+<p>command         effect</p>
+<hr />
+<p>stats email     reads addresses from stdin, prints out stats on frequency of emails found
+  stats names     reads addresses from stdin, prints out stats on frequency of names found
+  stats folders   reads paths to messages from stdin, prints out stats on frequency of folders</p>
+<p>So in case of <strong>stats email</strong> or <strong>stats names</strong> any result of search
+must be first filtered by <strong>extract</strong> in order to provide addresses to
+stats, else errors will occur. To limit the stats to the <em>From:</em> field
+use the <strong>extract stdin from</strong> also shown in examples, any other
+refinement can be done also in the domain of the search commands.</p>
+<h2 id="addressbook">Addressbook</h2>
+<p>Addressbooks are the files storing the whitelist, the blacklist and
+optionally other custom lists of addresses. The format we use is native
+<strong>abook</strong> database files, by convention in
+<em>\$JAROMAILDIR/whitelist.abook</em> and <em>\$JAROMAILDIR/blacklist.abook</em>.
+More custom addressbooks can be used by specifying them using <strong>-l</strong> on
+the commandline, for instance <strong>-l family</strong> will query the
+<em>\$JAROMAILDIR/family.abook</em> addressbook; when not used, <strong>whitelist</strong>
+is the default.</p>
+<p>Addressbooks can be edited using a interactive console interface, for
+instance to add or delete entries by hand: use the <strong>abook</strong> command and
+optionally the <strong>-l</strong> option.</p>
+<pre><code class="language-example">jaro abook
+</code></pre>
+<p>This will open the current whitelist for edit. To edit the blacklist add
+<strong>-l blacklist</strong> instead.</p>
+<p>To quickly dump to the console all names and addresses in the Jaro Mail
+addressbook, one can use the <strong>list</strong> command</p>
+<pre><code class="language-example">jaro list
+</code></pre>
+<p>To match a string across the addressbook, simply use the composite
+command <strong>addr</strong> followed by strings, for instance:</p>
+<pre><code class="language-example">jaro addr dyne
+</code></pre>
+<p>will list all addresses containing \'dyne\' in your whitelist.</p>
+<h3 id="address-lists">Address lists</h3>
+<p>Jaro Mail handles lists of addresses as plain text files or streams with
+entries formatted as \'<em>Name \&lt;email></em>\' and newline terminated. This
+simple format conforms (or is normalized to) the RFC822 standard and
+UTF-8 charset encoding, both produced on <em>stdout</em> and read from <em>stdin</em>
+by various useful commands to take advantage of console piping.</p>
+<p>Such lists of addresses are the output of the <strong>extract</strong> command, which
+is able to read the output of other commands and extract a list of email
+addresses found.</p>
+<pre><code class="language-example">jaro search open source date:2w..  | jaro extract stdin
+</code></pre>
+<p>Will print to stdout the list of addresses found among the results of a
+search for <em>open source</em> through all the emails archived in the past 2
+weeks.</p>
+<pre><code class="language-example">jaro search date:1y.. and folder:known | jaro extract
+</code></pre>
+<p>Will print a sorted list of unique addresses found in the emails
+matching the search expression \'<em>date:1y.. and folder:known</em>\', meaning
+all messages stored in the \'<em>known</em>\' folder and not older than 1 year
+from now.</p>
+<p>The <strong>import</strong> command is complementary to extraction: it reads an
+address list from stdin and imports it inside an addressbook specified
+using \'-l\' or a <em>group</em> list file provided as argument.</p>
+<pre><code class="language-example">jaro search folder:unsorted | jaro extract | jaro import -l blacklist
+</code></pre>
+<p>Will extract all addresses found in unsorted (the maildir collecting all
+non-mailinglist emails in which we are not an explicit recipient) and
+put them into our blacklist.</p>
+<h3 id="export-to-vcard-and-other-formats">Export to VCard and other formats</h3>
+<p>VCard is an exchange format useful to interface with other addressbook
+software and mobile phones, as well with spyware as Google and Apple
+mail. Jaro Mail supports converting address lists to a variety of
+formats thanks to <em>abook</em>:</p>
+<pre><code class="language-example">jaro addr | jaro export vcard
+</code></pre>
+<p>Will take the list of addresses in whitelist and convert it to the
+<strong>vcard</strong> format on stdout, ready to be redirected to a file.</p>
+<p>Here below a list of output formats supported as argument to export:</p>
+<p>Format    Description</p>
+<hr />
+<p>abook     abook native format
+  ldif      ldif / Netscape addressbook (.4ld)
+  vcard     vCard 2 file
+  mutt      mutt alias
+  muttq     mutt query format (internal use)
+  html      html document
+  pine      pine addressbook
+  csv       comma separated values
+  allcsv    comma separated values (all fields)
+  palmcsv   Palm comma separated values
+  elm       elm alias
+  text      plain text
+  wl        Wanderlust address book
+  spruce    Spruce address book
+  bsdcal    BSD calendar
+  custom    Custom format</p>
+<p>Of course <strong>export</strong> works with any list of addresses from stdin, for
+instance the result of <strong>extract</strong> operations on search queries, so that
+multiple commands can be concatenated.</p>
+<h3 id="addressbook-in-brief">Addressbook in brief</h3>
+<p>Here a roundup on the addressbook commands that are available from the
+<em>jaro</em> commandline script. Arguments \'-l abook\' take the string to
+identify</p>
+<p>Command       Arguments     Function (print on stdout, import from stdin)</p>
+<hr />
+<p><strong>abook</strong>     -l listname   edit the addressbook (default whitelist)
+  <strong>addr</strong>      search expr   print list of addresses matching expression
+  <strong>extract</strong>   maildir       print address list of all mails in maildir
+  <strong>extract</strong>   gpg keyring   print address list of gpg public keyring
+  <strong>extract</strong>   gpg pubkey    print address list of gpg key signatures
+  <strong>extract</strong>   vcard file    print address list of entries in VCard file
+  <strong>import</strong>    -l listname   import address list from stdin to addressbook
+  <strong>export</strong>    format        convert address list to a format (default vcard)</p>
+<h2 id="filters">Filters</h2>
+<p>In the mail directory a file named <code>Filters.txt</code> is filled in with
+filtering rules referencing the contents of the <strong>From:</strong> or <strong>To:</strong>
+fields.</p>
+<p>The format of the filters configurarion is pretty easy and self
+explanatory, just have a look at this file and when something changes
+update the filter engine using <code>jaro update</code>.</p>
+<p>Then use <code>jaro filter any-maildir/</code> and the mails contained in
+<code>any-maildir</code> will be moved according to the updated filter rules.</p>
+<p>Beware that filtering is a lengthy operation, especially on big
+maildirs.</p>
+<h3 id="merge-maildirs">Merge maildirs</h3>
+<p>Mblaze can safely move all e-mails stored in one maildir to another.</p>
+<p><code>mlist latest-mails | mrefile global-archive</code></p>
+<p>The above command will move all emails stored inside the maildir folder
+<code>latest-mails</code> to the other maildir folder <code>global-archive</code>.</p>
+<h3 id="backup-mails">Backup mails</h3>
+<p>Backup strategies can be easily managed: just move all emails older than
+a certain period from one maildir to another.</p>
+<p>Using jaromail search function with date we obtain a list of matches
+and process them using mblaze's <code>mrefile</code> command:</p>
+<p>For instance to move all archived mails older than 3 years into a
+separate folder:</p>
+<pre><code class="language-example">jaro search date:3y.. | mrefile /media/backup/old-mails
+</code></pre>
+<p>This will move into the maildir <code>/media/backup/old.mails</code> all the
+emails older than 3 years that are found in any folder.</p>
+<p>One can also use <strong>jaro link</strong> to create symlinks into a new maildir:
+to review results without increasing filesystem occupation, then open
+the destination maildir normally using <code>neomutt -r -f destination/</code></p>
+<h3 id="security">Security</h3>
+<p>We love to keep our own email private, this is how jaromail does it.</p>
+<h3 id="password-storage">Password storage</h3>
+<p>Our MUA (Mutt), MTA (Fetchmail) and SMTP (msmtp) require the user to
+input account passwords every time they run, jeopardizing their
+secrecy.</p>
+<p>Jaromail saves and provides passwords to these components without
+saving them on the filesystem in clear: they are stored securely
+through <a href="https://www.passwordstore.org/">password-store</a> (also known
+as <code>pass</code>, the standard UNIX password manager). We save All passwords
+in the <code>$HOME/.password-store</code> GPG encrypted database under the
+<code>email/</code> path followed by the main account email.</p>
+<h3 id="secure-storage">Secure storage</h3>
+<p>Jaromail is fully compatible with <strong>Tomb, the Crypto Undertaker</strong> <a href="http://tomb.dyne.org">^4</a>
+another Dyne.org softwareto manage encrypted volumes.</p>
+<p>Using a light combination of scripts between Jaromail and Tomb is
+possible to achieve a strong level of personal security, definitely
+above the average.</p>
+<p>In particular, Jaro Mail does not needs system-wide installation, but
+can be installed and used in a way that makes it totally self-contained
+and transportable across systems inside a Tomb.</p>
+<h3 id="anonymous-emails">Anonymous emails</h3>
+<p>To send an anonymous email just change the <em>From:</em> header field to
+<code>anon@mixmaster</code>.  Our application will recognize that as a request
+to send the email across the MixMaster anonymous network.</p>
+<p>To change <em>From:</em> in Mutt: after composition, when headers and
+attachments are shown, press <strong>ESC</strong> and then <strong>f</strong>, then type the
+special sender address <code>anon@mixmaster</code> and press <strong>[Enter]</strong>.</p>
+<h2 id="shell-environment">Shell environment</h2>
+<h3 id="zsh-commandline-completion">Zsh commandline completion</h3>
+<p>For Zsh users out there there is a completion recipe that can facilitate
+the use of Jaro Mail by adding tab completion on the console terminal:
+commands and accounts will be listed and completed automatically just
+like with other commands.</p>
+<p>To activate the completion move the file <strong>src/completion/_jaromail</strong>
+into the path where zsh loads vendor completions, typically that is
+<strong>/usr/share/zsh/vendor-completions</strong>.</p>
+<h3 id="quickly-send-a-file-via-email-on-appleosx">Quickly send a file via email on Apple/OSX</h3>
+<p>To right-click on a file and send it via email attach using Jaro Mail
+you must create a \"Service\" using the application \"Automator\". It is
+fairly simple:</p>
+<ol>
+<li>Start Automator</li>
+<li>Choose the Service template</li>
+<li>In the dropdown boxes that appear choose \"files or folders\" and
+    \"Finder\"</li>
+<li>Look for \"Run Applescript\" in the Library tree</li>
+<li>Drag \"Run Applescript\" in the workflow area and paste this script
+    into it:</li>
+</ol>
+<pre><code class="language-example">on run {input, parameters}
+    tell application &quot;Terminal&quot;
+        activate
+        tell window 1
+            do script &quot;/Applications/JaroMail.app/Contents/Resources/jaro/bin/jaro &quot; &amp; POSIX path of input
+        end tell
+    end tell
+end run
+</code></pre>
+<p>Now Save the new service (you can name it \"Send file via Jaro Mail\")
+and when you will right click on a file, in the submenu \"Services\" you
+will find the option you just scripted, which will open a Terminal
+asking you the email address, while the file will be already configured
+as attach.</p>
+<h3 id="license">License</h3>
+<p>The following copyright notice applies to this manual, the software
+included is licensed under the same or different GNU GPL or BSD
+licenses, or available in the public domain.</p>
+<pre><code class="language-example">Copyleft (C) 2010-2023 Denis Roio &lt;jaromil@dyne.org&gt;
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation;
+Permission is granted to make and distribute verbatim copies of this
+manual page provided the above copyright notice and this permission
+notice are preserved on all copies.
+</code></pre>
+<p>[^1]: The Mutt configuration manual is found on
+    <a href="http://www.mutt.org/doc/manual">http://www.mutt.org/doc/manual</a> or simply typing \'man mutt\' in a
+    console terminal.</p>
+<pre><code>What this virtuous, sometimes very cryptical man is trying to say
+here is that the Maildir format in its simplicity of implementation
+represents an extremely reliable way to retreive and store emails
+without the risk of losing any if the Internet connection goes down.
+
+While skipping over the internal details of this storage system,
+which basically consists in plain text files saved into
+sub-directories, we will have a look at some very interesting
+features that Jaro Mail can offer to its users and to the even
+larger audience of Maildir format users.
+</code></pre>
+<p>[^3]: The keyring is encrypted using weak symmetric encryption via
+    GnuPG, the only protection for the data inside then is the password
+    memorized by the used.</p>
+<pre><code>To explicitly change a password one can operate the default keyring
+manager or use the command **jaro passwd** (and specify other
+acconts using **-a accountname**)) which will prompt to set for a
+new password even if an old one is known.
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+-->
