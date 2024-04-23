@@ -1,4 +1,4 @@
-# dyne:bolic documentation source
+# Dynebolic documentation source
 
 This docuementation is built with mkdocs using the Material template.
 

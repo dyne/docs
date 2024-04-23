@@ -1,14 +1,14 @@
-# Getting Started with dyne:bolic
+# Getting Started with dynebolic
 
 ## Your Desktop Environment
 
-*dyne:bolic* doesn’t require you to install anything on your harddisks, which can be left untouched while the system is used. Still, depending from your preferred way to operate, it can boot from harddisk, CD, USB or network (explained the following chapter) and it can store data in a single file that can be transported across different media.
+*Dynebolic* doesn’t require you to install anything on your harddisks, which can be left untouched while the system is used. Still, depending from your preferred way to operate, it can boot from harddisk, CD, USB or network (explained the following chapter) and it can store data in a single file that can be transported across different media.
 
 The default desktop environment is KDE Plasma 6, which offers you multiple desktops (try ctrl+F2 and other numbers) and a menu that you can recall by clicking the right mouse button on the background. On the upper right corner you have your storage devices which you can access with a click.
 
 Inside the application menu software is organized by tasks, so you can easily find your way to play, record, edit and stream both audio and video, communicate and publish text, webpages, 3d animations and much more.
 
-KDE Plasma offers *Activities*, which are a practical way to organize your workflows depending on the task at hand, whether you're editing video, recording and mixing audio, processing digital photographs, or running a live media stream. When you start your *dyne:bolic* desktop session, you will find a number of pre-configured Activities: *Audio*, *Video*, *Streaming*, etc. You can think of these Activities as workplaces dedicated to a particular line of work. They are, of course, not exclusive: nothing stops you from pulling out *Inkscape* to work on an album cover for a track you're currently mastering in the Audio Activity.
+KDE Plasma offers *Activities*, which are a practical way to organize your workflows depending on the task at hand, whether you're editing video, recording and mixing audio, processing digital photographs, or running a live media stream. When you start your *dynebolic* desktop session, you will find a number of pre-configured Activities: *Audio*, *Video*, *Streaming*, etc. You can think of these Activities as workplaces dedicated to a particular line of work. They are, of course, not exclusive: nothing stops you from pulling out *Inkscape* to work on an album cover for a track you're currently mastering in the Audio Activity.
 
 In the following chapters, we will look at what is available to you in each Activity.
 
@@ -19,7 +19,7 @@ In the following chapters, we will look at what is available to you in each Acti
 
 <!-- Tried and True, and now systemd-free thanks to Devuan. -->
 
-<!-- #### dyne:bolic Modules -->
+<!-- #### Dynebolic Modules -->
 
 <!-- #### Guix -->
 
@@ -33,17 +33,17 @@ The GNU/Linux platform nowadays offers an interesting range of tools for video p
 
 However, you should consider that most of the video tools running on GNU/Linux platform are in development: indeed you can help much in testing and reporting the bugs you encounter, that’s how anyone can help free software to grow better and better, as it does.
 
-Now let's proceed on how to configure an available video device and then browse thru the video software included in dyne:bolic, following a subdivision in task categories.
+Now let's proceed on how to configure an available video device and then browse thru the video software included in dynebolic, following a subdivision in task categories.
 
 ### Configure your video devices
 
 There are various devices that can be used on PC computers in order to have video input: USB webcams and capture cards, PCI TV cards, Firewire and even parallel port. They all have different chipsets and manufacturers and need different Linux device drivers.
 
-*dyne:bolic* is capable of automatically recognizing most PCI (internal) TV cards at boot time (WinTV, BTTV) and now also USB webcams as well as Firewire controllers: they will all be initialized at boot and can be accessed from the video device `/dev/video0` or subsequent numbers (`video1`, `video2` &#x2026;.) in case you have more than one. [FIXME: double-check that]
+*Dynebolic* is capable of automatically recognizing most PCI (internal) TV cards at boot time (WinTV, BTTV) and now also USB webcams as well as Firewire controllers: they will all be initialized at boot and can be accessed from the video device `/dev/video0` or subsequent numbers (`video1`, `video2` &#x2026;.) in case you have more than one. [FIXME: double-check that]
 
 If your video device is not recognized automatically (the `/dev/video` doesn’t exist) then you need to configure it by hand.
 
-If the online documentation says your device is supported by a particular kernel driver, you can try to load it using the command `modprobe modulename` and see if everything went well by looking in the last lines of the messages printed out by the `dmesg` command. Many modules are already present in *dyne:bolic*, but some might require to be compiled using the kernel sources, which is a more complicated process that can’t be explained here: you’ll need to find more instructions online about how to do it and download the Linux kernel sources. If you’ll even do it, keep in mind that once you have compiled your own kernel you have moved your very first step into becoming a hacker ;).
+If the online documentation says your device is supported by a particular kernel driver, you can try to load it using the command `modprobe modulename` and see if everything went well by looking in the last lines of the messages printed out by the `dmesg` command. Many modules are already present in *dynebolic*, but some might require to be compiled using the kernel sources, which is a more complicated process that can’t be explained here: you’ll need to find more instructions online about how to do it and download the Linux kernel sources. If you’ll even do it, keep in mind that once you have compiled your own kernel you have moved your very first step into becoming a hacker ;).
 
 ### Video tools and programs
 #### KDEnlive
@@ -66,7 +66,7 @@ If the online documentation says your device is supported by a particular kernel
 
 This distribution is full with audio software to do all kind of things: electronic music, sound processing, voice effects, interviews and more. And there is one important thing that makes this system superior to any other commercial solution: there is no competition :)
 
-Most of the audio applications in dyne:bolic can be connected together, input to output, in order to form a chain of tools processing the sound: this is done thanks to a technologies like Pipewire, JACK and the Advanced Linux Sound Architecture (ALSA). Instead of keeping separated the tasks of every single application, now it is possible to take advantage of the great variety of approaches that a GNU/Linux system like *dyne:bolic* has to offer.
+Most of the audio applications in dynebolic can be connected together, input to output, in order to form a chain of tools processing the sound: this is done thanks to a technologies like Pipewire, JACK and the Advanced Linux Sound Architecture (ALSA). Instead of keeping separated the tasks of every single application, now it is possible to take advantage of the great variety of approaches that a GNU/Linux system like *dynebolic* has to offer.
 
 ### Audio tools and programs
 
@@ -120,7 +120,7 @@ The zoo of Linux audio servers.
 
 ## Streaming Media
 
-Now that you have worked hard on your media, be it a podcast, experimental video, music, or sound art, you might feel the need to get it out there in the world. As far as streaming media goes, *dyne:bolic*'s Streaming Activity has you covered.
+Now that you have worked hard on your media, be it a podcast, experimental video, music, or sound art, you might feel the need to get it out there in the world. As far as streaming media goes, *dynebolic*'s Streaming Activity has you covered.
 
 ### OBS Studio
 
@@ -156,7 +156,7 @@ Krita’s tools are developed keeping the above vision in mind. Although it has 
 
 *Blender* is cross-platform and runs equally well on Linux and other operating systems. Its interface uses OpenGL to provide a consistent experience. To confirm specific compatibility, the list of supported platforms indicates those regularly tested by the development team.
 
-Indeed, *Blender* is such a powerful and complex multimedia tool, that it fits equally well in the [Video](#working-with-video) and here in the [Graphic Design](#graphic-design) Activities of *dyne:bolic*.
+Indeed, *Blender* is such a powerful and complex multimedia tool, that it fits equally well in the [Video](#working-with-video) and here in the [Graphic Design](#graphic-design) Activities of *dynebolic*.
 
 ## Working With Photography
 
@@ -181,7 +181,7 @@ The *GNU Image Manipulation Program* is a well mature application capable to cre
 ### The `lensfun` database
 
 
-*dyne:bolic* comes with enough powerful tools for digital photography to satisfy a photographer's needs. Nevertheless, an important step in setting up our digital photography workflow is updating the `lensfun` database. `lensfun` is an open, collaborative database of camera and lens profile, which are essential for RAW development operations, such as lens correction. If *Darktable* can't find the profile of your camera model or lens (or at least the closest possible one), chances are your `lensfun` database hasn't been updated.
+*Dynebolic* comes with enough powerful tools for digital photography to satisfy a photographer's needs. Nevertheless, an important step in setting up our digital photography workflow is updating the `lensfun` database. `lensfun` is an open, collaborative database of camera and lens profile, which are essential for RAW development operations, such as lens correction. If *Darktable* can't find the profile of your camera model or lens (or at least the closest possible one), chances are your `lensfun` database hasn't been updated.
 
 To do this, we open *Konsole*, and do the following:
 
@@ -201,15 +201,15 @@ And that's it. You won't need to do anything else - *Darktable* or other RAW pro
 
 Although nowadays most of what we call "publishing" happens online, we shouldn't underestimate the importance of print media for local grassroots organizations and activism. That flyer you posted on a local community cork board or left at your neighborhood coffee house might reach people your social media updates won't!
 
-While flyers, brochures and leaflets can be produced with [Inkscape](#inkscape), *dyne:bolic* also provides [Scribus](#scribus), a full-fledged Desktop Publishing (DTP) environment.
+While flyers, brochures and leaflets can be produced with [Inkscape](#inkscape), *dynebolic* also provides [Scribus](#scribus), a full-fledged Desktop Publishing (DTP) environment.
 
 ### Writing Implements
 
 Whatever you intend to publish, chances are that you'll need to write some copy. No matter what you intend to do with it, there's no avoiding some banging on a keyboard for a while.
 
-For text- and document writing and editing, *dyne:bolic* includes *LibreOffice*, so you have the full feature set of an office suite.
+For text- and document writing and editing, *dynebolic* includes *LibreOffice*, so you have the full feature set of an office suite.
 
-If you prefer leaner writing tools, *dyne:bolic* also includes the *Kate* advanced text editor. And, if you're feeling particularly *1337*, at the command line you will find a recent version of the venerable *Vim* editor.
+If you prefer leaner writing tools, *dynebolic* also includes the *Kate* advanced text editor. And, if you're feeling particularly *1337*, at the command line you will find a recent version of the venerable *Vim* editor.
 
 ### Scribus
 

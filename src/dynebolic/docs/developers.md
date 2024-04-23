@@ -2,7 +2,7 @@
 
 **Greetings, fellow devel!** 🖖🏽
 
-*dyne:bolic* welcomes contributions, big and small. You are here by invited to [clone the repository](https://git.devuan.org/jaromil/dynebolic) localy and [get yourself an account on the Devuan Gitea](https://git.devuan.org/user/sign_up). For your convenience the repository is mirrored on [GitHub](https://github.com/dyne/dynebolic/). However, due to the ownership model of GitHub we encourage you to stick to the Devuan Gitea. From the Gitea interface you will be able to fork the repository and [send Pull Requests](https://docs.gitea.com/next/usage/pull-request). But you are welcome to ask for write permission in the bridged chat.
+*dynebolic* welcomes contributions, big and small. You are here by invited to [clone the repository](https://git.devuan.org/jaromil/dynebolic) localy and [get yourself an account on the Devuan Gitea](https://git.devuan.org/user/sign_up). For your convenience the repository is mirrored on [GitHub](https://github.com/dyne/dynebolic/). However, due to the ownership model of GitHub we encourage you to stick to the Devuan Gitea. From the Gitea interface you will be able to fork the repository and [send Pull Requests](https://docs.gitea.com/next/usage/pull-request). But you are welcome to ask for write permission in the bridged chat.
 
 ## Source code
 
@@ -15,17 +15,17 @@
 
 These channels are all bridge, meaning it doesn't matter whether you are using one or the other, you will be able to communicate with everyone.
 
-## The dyne:bolic SDK
+## The dynebolic SDK
 
-## dyne:bolic Modules
+## Dynebolic Modules
 
 ## System Development
 
 ## Developing For The Desktop
 
-The *dyne:bolic* SDK offers various workflows. To get the full list of targets, `cd` into your cloned repository and run `make`. This will present you with a list of Make targets that will help you contribute to the project.
+The *dynebolic* SDK offers various workflows. To get the full list of targets, `cd` into your cloned repository and run `make`. This will present you with a list of Make targets that will help you contribute to the project.
 
-### Getting dyne:bolic development up and running
+### Getting dynebolic development up and running
 
 The two workflows Desktop devleopers are interested in are "Quick start":
 
@@ -60,13 +60,13 @@ To bootstrap your Desktop development environement, follow this sequence:
 
 Each command will take a moment to complete and be quite verbose. Don't fear it. It might look scary, but your computer is talking to you, so listen!
 
-Once you have ran all of the four commands, there will be a new file in your local repository called `dynebolic.iso`. This is an image of the dyne:bolic install disk.
+Once you have ran all of the four commands, there will be a new file in your local repository called `dynebolic.iso`. This is an image of the dynebolic install disk.
 
 You can now test it by running:
 
 5. `make qemu`
 
-This will start a virtual environement in which dyne:bolic will boot. If everything was made correctly, you will see the grub menu. Pick the first entry.
+This will start a virtual environement in which dynebolic will boot. If everything was made correctly, you will see the grub menu. Pick the first entry.
 
 <figure markdown="span">
   ![Image title](./images/grub.webp)
@@ -131,19 +131,19 @@ This will launch a virtual machine taking into account your changes. When the de
 <!-- ### The Guix package manager -->
 
 
-<!-- ### Nesting dyne:bolic (?) -->
+<!-- ### Nesting dynebolic (?) -->
 
 
 ## Appendices
 
-### Appendix I: A Brief History of dyne:bolic
+### Appendix I: A Brief History of dynebolic
 
 <!-- A bit of history: pre-0.5 and the origins of d:b: -->
 
 <!-- https://web.archive.org/web/20051101220229/http://lists.dyne.org/dynebolic/msg00214.php -->
 
- - Context (technological, social, political) of first release of *dyne:bolic*
- - Evolution of *dyne:bolic*
- - *dyne:bolic* now.
+ - Context (technological, social, political) of first release of *dynebolic*
+ - Evolution of *dynebolic*
+ - *Dynebolic* now.
 
-The first edition of *dyne:bolic* was released
+The first edition of *dynebolic* was released
