@@ -4,3 +4,7 @@ site_url: https://dyne.org/docs/jaromail
 theme:
   name: material
   logo: images/dyneorg.svg
+  favicon: images/favicon.png
+
+extra_css:
+  - stylesheets/extra.css

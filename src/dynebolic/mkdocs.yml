@@ -1,9 +1,13 @@
-site_name: Dynebolic documentation
+site_name: Dynebolic Manual
 site_url: https://dyne.org/docs/dynebolic/
 
 theme:
   name: material
   logo: images/dyneorg.svg
+  favicon: images/favicon.png
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Home: index.md
