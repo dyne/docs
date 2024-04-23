@@ -12,11 +12,11 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
 
         <script src="js/jquery-1.10.2.min.js" defer></script>
         <script src="js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
@@ -572,7 +572,7 @@ recipient headers.</p>
 asterisk \"*\" will match all messages.</p>
 <p>In addition to free text, the following prefixes can be used to force
 terms to match against specific portions of an email, (where
-\&lt;brackets> indicate user-supplied values):</p>
+\&lt;brackets&gt; indicate user-supplied values):</p>
 <pre><code class="language-example">from:&lt;name-or-address&gt;
 to:&lt;name-or-address&gt;
 subject:&lt;word-or-quoted-phrase&gt;
@@ -597,7 +597,7 @@ including quotation marks around the phrase, immediately following
 default for new messages added by <em>notmuch new</em> as well as any other tag
 values added manually with <em>notmuch tag</em>.</p>
 <p>For <em>id:</em>, message ID values are the literal contents of the Message-ID:
-header of email messages, but without the \'\&lt;\', \'>\' delimiters.</p>
+header of email messages, but without the \'\&lt;\', \'&gt;\' delimiters.</p>
 <p>The <em>thread:</em> prefix can be used with the thread ID values that are
 generated internally by notmuch (and do not appear in email messages).
 These thread ID values can be seen in the first column of output from
@@ -610,14 +610,14 @@ within a matching directory. Only the directory components below the
 top-level mail database path are available to be searched.</p>
 <h3 id="date-and-time-search">Date and time search</h3>
 <p>See <em>DATE AND TIME SEARCH</em> below for details on the range expression,
-and supported syntax for \&lt;since> and \&lt;until> date and time
+and supported syntax for \&lt;since&gt; and \&lt;until&gt; date and time
 expressions.</p>
 <p>The <em>date:</em> prefix can be used to restrict the results to only messages
 within a particular time range (based on the Date: header) with a range
 syntax of:</p>
 <pre><code class="language-example">date:&lt;since&gt;..&lt;until&gt;
 </code></pre>
-<p>The syntax <em>\&lt;initial-timestamp>..\&lt;final-timestamp></em> can be
+<p>The syntax <em>\&lt;initial-timestamp&gt;..\&lt;final-timestamp&gt;</em> can be
 represented using the number of seconds since 1970-01-01 00:00:00 UTC.</p>
 <p>The search syntax also understands a variety of standard and natural
 ways of expressing dates and times, both in absolute terms
@@ -630,10 +630,10 @@ relative terms is given below.</p>
 <pre><code class="language-example">date:&lt;since&gt;..&lt;until&gt;
 </code></pre>
 <p>The above expression restricts the results to only messages from
-\&lt;since> to \&lt;until>, based on the Date: header.</p>
-<p>\&lt;since> and \&lt;until> can describe imprecise times, such as
-\"yesterday\". In this case, \&lt;since> is taken as the earliest time it
-could describe (the beginning of yesterday) and \&lt;until> is taken as
+\&lt;since&gt; to \&lt;until&gt;, based on the Date: header.</p>
+<p>\&lt;since&gt; and \&lt;until&gt; can describe imprecise times, such as
+\"yesterday\". In this case, \&lt;since&gt; is taken as the earliest time it
+could describe (the beginning of yesterday) and \&lt;until&gt; is taken as
 the latest time it could describe (the end of yesterday). Similarly,
 date:january..february matches from the beginning of January to the end
 of February.</p>
@@ -642,7 +642,7 @@ replace the spaces with \'\_\', or (in most cases) \'-\', or (in some
 cases) leave the spaces out altogether. Examples in this man page use
 spaces for clarity.</p>
 <p>Open-ended ranges are supported (since Xapian 1.2.1), i.e. it\'s
-possible to specify date:..\&lt;until> or date:\&lt;since>.. to not limit
+possible to specify date:..\&lt;until&gt; or date:\&lt;since&gt;.. to not limit
 the start or end time, respectively.</p>
 <p>Entering date:expr without \"..\" (for example date:yesterday) won\'t
 work, as it\'s not interpreted as a range expression at all. You can
@@ -813,7 +813,7 @@ command <strong>addr</strong> followed by strings, for instance:</p>
 <p>will list all addresses containing \'dyne\' in your whitelist.</p>
 <h3 id="address-lists">Address lists</h3>
 <p>Jaro Mail handles lists of addresses as plain text files or streams with
-entries formatted as \'<em>Name \&lt;email></em>\' and newline terminated. This
+entries formatted as \'<em>Name \&lt;email&gt;</em>\' and newline terminated. This
 simple format conforms (or is normalized to) the RFC822 standard and
 UTF-8 charset encoding, both produced on <em>stdout</em> and read from <em>stdin</em>
 by various useful commands to take advantage of console piping.</p>
@@ -1035,16 +1035,13 @@ new password even if an old one is known.
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
+                <p>From here you can search these documents. Enter your search terms below.</p>
                 <form>
                     <div class="form-group">
                         <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results"></div>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
             <div class="modal-footer">
             </div>
@@ -1095,5 +1092,5 @@ new password even if an old one is known.
 </html>
 
 <!--
-MkDocs version : 1.1.2
+MkDocs version : 1.4.2
 -->
