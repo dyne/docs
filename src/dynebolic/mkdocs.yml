@@ -1,0 +1,18 @@
+site_name: dyne:bolic documentation
+site_url: https://docs.dynebolic.org
+
+theme:
+  name: material
+  logo: images/db-icon.svg
+
+nav:
+  - Home: index.md
+  - Getting Started: getting_started.md
+  - 'Contribute to d:b': developers.md
+  - Source code: https://git.devuan.org/jaromil/dynebolic
+  - Appendix: appendix.md
+  - Disclaimer: disclaimer.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
