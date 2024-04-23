@@ -1,2 +1,6 @@
 site_name: Jaromail Manual
 site_url: https://dyne.org/docs/jaromail
+
+theme:
+  name: material
+  logo: images/dyneorg.svg
