@@ -1,4 +1,4 @@
-projects ?= jaromail
+projects ?= jaromail dynebolic
 tmp := $(shell mktemp)
 
 all:
