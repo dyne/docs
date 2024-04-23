@@ -1077,12 +1077,12 @@
                   
 
 
-<h1 id="getting-started-with-dynebolic">Getting Started with dyne:bolic</h1>
+<h1 id="getting-started-with-dynebolic">Getting Started with dynebolic</h1>
 <h2 id="your-desktop-environment">Your Desktop Environment</h2>
-<p><em>dyne:bolic</em> doesn’t require you to install anything on your harddisks, which can be left untouched while the system is used. Still, depending from your preferred way to operate, it can boot from harddisk, CD, USB or network (explained the following chapter) and it can store data in a single file that can be transported across different media.</p>
+<p><em>Dynebolic</em> doesn’t require you to install anything on your harddisks, which can be left untouched while the system is used. Still, depending from your preferred way to operate, it can boot from harddisk, CD, USB or network (explained the following chapter) and it can store data in a single file that can be transported across different media.</p>
 <p>The default desktop environment is KDE Plasma 6, which offers you multiple desktops (try ctrl+F2 and other numbers) and a menu that you can recall by clicking the right mouse button on the background. On the upper right corner you have your storage devices which you can access with a click.</p>
 <p>Inside the application menu software is organized by tasks, so you can easily find your way to play, record, edit and stream both audio and video, communicate and publish text, webpages, 3d animations and much more.</p>
-<p>KDE Plasma offers <em>Activities</em>, which are a practical way to organize your workflows depending on the task at hand, whether you're editing video, recording and mixing audio, processing digital photographs, or running a live media stream. When you start your <em>dyne:bolic</em> desktop session, you will find a number of pre-configured Activities: <em>Audio</em>, <em>Video</em>, <em>Streaming</em>, etc. You can think of these Activities as workplaces dedicated to a particular line of work. They are, of course, not exclusive: nothing stops you from pulling out <em>Inkscape</em> to work on an album cover for a track you're currently mastering in the Audio Activity.</p>
+<p>KDE Plasma offers <em>Activities</em>, which are a practical way to organize your workflows depending on the task at hand, whether you're editing video, recording and mixing audio, processing digital photographs, or running a live media stream. When you start your <em>dynebolic</em> desktop session, you will find a number of pre-configured Activities: <em>Audio</em>, <em>Video</em>, <em>Streaming</em>, etc. You can think of these Activities as workplaces dedicated to a particular line of work. They are, of course, not exclusive: nothing stops you from pulling out <em>Inkscape</em> to work on an album cover for a track you're currently mastering in the Audio Activity.</p>
 <p>In the following chapters, we will look at what is available to you in each Activity.</p>
 <!-- ### Package Management -->
 
@@ -1090,7 +1090,7 @@
 
 <!-- Tried and True, and now systemd-free thanks to Devuan. -->
 
-<!-- #### dyne:bolic Modules -->
+<!-- #### Dynebolic Modules -->
 
 <!-- #### Guix -->
 
@@ -1100,12 +1100,12 @@
 <h3 id="introduction">Introduction</h3>
 <p>The GNU/Linux platform nowadays offers an interesting range of tools for video production, editing and manipulation; you can play all kind of video files, but also encode them for distribution and switch between formats. Furthermore, you’ll find software for recording, veejaying and streaming, non-linear editing and subtitling.</p>
 <p>However, you should consider that most of the video tools running on GNU/Linux platform are in development: indeed you can help much in testing and reporting the bugs you encounter, that’s how anyone can help free software to grow better and better, as it does.</p>
-<p>Now let's proceed on how to configure an available video device and then browse thru the video software included in dyne:bolic, following a subdivision in task categories.</p>
+<p>Now let's proceed on how to configure an available video device and then browse thru the video software included in dynebolic, following a subdivision in task categories.</p>
 <h3 id="configure-your-video-devices">Configure your video devices</h3>
 <p>There are various devices that can be used on PC computers in order to have video input: USB webcams and capture cards, PCI TV cards, Firewire and even parallel port. They all have different chipsets and manufacturers and need different Linux device drivers.</p>
-<p><em>dyne:bolic</em> is capable of automatically recognizing most PCI (internal) TV cards at boot time (WinTV, BTTV) and now also USB webcams as well as Firewire controllers: they will all be initialized at boot and can be accessed from the video device <code>/dev/video0</code> or subsequent numbers (<code>video1</code>, <code>video2</code> &#x2026;.) in case you have more than one. [FIXME: double-check that]</p>
+<p><em>Dynebolic</em> is capable of automatically recognizing most PCI (internal) TV cards at boot time (WinTV, BTTV) and now also USB webcams as well as Firewire controllers: they will all be initialized at boot and can be accessed from the video device <code>/dev/video0</code> or subsequent numbers (<code>video1</code>, <code>video2</code> &#x2026;.) in case you have more than one. [FIXME: double-check that]</p>
 <p>If your video device is not recognized automatically (the <code>/dev/video</code> doesn’t exist) then you need to configure it by hand.</p>
-<p>If the online documentation says your device is supported by a particular kernel driver, you can try to load it using the command <code>modprobe modulename</code> and see if everything went well by looking in the last lines of the messages printed out by the <code>dmesg</code> command. Many modules are already present in <em>dyne:bolic</em>, but some might require to be compiled using the kernel sources, which is a more complicated process that can’t be explained here: you’ll need to find more instructions online about how to do it and download the Linux kernel sources. If you’ll even do it, keep in mind that once you have compiled your own kernel you have moved your very first step into becoming a hacker ;).</p>
+<p>If the online documentation says your device is supported by a particular kernel driver, you can try to load it using the command <code>modprobe modulename</code> and see if everything went well by looking in the last lines of the messages printed out by the <code>dmesg</code> command. Many modules are already present in <em>dynebolic</em>, but some might require to be compiled using the kernel sources, which is a more complicated process that can’t be explained here: you’ll need to find more instructions online about how to do it and download the Linux kernel sources. If you’ll even do it, keep in mind that once you have compiled your own kernel you have moved your very first step into becoming a hacker ;).</p>
 <h3 id="video-tools-and-programs">Video tools and programs</h3>
 <h4 id="kdenlive">KDEnlive</h4>
 <p><em>KDEnlive</em> (the KDE Non-Linear Video Editor) is one of the best free and open-source video editing programs. It is based on the MLT Framework, which allows it to integrate many plugin effects for video and sound processing or creation. Furthermore <em>KDEnlive</em> brings a powerful titling tool, a DVD authoring solution, and can be used as a complete studio for video creation.</p>
@@ -1117,7 +1117,7 @@
 <h4 id="etc">Etc.</h4>
 <h2 id="working-with-audio">Working with Audio</h2>
 <p>This distribution is full with audio software to do all kind of things: electronic music, sound processing, voice effects, interviews and more. And there is one important thing that makes this system superior to any other commercial solution: there is no competition :)</p>
-<p>Most of the audio applications in dyne:bolic can be connected together, input to output, in order to form a chain of tools processing the sound: this is done thanks to a technologies like Pipewire, JACK and the Advanced Linux Sound Architecture (ALSA). Instead of keeping separated the tasks of every single application, now it is possible to take advantage of the great variety of approaches that a GNU/Linux system like <em>dyne:bolic</em> has to offer.</p>
+<p>Most of the audio applications in dynebolic can be connected together, input to output, in order to form a chain of tools processing the sound: this is done thanks to a technologies like Pipewire, JACK and the Advanced Linux Sound Architecture (ALSA). Instead of keeping separated the tasks of every single application, now it is possible to take advantage of the great variety of approaches that a GNU/Linux system like <em>dynebolic</em> has to offer.</p>
 <h3 id="audio-tools-and-programs">Audio tools and programs</h3>
 <h4 id="audacity">Audacity</h4>
 <p><em>Audacity</em> is a user-friendly audio editing program suitable to manipulate your audio files, interviews and recordings, separating or mixing them, applying effects and encoding in various formats. It can also be used to record audio straight away via its intuitive interface, which can be commonly found also on other operating systems since it is a cross-platform free application. A perfect choice to start manipulating audio.</p>
@@ -1158,7 +1158,7 @@
 </ol>
 <h3 id="pipewire-session-management">Pipewire Session Management</h3>
 <h2 id="streaming-media">Streaming Media</h2>
-<p>Now that you have worked hard on your media, be it a podcast, experimental video, music, or sound art, you might feel the need to get it out there in the world. As far as streaming media goes, <em>dyne:bolic</em>'s Streaming Activity has you covered.</p>
+<p>Now that you have worked hard on your media, be it a podcast, experimental video, music, or sound art, you might feel the need to get it out there in the world. As far as streaming media goes, <em>dynebolic</em>'s Streaming Activity has you covered.</p>
 <h3 id="obs-studio">OBS Studio</h3>
 <p><em>OBS Studio</em> (the Open Broadcaster's Software Studio) is a free and open-source, cross-platform app for screencasting screencasting and live streaming. It is available for Linux and BSD distributions, as well as other operating systems. <em>OBS Studio</em> provides real-time capture, scene composition, recording, encoding, and broadcasting via Real-Time Messaging Protocol (RTMP), HLS, SRT, RIST or WebRTC. It can stream videos to any RTMP-supporting destination, including YouTube, Twitch, Instagram and Facebook</p>
 <p>In recent years (and especially in the wake of the COVID-19 crisis), <em>OBS Studio</em> has become the most popular tool for countless podcasts, live streaming sessions, news broadcasts, or live coding. It can use any number of cameras and sound sources, and can be comfortably configured to stream any computer screen or program window we choose.</p>
@@ -1177,7 +1177,7 @@ or Icecast server. It also has facilities for recording our session.</p>
 <h3 id="blender">Blender</h3>
 <p><em>Blender</em> is the free and open source 3D creation suite. It supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation. Advanced users employ <em>Blender</em>’s API for Python scripting to customize the application and write specialized tools; often these are included in <em>Blender</em>’s future releases. <em>Blender</em> is well suited to individuals and small studios who benefit from its unified pipeline and responsive development process. Examples from many Blender-based projects are available in the showcase.</p>
 <p><em>Blender</em> is cross-platform and runs equally well on Linux and other operating systems. Its interface uses OpenGL to provide a consistent experience. To confirm specific compatibility, the list of supported platforms indicates those regularly tested by the development team.</p>
-<p>Indeed, <em>Blender</em> is such a powerful and complex multimedia tool, that it fits equally well in the <a href="#working-with-video">Video</a> and here in the <a href="#graphic-design">Graphic Design</a> Activities of <em>dyne:bolic</em>.</p>
+<p>Indeed, <em>Blender</em> is such a powerful and complex multimedia tool, that it fits equally well in the <a href="#working-with-video">Video</a> and here in the <a href="#graphic-design">Graphic Design</a> Activities of <em>dynebolic</em>.</p>
 <h2 id="working-with-photography">Working With Photography</h2>
 <p>Whether you just need to crop or apply an effect on a bitmap image, or you need to establish a good RAW development workflow, the Photography Activity has the tools for you.</p>
 <h3 id="gwenview">Gwenview</h3>
@@ -1189,7 +1189,7 @@ or Icecast server. It also has facilities for recording our session.</p>
 <h3 id="digikam">digiKam</h3>
 <p><em>digiKam</em> is an advanced open-source digital photo management application that runs on Linux and other operating systems. The application provides a comprehensive set of tools for importing, managing, editing, and sharing photos and raw files. While <em>digiKam</em> also has RAW development capabilities, its strong point is in library management and cataloging. It also has a useful set of plugins which enable direct publishing to online sites such as Flickr and others.</p>
 <h3 id="the-lensfun-database">The <code>lensfun</code> database</h3>
-<p><em>dyne:bolic</em> comes with enough powerful tools for digital photography to satisfy a photographer's needs. Nevertheless, an important step in setting up our digital photography workflow is updating the <code>lensfun</code> database. <code>lensfun</code> is an open, collaborative database of camera and lens profile, which are essential for RAW development operations, such as lens correction. If <em>Darktable</em> can't find the profile of your camera model or lens (or at least the closest possible one), chances are your <code>lensfun</code> database hasn't been updated.</p>
+<p><em>Dynebolic</em> comes with enough powerful tools for digital photography to satisfy a photographer's needs. Nevertheless, an important step in setting up our digital photography workflow is updating the <code>lensfun</code> database. <code>lensfun</code> is an open, collaborative database of camera and lens profile, which are essential for RAW development operations, such as lens correction. If <em>Darktable</em> can't find the profile of your camera model or lens (or at least the closest possible one), chances are your <code>lensfun</code> database hasn't been updated.</p>
 <p>To do this, we open <em>Konsole</em>, and do the following:</p>
 <pre><code>&gt; lensfun-update-data
 </code></pre>
@@ -1204,11 +1204,11 @@ or Icecast server. It also has facilities for recording our session.</p>
 </ul>
 <h2 id="publishing">Publishing</h2>
 <p>Although nowadays most of what we call "publishing" happens online, we shouldn't underestimate the importance of print media for local grassroots organizations and activism. That flyer you posted on a local community cork board or left at your neighborhood coffee house might reach people your social media updates won't!</p>
-<p>While flyers, brochures and leaflets can be produced with <a href="#inkscape">Inkscape</a>, <em>dyne:bolic</em> also provides <a href="#scribus">Scribus</a>, a full-fledged Desktop Publishing (DTP) environment.</p>
+<p>While flyers, brochures and leaflets can be produced with <a href="#inkscape">Inkscape</a>, <em>dynebolic</em> also provides <a href="#scribus">Scribus</a>, a full-fledged Desktop Publishing (DTP) environment.</p>
 <h3 id="writing-implements">Writing Implements</h3>
 <p>Whatever you intend to publish, chances are that you'll need to write some copy. No matter what you intend to do with it, there's no avoiding some banging on a keyboard for a while.</p>
-<p>For text- and document writing and editing, <em>dyne:bolic</em> includes <em>LibreOffice</em>, so you have the full feature set of an office suite.</p>
-<p>If you prefer leaner writing tools, <em>dyne:bolic</em> also includes the <em>Kate</em> advanced text editor. And, if you're feeling particularly <em>1337</em>, at the command line you will find a recent version of the venerable <em>Vim</em> editor.</p>
+<p>For text- and document writing and editing, <em>dynebolic</em> includes <em>LibreOffice</em>, so you have the full feature set of an office suite.</p>
+<p>If you prefer leaner writing tools, <em>dynebolic</em> also includes the <em>Kate</em> advanced text editor. And, if you're feeling particularly <em>1337</em>, at the command line you will find a recent version of the venerable <em>Vim</em> editor.</p>
 <h3 id="scribus">Scribus</h3>
 <p><em>Scribus</em> is a desktop publishing program to compose vectorial formats like PDF and Postscript, it is useful to paginate text in a professional printable form to produce magazines, flyers and most publications that need to mix text and images in pages following customizable schemes.</p>
 
