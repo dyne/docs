@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://dyne.org/docs/dynebolic/developers/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Contribute to d:b - Dynebolic documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Dynebolic documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../getting_started/" class="nav-link">Getting Started</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Contribute to d:b</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://git.devuan.org/jaromil/dynebolic" class="nav-link">Source code</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../appendix/" class="nav-link">Appendix</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../disclaimer/" class="nav-link">Disclaimer</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../getting_started/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../appendix/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#for-developers" class="nav-link">For Developers</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#source-code" class="nav-link">Source code</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#come-talk-to-us" class="nav-link">Come talk to us</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#the-dynebolic-sdk" class="nav-link">The dyne:bolic SDK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#dynebolic-modules" class="nav-link">dyne:bolic Modules</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#system-development" class="nav-link">System Development</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#developing-for-the-desktop" class="nav-link">Developing For The Desktop</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#appendices" class="nav-link">Appendices</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="for-developers">For Developers</h1>
+<p><strong>Greetings, fellow devel!</strong> 🖖🏽</p>
+<p><em>dyne:bolic</em> welcomes contributions, big and small. You are here by invited to <a href="https://git.devuan.org/jaromil/dynebolic">clone the repository</a> localy and <a href="https://git.devuan.org/user/sign_up">get yourself an account on the Devuan Gitea</a>. For your convenience the repository is mirrored on <a href="https://github.com/dyne/dynebolic/">GitHub</a>. However, due to the ownership model of GitHub we encourage you to stick to the Devuan Gitea. From the Gitea interface you will be able to fork the repository and <a href="https://docs.gitea.com/next/usage/pull-request">send Pull Requests</a>. But you are welcome to ask for write permission in the bridged chat.</p>
+<h2 id="source-code">Source code</h2>
+<p><strong><a href="https://git.devuan.org/jaromil/dynebolic">https://git.devuan.org/jaromil/dynebolic</a></strong></p>
+<h2 id="come-talk-to-us">Come talk to us</h2>
+<ul>
+<li><a href="https://irc.dyne.org/?channels=dynebolic">IRC</a></li>
+<li><a href="https://socials.dyne.org/matrix-dynebolic">Matrix</a></li>
+<li><a href="https://socials.dyne.org/discord-dynebolic">Discord</a></li>
+<li><a href="https://socials.dyne.org/telegram-dynebolic">Telegram</a></li>
+</ul>
+<p>These channels are all bridge, meaning it doesn't matter whether you are using one or the other, you will be able to communicate with everyone.</p>
+<h2 id="the-dynebolic-sdk">The dyne:bolic SDK</h2>
+<h2 id="dynebolic-modules">dyne:bolic Modules</h2>
+<h2 id="system-development">System Development</h2>
+<h2 id="developing-for-the-desktop">Developing For The Desktop</h2>
+<p>The <em>dyne:bolic</em> SDK offers various workflows. To get the full list of targets, <code>cd</code> into your cloned repository and run <code>make</code>. This will present you with a list of Make targets that will help you contribute to the project.</p>
+<h3 id="getting-dynebolic-development-up-and-running">Getting dyne:bolic development up and running</h3>
+<p>The two workflows Desktop devleopers are interested in are "Quick start":</p>
+<pre><code> ----             __ Quick start:
+ deps             🛠 Install development dependencies
+ setup            📥 Download the latest development ROOT modules
+ system           🗿 Build the root system: dyneIV-root
+ iso              🏁 Create the current ISO image
+ qemu             🖥 Emulate UEFI USB boot using qemu
+ burn             🔥 Write the ISO to a removable USB=/dev/sd?
+</code></pre>
+<p>and "Snapshot testing"</p>
+<pre><code> -----            __ Snapshot testing functions:
+ snap-iso         🧨 Test a squashed snapshot as ISO FILE=path
+ snap-mount       👀 Explore the contents of a snapshot FILE=path
+ snap-umount      🔌 Stop exploring and unplug the snapshot
+ test-changes     🍳 Test current changes in home and static
+
+</code></pre>
+<p>Most of these <code>make</code> commands need to be run as root. This can be achieved in different ways depending on your operating system.</p>
+<p>To bootstrap your Desktop development environement, follow this sequence:</p>
+<ol>
+<li><code>make deps</code> (requires root)</li>
+<li><code>make setup</code> (requires root)</li>
+<li><code>make system</code> (requires root)</li>
+<li><code>make iso</code> (requires root)</li>
+</ol>
+<p>Each command will take a moment to complete and be quite verbose. Don't fear it. It might look scary, but your computer is talking to you, so listen!</p>
+<p>Once you have ran all of the four commands, there will be a new file in your local repository called <code>dynebolic.iso</code>. This is an image of the dyne:bolic install disk.</p>
+<p>You can now test it by running:</p>
+<ol>
+<li><code>make qemu</code></li>
+</ol>
+<p>This will start a virtual environement in which dyne:bolic will boot. If everything was made correctly, you will see the grub menu. Pick the first entry.</p>
+<figure>
+  <img alt="Image title" src="../images/grub.webp" />
+  <figcaption>grub menu</figcaption>
+</figure>
+<p>Soon see the desktop appear. Once it does, you can proceed and make changes to the desktop and then export them. Even though it is slightly more time consuming, it is advisable to make one change and export at the time.</p>
+<h3 id="export-changes">Export changes</h3>
+<p>Once you have made the desired changes, from within the virutal d:b dekstop, start a terminal and become root. To do this type: <code>su</code>. The system will ask you for a password. <strong>The password is <code>dyne</code></strong>. It will look like this:</p>
+<pre><code>dyne@dynebolic ~ ❯ su
+Password:
+root@dynebolic:/home/dyne#
+</code></pre>
+<p>The user changed to root, and you may now export your changes. To do this, type:</p>
+<p><code>dyne-snapshot</code></p>
+<p>Accept the identity of the remote server, by typing <code>yes</code> and hitting enter.</p>
+<p>This will fetch any modified file, package them into a single file and upload them to the snapshot server. You will be presented with a URL. Using this method, you won't be able to copy it from your virtual machine to your machine. To fetch this snapshot, either use the QR code with your phone to transfer it to yourself. Or head over to the <a href="https://zorro.zenr.io/snapshots/">snapshot server</a> and sort the files by "Last Modified".</p>
+<h3 id="inspecting-changes-to-commit-them">Inspecting changes to commit them.</h3>
+<p>Terminate the virutal machine for now. To inspect your snapshot, download your snapshot to the root of your cloned repository and mount it.</p>
+<ul>
+<li><code>sudo su</code> (become root)</li>
+<li><code>make snap-mount FILE=/path/to/your-snapshot-file</code></li>
+</ul>
+<p>This will create a folder in the root of your cloned repository called "snap-mount" containing all the modified files. Navigate into it and run <code>ncdu</code>.</p>
+<pre><code>cd snap-mount
+ncdu
+</code></pre>
+<p>This will show you a browser like view where you can browse through the modified files. <strong>To close it, hit the "Q" key on your keyboard</strong></p>
+<p>Still as root, copy the files you are interested in to a different folder:</p>
+<ul>
+<li><code>mkdir ../snap-export</code> create folder.</li>
+<li><code>cp -ra . ../snap-export</code> copy all files recursively</li>
+<li><code>chown -R 1000:1000 ../snap-export</code> transfer ownership of the copied file to your own user.</li>
+<li><code>make snap-umount</code> unmount the snapshot from the file system ⚠️</li>
+</ul>
+<p>In the root of your cloned repository, there is a folder called <code>static</code>. This is where the configuration files for the desktop and system are residing. Copy over the files to this folder following the same structure. If your file is <code>snap-export/home/dyne/.config/my-amazing-settings.conf</code>, move it to <code>static/home/dyne/.config/my-amazing-settings.conf</code></p>
+<p>Once you have done this, you need to make sure that your changes are going to give the desired effect. This because, maybe you forgot something? Maybe there are more files responsible for the changes you want?</p>
+<ul>
+<li><code>make test-changes</code></li>
+</ul>
+<p>This will launch a virtual machine taking into account your changes. When the desktop appears, you should be able to see your changes. If you do, commit them to the repository:</p>
+<ul>
+<li><code>git add path/to/changed.file</code></li>
+<li><code>git commit -m "write a description of your changes in present tense here"</code></li>
+<li><code>git push</code></li>
+</ul>
+<!-- ### The Guix package manager -->
+
+<!-- ### Nesting dyne:bolic (?) -->
+
+<h2 id="appendices">Appendices</h2>
+<h3 id="appendix-i-a-brief-history-of-dynebolic">Appendix I: A Brief History of dyne:bolic</h3>
+<!-- A bit of history: pre-0.5 and the origins of d:b: -->
+
+<!-- https://web.archive.org/web/20051101220229/http://lists.dyne.org/dynebolic/msg00214.php -->
+
+<ul>
+<li>Context (technological, social, political) of first release of <em>dyne:bolic</em></li>
+<li>Evolution of <em>dyne:bolic</em></li>
+<li><em>dyne:bolic</em> now.</li>
+</ul>
+<p>The first edition of <em>dyne:bolic</em> was released</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
