@@ -12,8 +12,6 @@
 
 - [IRC](https://irc.dyne.org/?channels=dynebolic)
 - [Matrix](https://socials.dyne.org/matrix-dynebolic)
-- [Discord](https://socials.dyne.org/discord-dynebolic)
-- [Telegram](https://socials.dyne.org/telegram-dynebolic)
 
 These channels are all bridge, meaning it doesn't matter whether you are using one or the other, you will be able to communicate with everyone.
 

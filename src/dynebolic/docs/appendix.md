@@ -24,8 +24,7 @@ The Dyne Foundation develops and promotes projects focused on free software and 
  - [Fediverse (Lemmy)](https://fed.dyne.org/c/dynebolic)
  - Bridged chats:
     - [Matrix](https://socials.dyne.org/matrix-dynebolic)
-    - [Discord](https://socials.dyne.org/discord-dynebolic)
-    - [Telegram](https://socials.dyne.org/telegram-dynebolic)
+    - [IRC](https://irc.dyne.org/?channels=dynebolic)
 
 ## License
 
