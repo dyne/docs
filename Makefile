@@ -1,9 +1,9 @@
-projects ?= jaromail dynebolic
+projects ?= $(shell ls src)
 tmp := $(shell mktemp)
 
 all:
 	@echo "List of documented projects in src:"
-	@ls src/
+	@echo "${projects}"
 	@echo
 	@echo "Use 'make deploy' to publish modifications"
 
