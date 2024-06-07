@@ -8,6 +8,23 @@ apt-get install mkdocs
 pip install mkdocs-material
 ```
 
+If your system is complaining that mkdocs-material is an externally-managed-environment, you can use `venv` instead:
+
+Create the virtual environment
+```
+python -m venv path/to/venv
+```
+Install mkdocs-material to the environment
+```
+path/to/venv/bin/pip install mkdocs-material
+```
+
+Actiavte the virtual environement
+```
+source path/to/venv/bin/activate
+```
+
+
 ## Create a new project
 
 Go inside the `src/` folder and use `mkdocs new name_of_project`.
