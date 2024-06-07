@@ -12,6 +12,7 @@ extra_css:
 nav:
   - Home: index.md
   - Getting Started: getting_started.md
+  - Booting on usb: bootingonusb.md
   - 'Contribute to d:b': developers.md
   - Source code: https://git.devuan.org/jaromil/dynebolic
   - Appendix: appendix.md
