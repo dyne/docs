@@ -11,7 +11,7 @@ The interface is very intuitive, plug the usb stick, select the volume to instal
 
 ### On GNU+Linux
 
-On GNU+Linux, find the device of your USB stick, read your system messages via `dmesg` command, it should be something like `/dev/sdX` (where "X" is a letter defined by your system) then run this command as root:
+On GNU+Linux, find the device of your USB stick, read your system messages via `dmesg` command. This will print a lot of information. You can filter it by using `dmesg | grep " sd "` The name you are looking for should be something like `/dev/sdX` (where "X" is a letter defined by your system). Read the information carfeully, because it will include de `sdX` name of the main drive of your computer. Once you've determined the name of your USB stick, run this command as root:
 
 `dd bs=4M if=dynebolicIV.iso of=/dev/sdX status=progress && sync`
 
