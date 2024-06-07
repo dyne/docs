@@ -16,7 +16,7 @@ this manual is made available on
 
 ### Features
 
-![](jaromail-shot.jpg)
+![](images/jaromail-shot.jpg)
 
 - Minimalistic and efficient interface with message threading
 - Targets intensive usage of e-mails and mailinglists
