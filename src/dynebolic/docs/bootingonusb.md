@@ -1,4 +1,4 @@
-# Booting dynebolic on various media
+# Booting dynebolic
 
 There are many ways to boot dynebolic on your computer. First, you need to [download the ISO](https://dyne.org/dynebolic/download/) file and verify the checksum.
 
