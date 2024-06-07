@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://dyne.org/docs/dynebolic/developers/">
       
       
-        <link rel="prev" href="../bootingonusb/">
+        <link rel="prev" href="../getting_started/">
       
       
         <link rel="next" href="../appendix/">
@@ -213,11 +213,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting_started/" class="md-nav__link">
+      <a href="../bootingonusb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Getting Started
+    Booting Dynebolic
   </span>
   
 
@@ -233,11 +233,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../bootingonusb/" class="md-nav__link">
+      <a href="../getting_started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Booting Dynebolic
+    Getting Started
   </span>
   
 
@@ -647,23 +647,22 @@
 <p>The <em>dynebolic</em> SDK offers various workflows. To get the full list of targets, <code>cd</code> into your cloned repository and run <code>make</code>. This will present you with a list of Make targets that will help you contribute to the project.</p>
 <h3 id="getting-dynebolic-development-up-and-running">Getting dynebolic development up and running</h3>
 <p>The two workflows Desktop devleopers are interested in are "Quick start":</p>
-<pre><code> ----             __ Quick start:
+<div class="highlight"><pre><span></span><code> ----             __ Quick start:
  deps             🛠 Install development dependencies
  setup            📥 Download the latest development ROOT modules
  system           🗿 Build the root system: dyneIV-root
  iso              🏁 Create the current ISO image
  qemu             🖥 Emulate UEFI USB boot using qemu
  burn             🔥 Write the ISO to a removable USB=/dev/sd?
-</code></pre>
+</code></pre></div>
 <p>and "Snapshot testing"</p>
-<pre><code> -----            __ Snapshot testing functions:
+<p><div class="highlight"><pre><span></span><code> -----            __ Snapshot testing functions:
  snap-iso         🧨 Test a squashed snapshot as ISO FILE=path
  snap-mount       👀 Explore the contents of a snapshot FILE=path
  snap-umount      🔌 Stop exploring and unplug the snapshot
  test-changes     🍳 Test current changes in home and static
-
-</code></pre>
-<p>Most of these <code>make</code> commands need to be run as root. This can be achieved in different ways depending on your operating system.</p>
+</code></pre></div>
+Most of these <code>make</code> commands need to be run as root. This can be achieved in different ways depending on your operating system.</p>
 <p>To bootstrap your Desktop development environement, follow this sequence:</p>
 <ol>
 <li><code>make deps</code> (requires root)</li>
@@ -685,10 +684,10 @@
 <p>Soon see the desktop appear. Once it does, you can proceed and make changes to the desktop and then export them. Even though it is slightly more time consuming, it is advisable to make one change and export at the time.</p>
 <h3 id="export-changes">Export changes</h3>
 <p>Once you have made the desired changes, from within the virutal d:b dekstop, start a terminal and become root. To do this type: <code>su</code>. The system will ask you for a password. <strong>The password is <code>dyne</code></strong>. It will look like this:</p>
-<pre><code>dyne@dynebolic ~ ❯ su
+<div class="highlight"><pre><span></span><code>dyne@dynebolic ~ ❯ su
 Password:
 root@dynebolic:/home/dyne#
-</code></pre>
+</code></pre></div>
 <p>The user changed to root, and you may now export your changes. To do this, type:</p>
 <p><code>dyne-snapshot</code></p>
 <p>Accept the identity of the remote server, by typing <code>yes</code> and hitting enter.</p>
@@ -700,9 +699,9 @@ root@dynebolic:/home/dyne#
 <li><code>make snap-mount FILE=/path/to/your-snapshot-file</code></li>
 </ul>
 <p>This will create a folder in the root of your cloned repository called "snap-mount" containing all the modified files. Navigate into it and run <code>ncdu</code>.</p>
-<pre><code>cd snap-mount
+<div class="highlight"><pre><span></span><code>cd snap-mount
 ncdu
-</code></pre>
+</code></pre></div>
 <p>This will show you a browser like view where you can browse through the modified files. <strong>To close it, hit the "Q" key on your keyboard</strong></p>
 <p>Still as root, copy the files you are interested in to a different folder:</p>
 <ul>
