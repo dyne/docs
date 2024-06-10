@@ -564,9 +564,12 @@
 <p>On Windows you can use an application called <a href="https://rufus.ie/">Rufus</a> to flash the ISO file to a USB drive.
 The interface is very intuitive, plug the usb stick, select the volume to install on and the ISO image you just downloaded to install. After pressing start it will recognize the image and will ask you to either install normally or in <code>dd mode</code>, <strong>please select <code>dd mode</code></strong>.</p>
 <h3 id="on-gnulinux">On GNU+Linux</h3>
-<p>On GNU+Linux, find the device name of your USB stick, with this command: <code>lsblk -o NAME,SIZE,RO,TYPE,VENDOR,HOTPLUG</code></p>
+<p>On GNU+Linux, find the device name of your USB stick, with this command:</p>
+<div class="highlight"><pre><span></span><code>lsblk -o NAME,SIZE,RO,TYPE,VENDOR,HOTPLUG
+</code></pre></div>
 <p>The name you are looking for should be something like <code>/dev/sdX</code> (where "X" is a letter defined by your system). Read the information carefully, because it will include de <code>sdX</code> name of the main drive of your computer. Once you've determined the name of your USB stick, run this command as root:</p>
-<p><code>dd bs=4M if=dynebolicIV.iso of=/dev/sdX status=progress &amp;&amp; sync</code></p>
+<div class="highlight"><pre><span></span><code>dd bs=4M if=dynebolicIV.iso of=/dev/sdX status=progress &amp;&amp; sync`
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You <em>have</em> to adapt this line so that "X" represents its actual value in your system.</p>
