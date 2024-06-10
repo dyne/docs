@@ -19,7 +19,7 @@ Install mkdocs-material to the environment
 path/to/venv/bin/pip install mkdocs-material
 ```
 
-Actiavte the virtual environement
+Activate the virtual environement
 ```
 source path/to/venv/bin/activate
 ```
