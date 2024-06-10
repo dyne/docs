@@ -11,11 +11,17 @@ The interface is very intuitive, plug the usb stick, select the volume to instal
 
 ### On GNU+Linux
 
-On GNU+Linux, find the device name of your USB stick, with this command: `lsblk -o NAME,SIZE,RO,TYPE,VENDOR,HOTPLUG`
+On GNU+Linux, find the device name of your USB stick, with this command:
+
+```
+lsblk -o NAME,SIZE,RO,TYPE,VENDOR,HOTPLUG
+```
 
 The name you are looking for should be something like `/dev/sdX` (where "X" is a letter defined by your system). Read the information carefully, because it will include de `sdX` name of the main drive of your computer. Once you've determined the name of your USB stick, run this command as root:
 
-`dd bs=4M if=dynebolicIV.iso of=/dev/sdX status=progress && sync`
+```
+dd bs=4M if=dynebolicIV.iso of=/dev/sdX status=progress && sync`
+```
 
 !!! note
 
