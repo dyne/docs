@@ -291,6 +291,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#booting-in-a-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Booting in a Virtual Machine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Booting in a Virtual Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtual-machine-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Machine Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qemu-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      QEMU (TODO)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-windows-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      On windows (todo)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -458,6 +500,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#booting-in-a-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Booting in a Virtual Machine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Booting in a Virtual Machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtual-machine-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Machine Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qemu-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      QEMU (TODO)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-windows-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      On windows (todo)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -480,7 +564,7 @@
 <p>On Windows you can use an application called <a href="https://rufus.ie/">Rufus</a> to flash the ISO file to a USB drive.
 The interface is very intuitive, plug the usb stick, select the volume to install on and the ISO image you just downloaded to install. After pressing start it will recognize the image and will ask you to either install normally or in <code>dd mode</code>, <strong>please select <code>dd mode</code></strong>.</p>
 <h3 id="on-gnulinux">On GNU+Linux</h3>
-<p>On GNU+Linux, find the device of your USB stick, read your system messages via <code>dmesg</code> command: <code>dmesg | grep " sd "</code></p>
+<p>On GNU+Linux, find the device name of your USB stick, with this command: <code>lsblk -o NAME,SIZE,RO,TYPE,VENDOR,HOTPLUG</code></p>
 <p>The name you are looking for should be something like <code>/dev/sdX</code> (where "X" is a letter defined by your system). Read the information carefully, because it will include de <code>sdX</code> name of the main drive of your computer. Once you've determined the name of your USB stick, run this command as root:</p>
 <p><code>dd bs=4M if=dynebolicIV.iso of=/dev/sdX status=progress &amp;&amp; sync</code></p>
 <div class="admonition note">
@@ -489,6 +573,54 @@ The interface is very intuitive, plug the usb stick, select the volume to instal
 </div>
 <p>Once this command has completed, the USB stick will be ready to boot.</p>
 <p><strong>Be sure to know the hotkey to press at boot for boot selection, or bios interface to configure USB boot</strong>.</p>
+<hr />
+<h2 id="booting-in-a-virtual-machine">Booting in a Virtual Machine</h2>
+<p>A virutal machine allows you to run an Operative System within your running Operative system. This way you can leverage all that dynebolic has to offer without the need to install it on your machine.</p>
+<h4 id="virtual-machine-manager">Virtual Machine Manager</h4>
+<p>On of the most user-friendly ways to run dynebolic in a virutal machine is using <a href="https://virt-manager.org/">Virtual Machine Manager</a>. This tool will provide you with a GUI and take care of many complicated parts such as the routing to your physical audio and network tools more or less seemlessly. It also sets everything up to have copy+paste working from your physical machine's desktop to dynebolic.</p>
+<p>To install Virtual Machine Manager, follow the <a href="https://virt-manager.org/">instructions on their website</a></p>
+<p>Once installed you can run it an add a virtual machine. To do this follow these intstructions</p>
+<p>Hit the "+" button in the upper left corner of the GUI. You will be presented with a prompt asking you to choose how you would like to install the operative system.</p>
+<figure>
+  <img alt="Chose &quot;Local install media&quot;" src="../images/choose.webp" />
+  <figcaption>Chose "Local install media"</figcaption>
+</figure>
+<p>In the next panel, you are asked to pick the file you want to use.</p>
+<figure>
+  <img alt="Pick the isofile" src="../images/pick.webp" />
+  <figcaption>Chose ISO</figcaption>
+</figure>
+<p>This will open prompt that allows you brose your file system. Click "Browse Local" and locate the ISO file you downloaded from dynebolic.org</p>
+<figure>
+  <img alt="Pick the isofile" src="../images/browse.webp" />
+  <figcaption>Pick the ISO file you downloaded</figcaption>
+</figure>
+<p>You will come back to the previous window, chose an operative system. Since Devuan is based on Debian chose, "Debian 12 and click "Forward".</p>
+<p>In the next prompt, you are invited to allocate resources to the virtual machines in terms of CPU cores and RAM. You can safely allocate half of your resouces for both. In this example the machine has 4 cores and 4GB (4096 bytes) ram. So we allocate 2 cores and 2Gb (2048 bytes) RAM.</p>
+<figure>
+  <img alt="Alocate resources" src="../images/resources.webp" />
+  <figcaption>Alocate resources</figcaption>
+</figure>
+<p>In the next prompt, you can allocate disk space to your virtual machine. This is a file that will be mounted as if it was a drive. It will contain all the data you create, so you might want to choose a good location for it. The extention for the file is <code>.qcow2</code>. In the screenshot bellow, we gave it 10Gb and stored the file in <code>~/Documents/dynebolic.qcow2</code></p>
+<figure>
+  <img alt="Alocate diskspace" src="../images/diskspace.webp" />
+  <figcaption>Alocate diskspace</figcaption>
+</figure>
+<p>We then get a chance to review the settings and name the Virtual Machine. Let's name it "dynebolic" and click "Finish".</p>
+<figure>
+  <img alt="Name the Virtual Machine" src="../images/name-vm.webp" />
+  <figcaption>Name the Virtual Machine</figcaption>
+</figure>
+<p>This will initiate the virtual machine and you should now see a virtual screen with a boot slection. Pick the first entry by hiting the Enter key on your keyboard.</p>
+<figure>
+  <img alt="Run the Virtual Machine" src="../images/vm-running.webp" />
+  <figcaption>Run the Virtual Machine</figcaption>
+</figure>
+<p><strong>Voilà! Give a few moments, and dynebolic will boot inside your computer.</strong></p>
+<hr />
+<h4 id="qemu-todo">QEMU (TODO)</h4>
+<p><a href="https://www.qemu.org/">QEMU</a> is a generic and open source machine emulator and virtualizer.</p>
+<h3 id="on-windows-todo">On windows (todo)</h3>
 
 
 
