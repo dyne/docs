@@ -580,9 +580,9 @@ The interface is very intuitive, plug the usb stick, select the volume to instal
 <h2 id="booting-in-a-virtual-machine">Booting in a Virtual Machine</h2>
 <p>A virutal machine allows you to run an Operative System within your running Operative system. This way you can leverage all that dynebolic has to offer without the need to install it on your machine.</p>
 <h4 id="virtual-machine-manager">Virtual Machine Manager</h4>
-<p>On of the most user-friendly ways to run dynebolic in a virutal machine is using <a href="https://virt-manager.org/">Virtual Machine Manager</a>. This tool will provide you with a GUI and take care of many complicated parts such as the routing to your physical audio and network tools more or less seemlessly. It also sets everything up to have copy+paste working from your physical machine's desktop to dynebolic.</p>
+<p>One of the most user-friendly ways to run dynebolic in a virutal machine on GNU+Linux is by using <a href="https://virt-manager.org/">Virtual Machine Manager</a>. This tool will provide you with a GUI and take care of many complicated parts such as the routing of your physical audio and network devices more or less seemlessly. It also sets everything up to have copy+paste working from your physical machine's desktop to dynebolic within its virtual machine.</p>
 <p>To install Virtual Machine Manager, follow the <a href="https://virt-manager.org/">instructions on their website</a></p>
-<p>Once installed you can run it an add a virtual machine. To do this follow these intstructions</p>
+<p>Once installed you can run it an add a virtual machine. To do this follow these intstructions:</p>
 <p>Hit the "+" button in the upper left corner of the GUI. You will be presented with a prompt asking you to choose how you would like to install the operative system.</p>
 <figure>
   <img alt="Chose &quot;Local install media&quot;" src="../images/choose.webp" />
@@ -593,12 +593,12 @@ The interface is very intuitive, plug the usb stick, select the volume to instal
   <img alt="Pick the isofile" src="../images/pick.webp" />
   <figcaption>Chose ISO</figcaption>
 </figure>
-<p>This will open prompt that allows you brose your file system. Click "Browse Local" and locate the ISO file you downloaded from dynebolic.org</p>
+<p>This will open a prompt that allows you browse your file system. Click "Browse Local" and locate the ISO file you downloaded from dynebolic.org</p>
 <figure>
   <img alt="Pick the isofile" src="../images/browse.webp" />
   <figcaption>Pick the ISO file you downloaded</figcaption>
 </figure>
-<p>You will come back to the previous window, chose an operative system. Since Devuan is based on Debian chose, "Debian 12 and click "Forward".</p>
+<p>After this you will come back to the previous window and get to chose an operating system. Since Devuan is based on Debian chose, "Debian 12" and click "Forward".</p>
 <p>In the next prompt, you are invited to allocate resources to the virtual machines in terms of CPU cores and RAM. You can safely allocate half of your resouces for both. In this example the machine has 4 cores and 4GB (4096 bytes) ram. So we allocate 2 cores and 2Gb (2048 bytes) RAM.</p>
 <figure>
   <img alt="Alocate resources" src="../images/resources.webp" />
@@ -614,7 +614,7 @@ The interface is very intuitive, plug the usb stick, select the volume to instal
   <img alt="Name the Virtual Machine" src="../images/name-vm.webp" />
   <figcaption>Name the Virtual Machine</figcaption>
 </figure>
-<p>This will initiate the virtual machine and you should now see a virtual screen with a boot slection. Pick the first entry by hiting the Enter key on your keyboard.</p>
+<p>This will initiate the virtual machine and you should now see a window displaying a virtual screen with a boot slection. Pick the first entry by hiting the Enter key on your keyboard.</p>
 <figure>
   <img alt="Run the Virtual Machine" src="../images/vm-running.webp" />
   <figcaption>Run the Virtual Machine</figcaption>
