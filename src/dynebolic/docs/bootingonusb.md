@@ -39,11 +39,11 @@ A virutal machine allows you to run an Operative System within your running Oper
 
 #### Virtual Machine Manager
 
-On of the most user-friendly ways to run dynebolic in a virutal machine is using [Virtual Machine Manager](https://virt-manager.org/). This tool will provide you with a GUI and take care of many complicated parts such as the routing to your physical audio and network tools more or less seemlessly. It also sets everything up to have copy+paste working from your physical machine's desktop to dynebolic.
+One of the most user-friendly ways to run dynebolic in a virutal machine on GNU+Linux is by using [Virtual Machine Manager](https://virt-manager.org/). This tool will provide you with a GUI and take care of many complicated parts such as the routing of your physical audio and network devices more or less seemlessly. It also sets everything up to have copy+paste working from your physical machine's desktop to dynebolic within its virtual machine.
 
 To install Virtual Machine Manager, follow the [instructions on their website](https://virt-manager.org/)
 
-Once installed you can run it an add a virtual machine. To do this follow these intstructions
+Once installed you can run it an add a virtual machine. To do this follow these intstructions:
 
 Hit the "+" button in the upper left corner of the GUI. You will be presented with a prompt asking you to choose how you would like to install the operative system.
 
@@ -59,14 +59,14 @@ In the next panel, you are asked to pick the file you want to use.
   <figcaption>Chose ISO</figcaption>
 </figure>
 
-This will open prompt that allows you brose your file system. Click "Browse Local" and locate the ISO file you downloaded from dynebolic.org
+This will open a prompt that allows you browse your file system. Click "Browse Local" and locate the ISO file you downloaded from dynebolic.org
 
 <figure markdown="span">
   ![Pick the isofile](images/browse.webp)
   <figcaption>Pick the ISO file you downloaded</figcaption>
 </figure>
 
-You will come back to the previous window, chose an operative system. Since Devuan is based on Debian chose, "Debian 12 and click "Forward".
+After this you will come back to the previous window and get to chose an operating system. Since Devuan is based on Debian chose, "Debian 12" and click "Forward".
 
 In the next prompt, you are invited to allocate resources to the virtual machines in terms of CPU cores and RAM. You can safely allocate half of your resouces for both. In this example the machine has 4 cores and 4GB (4096 bytes) ram. So we allocate 2 cores and 2Gb (2048 bytes) RAM.
 
@@ -89,7 +89,7 @@ We then get a chance to review the settings and name the Virtual Machine. Let's 
   <figcaption>Name the Virtual Machine</figcaption>
 </figure>
 
-This will initiate the virtual machine and you should now see a virtual screen with a boot slection. Pick the first entry by hiting the Enter key on your keyboard.
+This will initiate the virtual machine and you should now see a window displaying a virtual screen with a boot slection. Pick the first entry by hiting the Enter key on your keyboard.
 
 <figure markdown="span">
   ![Run the Virtual Machine](images/vm-running.webp)
