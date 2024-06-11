@@ -568,7 +568,7 @@ The interface is very intuitive, plug the usb stick, select the volume to instal
 <div class="highlight"><pre><span></span><code>lsblk -o NAME,SIZE,RO,TYPE,VENDOR,HOTPLUG
 </code></pre></div>
 <p>The name you are looking for should be something like <code>/dev/sdX</code> (where "X" is a letter defined by your system). Read the information carefully, because it will include de <code>sdX</code> name of the main drive of your computer. Once you've determined the name of your USB stick, run this command as root:</p>
-<div class="highlight"><pre><span></span><code>dd bs=4M if=dynebolicIV.iso of=/dev/sdX status=progress &amp;&amp; sync`
+<div class="highlight"><pre><span></span><code>dd bs=4M if=path/to/dynebolicIV.iso of=/dev/sdX status=progress &amp;&amp; sync
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
