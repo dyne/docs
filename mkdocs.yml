@@ -1,0 +1,22 @@
+site_name: Dyne.org documentation
+site_url: https://dyne.org/docs
+
+theme:
+  name: material
+  logo: images/dyneorg.svg
+  favicon: images/favicon.png
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Dynebolic: /docs/dynebolic
+  - Jaromail: /docs/jaromail
+  - Tomb: /docs/tomb
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
