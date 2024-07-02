@@ -1,0 +1,10 @@
+site_name: Tomb Manual
+site_url: https://dyne.org/docs/tomb
+
+theme:
+  name: material
+  logo: images/dyneorg.svg
+  favicon: images/favicon.png
+
+extra_css:
+  - stylesheets/extra.css
