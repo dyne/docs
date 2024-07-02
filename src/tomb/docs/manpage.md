@@ -1,14 +1,13 @@
-# tomb(1) - the Crypto Undertaker
+# Tomb, folder encryption on GNU/Linux
 
+Manpage update: 
 tomb, Jun 25, 2023
 
-<pre><code>.B .IP "tomb [options] command [arguments]"</code></pre>
 
 
 <a name="description"></a>
 
-# Description
-
+## Description
 
 Tomb is an application to manage the creation and access of encrypted
 storage files: it can be operated from commandline and it can
@@ -28,8 +27,7 @@ harddisk and its key file on a USB stick.
 
 <a name="commands"></a>
 
-# Commands
-
+## Commands
 
 
 
@@ -239,8 +237,7 @@ harddisk and its key file on a USB stick.
 
 <a name="options"></a>
 
-# Options
-
+## Options
 
 
 
@@ -342,8 +339,7 @@ harddisk and its key file on a USB stick.
 
 <a name="dev-mode"></a>
 
-# Dev Mode
-
+## Dev Mode
 
 
 * --no-color  
@@ -379,8 +375,7 @@ harddisk and its key file on a USB stick.
 
 <a name="hooks"></a>
 
-# Hooks
-
+## Hooks
 
 Hooks are special files that can be placed inside the tomb and trigger
 actions when it is opened and closed; there are two kinds of such
@@ -423,8 +418,7 @@ base root of the tomb.
 
 <a name="privilege-escalation"></a>
 
-# Privilege Escalation
-
+## Privilege Escalation
 
 The tomb commandline tool needs to acquire super user rights to
 execute most of its operations: so it uses sudo(8) or other configured
@@ -457,8 +451,7 @@ To avoid that tomb execution is logged by _syslog_ also add:
 
 <a name="password-input"></a>
 
-# Password Input
-
+## Password Input
 
 Password input is handled by the pinentry program: it can be text
 based or graphical and is usually configured with a symlink. When
@@ -472,8 +465,7 @@ the DISPLAY environment var.
 
 <a name="swap"></a>
 
-# Swap
-
+## Swap
 
 On execution of certain commands Tomb will complain about swap memory
 on disk when present and abort if your system has swap
@@ -498,8 +490,7 @@ your swap is encrypted, and will complain anyway.
 
 <a name="deniability"></a>
 
-# Deniability
-
+## Deniability
 
 The possibility to have an encrypted volume which is invisible and
 cannot be detected is called "deniability". The cryptographic layer of
@@ -526,8 +517,7 @@ in ".zshrc":
 
 <a name="password-input"></a>
 
-# Password Input
-
+## Password Input
 
 Tomb uses the external program "pinentry" to let users type the key password
 into a terminal or a graphical window. This program works in conjunction with
@@ -549,8 +539,7 @@ In the future it may become mandatory to run gpg-agent when using tomb.
 
 <a name="share-a-tomb"></a>
 
-# Share a Tomb
-
+## Share a Tomb
 A tomb key can be encrypted with more than one recipient. Therefore, a
 tomb can be shared between different users. The recipients are given
 using the _-r_ (or/and _-R_) option and if multiple each GPG
@@ -565,8 +554,7 @@ _bury_, _exhume_ and _resize_.
 
 <a name="sphinx-pake"></a>
 
-# Sphinx (Pake)
-
+## Sphinx (Pake)
 
 Using the package libsphinx
 [](https://github.com/stef/libsphinx)
@@ -585,8 +573,7 @@ server, the sphinx password and the tomb key file.
 
 <a name="examples"></a>
 
-# Examples
-
+## Examples
 
 
 *   
@@ -693,8 +680,7 @@ server, the sphinx password and the tomb key file.
 
 <a name="bugs"></a>
 
-# Bugs
-
+## Bugs
 Please report bugs on the Github issue tracker at
 [](https://github.com/dyne/Tomb/issues)
 
@@ -704,8 +690,7 @@ channel on _https://irc.dyne.org_.
 
 <a name="copying"></a>
 
-# Copying
-
+## Copying
 
 This manual is Copyright (c) 2011-2021 by Denis Roio &lt;_jaromil@dyne.org_&gt;
 
@@ -721,8 +706,7 @@ notice are preserved on all copies.
 
 <a name="availability"></a>
 
-# Availability
-
+## Availability
 
 The most recent version of Tomb sourcecode and up to date
 documentation is available for download from its website on
@@ -731,8 +715,7 @@ _https://tomb.dyne.org_.
 
 <a name="see-also"></a>
 
-# See Also
-
+## See Also
 
 
 
