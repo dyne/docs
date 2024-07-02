@@ -1,0 +1,925 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://dyne.org/docs/tomb/manpage/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Manpage - Tomb Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tomb1-the-crypto-undertaker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tomb Manual" class="md-header__button md-logo" aria-label="Tomb Manual" data-md-component="logo">
+      
+  <img src="../images/dyneorg.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tomb Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Manpage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tomb Manual" class="md-nav__button md-logo" aria-label="Tomb Manual" data-md-component="logo">
+      
+  <img src="../images/dyneorg.svg" alt="logo">
+
+    </a>
+    Tomb Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Manpage
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="tomb1-the-crypto-undertaker">tomb(1) - the Crypto Undertaker</h1>
+<p>tomb, Jun 25, 2023</p>
+<pre><code>.B .IP "tomb [options] command [arguments]"</code></pre>
+
+<p><a name="description"></a></p>
+<h1 id="description">Description</h1>
+<p>Tomb is an application to manage the creation and access of encrypted
+storage files: it can be operated from commandline and it can
+integrate with a user's graphical desktop.</p>
+<p>Tomb generates encrypted storage files to be opened and closed using
+their associated keys, which are also protected with a password chosen
+by the user. To create, open and close tombs a user will need super
+user rights to execute the tomb commandline utility.</p>
+<p>A tomb is like a locked folder that can be safely transported and
+hidden in a filesystem; it encourages users to keep their keys
+separate from tombs, for instance keeping a tomb file on your computer
+harddisk and its key file on a USB stick.</p>
+<p><a name="commands"></a></p>
+<h1 id="commands">Commands</h1>
+<ul>
+<li>
+<p>dig<br />
+  Generates a file that can be used as a tomb and will occupy as much
+  space as its desired initial size, the unlocked <em>.tomb</em> file can
+  then be locked using a <em>key</em>. It takes a mandatory <em>-s</em> option
+  which is the size in megabytes (MiB). Tombs are digged using random
+  data gathered from a non-blocking source (/dev/urandom). For very
+  large tombs this may take up too much time and entropy, then it is
+  possible to use <em>fallocate(1)</em> being aware it does not pre-fill
+  with random data, decreasing the tomb's security.</p>
+</li>
+<li>
+<p>forge<br />
+  Creates a new <em>key</em> and prompts the user for a <em>password</em> to protect
+  its usage using symmetric encryption. This operation uses random data from a
+  non-blocking source (/dev/urandom) and it may take long only in some cases; to
+  switch using a blocking source the <em>--use-random</em> flag can be used. The
+  <em>-g</em> option switches on the use of a GPG key instead of a password
+  (asymmetric encryption), then the <em>-r</em> option indicates the recipient key;
+  more recipient GPG ids can be indicated (comma separated). The default cipher
+  to protect the key is AES256, a custom one can be specified using the <em>-o</em>
+  option, for a list of supported ciphers use <em>-v</em>. For additional protection
+  against dictionary attacks on keys, the <em>--kdf</em> option can be used when
+  forging a key, making sure that the binaries in <em>extras/kdf</em> were compiled
+  and installed on the system.</p>
+</li>
+<li>
+<p>lock<br />
+  Initializes and locks an empty tomb (made with <em>dig</em>) using a key
+  (made with <em>forge</em>), making it ready for usage. After this
+  operation, the tomb can only be opened in possession of the key and
+  knowing its password. As in any other command requiring a key, the
+  option <em>-k</em> should be used to specify a key file; in case of
+  encryption to GPG recipients the <em>-g</em> flag should be used followed
+  by <em>-r</em> and the recipient's secret GPG key id.  The <em>-o</em>
+  option can be used to specify the cipher specification: default is
+  "aes-xts-plain64", old versions of Tomb used "aes-cbc-essiv:sha256".
+  If you are looking for something exotic, also try
+  "serpent-xts-plain64". More options may be found in cryptsetup(8) and
+  Linux documentation. The <em>--filesystem</em> option can be used to
+  specify an alternative filesystem used to format the tomb,
+  in place of the default "ext4". This operation requires root
+  privileges to loopback mount, format the tomb (using LUKS and mkfs),
+  then set the key in its first LUKS slot.</p>
+<p>Supported filesystems for <em>--filesystem</em>:
+* ext3<br />
+  using operating system defaults
+* ext4<br />
+  using operating system defaults
+* btrfs<br />
+  for tombs &gt;= 47MB using operating system defaults
+* btrfsmixedmode<br />
+  for tombs &gt;=18MB btrfs mixed mode (see mkfs.btrfs(8))
+* ext3maxinodes<br />
+  ext3 with a maximum of inodes (for many small files)
+* ext4maxinodes<br />
+  ext4 with a maximum of inodes (for many small files)</p>
+</li>
+<li>
+<p>open<br />
+  Opens an existing <em>tomb file</em> (first argument) using a key
+  (<em>-k</em>) which can also be hidden inside a <em>jpeg image</em> (see
+  <em>bury</em>/<em>exhume</em>) or a long text file
+  (see_cloak_/<em>uncloak</em>). If a second argument is given it will
+  indicate the <em>mountpoint</em> where the tomb should be made
+  accessible, else the tomb is mounted in a directory inside /media (if
+  not available it uses /run/media/$USER).  The option <em>-o</em> can be
+  used to pass mount(8) options (default: rw,noatime,nodev). The
+  <em>-g</em> option is needed when using GPG encryption to recipients.</p>
+</li>
+<li>
+<p>list<br />
+  List all the tombs found open, including information about the time
+  they were opened and the hooks that they mounted. If the first
+  argument is present, then shows only the tomb named that way or
+  returns an error if it's not found. If the option
+  <em>--get-mountpoint</em> is used then print a simple list of currently
+  open tomb mountpoint paths.</p>
+</li>
+<li>
+<p>ps<br />
+  List all the processes found running inside the tombs that are open,
+  printing out their PIDs and owners. This is useful to have an overview
+  of programs that are keeping the tombs busy and would eventually be
+  killed by the <em>slam</em> command. The lsof(8) utility is used
+  internally to enumerate processes running in one or all tombs.</p>
+</li>
+<li>
+<p>index<br />
+  Creates or updates the search indexes of all tombs currently open:
+  enables use of the <em>search</em> command using simple word patterns on
+  file names. Indexes are created using mlocate/plocate's updatedb(8) and
+  swish-e(1) if they are found on the system. Indexes allow one to search
+  very fast for filenames and contents inside a tomb, they are stored
+  inside it and are not accessible if the Tomb is closed. To avoid
+  indexing a specific tomb simply touch a <em>.noindex</em> file in it.</p>
+</li>
+<li>
+<p>search<br />
+  Takes any string as argument and searches for them through all tombs
+  currently open and previously indexed using the <em>index</em> command.
+  The search matches filenames if mlocate/plocate is installed and then also
+  file contents if swish++ is present on the system, results are listed
+  on the console.</p>
+</li>
+<li>
+<p>close<br />
+  Closes a currently open tomb.  If more tombs are open, the first
+  argument should be used to specify the name of the tomb to be closed,
+  or <em>all</em> to close all currently open tombs. This command fails if
+  the tomb is in use by running processes (to force close, see
+  <em>slam</em> below).</p>
+</li>
+<li>
+<p>slam<br />
+  Closes a tomb like the command <em>close</em> does, but it doesn't fail
+  even if the tomb is in use by other application processes: it looks
+  for and closes each of them (in order: TERM, HUP, KILL). This command may
+  provoke unsaved data loss, but assists users to face surprise
+  situations. It requires <em>lsof</em> else it falls back to <em>close</em>.</p>
+</li>
+<li>
+<p>passwd<br />
+  Changes the password protecting a key file specified using
+  <em>-k</em>. With keys encrypted for GPG recipients use <em>-g</em> followed
+  by <em>-r</em> to indicate the new recipient key, or a comma separated
+  list.. The user will need to know the key's current password, or
+  possess at least one of the current recipients GPG secret keys,
+  because the key contents will be decoded and reencoded using the new
+  passwords or keys. If the key file is broken (missing headers) this
+  function also attempts its recovery.</p>
+</li>
+<li>
+<p>setkey<br />
+  Changes the key file that locks a tomb, substituting the old one with
+  a new one. Both the old and the new key files are needed for this
+  operation and their passwords or GPG recipient(s) secret keys must be
+  available. The new key must be specified using the <em>-k</em> option,
+  the first argument should be the old key and the second and last
+  argument the tomb file. Use the <em>-g</em> option to unlock the tomb
+  with a GPG key, the <em>-r</em> to indicate the recipient or a comma
+  separated list for more than one recipient.</p>
+</li>
+<li>
+<p>resize<br />
+  Increase the size of a tomb file to the amount specified by the
+  <em>-s</em> option, which is the new size in megabytes (MiB). Full access
+  to the tomb using a key (<em>-k</em>) and its password is required. Tombs
+  can only grow and can never be made smaller. This command makes use of
+  the cryptsetup(8) resize feature and the resize2fs command: its much
+  more practical than creating a new tomb and moving everything into
+  it. There is no data-loss if a failure occurs during resize: the
+  command can be re-launched and the resize operation will complete.</p>
+</li>
+<li>
+<p>engrave<br />
+  This command transforms a tomb key into an image that can be printed
+  on paper and physically stored as backup, i.e. hidden in a book. It
+  Renders a QRCode of the tomb key, still protected by its password: a
+  PNG image (extension <em>.qr.png</em>) will be created in the current
+  directory and can be later printed (fits an A4 or Letter format).  To
+  recover an engraved key one can use any QRCode reader on a smartphone:
+  save it into a file and then use that file as a key (<em>-k</em>).</p>
+</li>
+<li>
+<p>bury<br />
+  Hides a tomb key (<em>-k</em>) inside a <em>jpeg image</em> (first argument)
+  using <em>steganography</em>: the image will change in a way that cannot
+  be noticed by human eye and hardly detected by data analysis. This
+  option is useful to backup tomb keys in unsuspected places; it depends
+  from the availability of <em>steghide</em>. Use the <em>-g</em> flag and
+  <em>-r</em> option followed by recipient id to use GPG asymmetric
+  encryption.</p>
+</li>
+<li>
+<p>exhume<br />
+  This command recovers from jpeg images the keys that were previously
+  hidden into them using <em>bury</em>.  Exhume requires a key filename
+  (<em>-k</em>) and a <em>jpeg image</em> file (first argument) known to be
+  containing a key. If the right key password is given, the key will be
+  exhumed. If the password is not known, it is very hard to verify if a
+  key is buried in any image or not.</p>
+</li>
+<li>
+<p>cloak<br />
+  Hides a tomb key (<em>-k</em>) inside a <em>long plain-text file</em> (first
+  argument) using <em>steganography</em>: the text will change in a way
+  that can hardly be noticed by human eye and hardly detected by data
+  analysis. This option is useful to backup tomb keys in unsuspected
+  places; it depends from the availability of <em>cloakify</em> and
+  consequently <em>python2</em>. This function does not support asymmetric
+  encryption using the <em>-g</em> flag.</p>
+</li>
+<li>
+<p>uncloak<br />
+  This command recovers from long plain-text files the keys that were
+  previously hidden into them using <em>cloak</em>.  Cloak requires a key
+  filename (<em>-k</em>) and a <em>plain-text</em> file (first argument) known
+  to be containing a key. If the right key password is given, the key
+  will be exhumed. If the password is not known, it is quite hard to
+  verify if a key is buried in a text or not.</p>
+</li>
+</ul>
+<p><a name="options"></a></p>
+<h1 id="options">Options</h1>
+<ul>
+<li>
+<p>-k <em>&lt;keyfile&gt;</em><br />
+  For all operations requiring a key, this option specifies the location
+  of the key file to use. Arguments can also be <em>jpeg image</em> files
+  where keys have been hidden using the <em>bury</em> or <em>cloak</em>
+  commands, or text files retrieved from <em>engraved</em> QR codes. If the
+  <em>keyfile</em> argument is "-" (dash), Tomb will read the key from
+  stdin (blocking).</p>
+</li>
+<li>
+<p>-n<br />
+  Skip processing of exec-hooks and bind-hooks if found inside the tomb.
+  See the <em>HOOKS</em> section in this manual for more information.</p>
+</li>
+<li>
+<p>-p<br />
+  When opening a tomb, preserves the ownership of all files and
+  directories contained in it. Normally the <em>open</em> command changes
+  the ownership of a tomb's contents to the UID and GID of the user who
+  has successfully opened it: it is a usability feature in case a tomb is
+  used by a single user across different systems. This flag deactivates
+  this behaviour.</p>
+</li>
+<li>
+<p>-o<br />
+  Manually specify mount options to be used when opening a tomb instead
+  of the default <em>rw,noatime,nodev</em>, i.e. to mount a tomb read-only
+  (ro) to prevent any modification of its data. Can also be used to
+  change the symmetric encryption algorithm for keys during <em>forge</em>
+  operations (default <em>AES256</em>) or the LUKS encryption method during
+  <em>lock</em> operations (default <em>aes-xts-plain64</em>).</p>
+</li>
+<li>
+<p>-f<br />
+  Force flag, currently used to override swap checks, might be
+  overriding more wimpy behaviours in future, but make sure you know
+  what you are doing if you force an operation.</p>
+</li>
+<li>
+<p>-s <em>&lt;MBytes&gt;</em><br />
+  When digging or resizing a tomb, this option must be used to specify
+  the <em>size</em> of the new file to be created. Units are megabytes (MiB).</p>
+</li>
+<li>
+<p>-g<br />
+  Tell tomb to use a asymmetric GnuPG key encryption instead of a
+  symmetric passphrase to protect a tomb key. This option can be
+  followed by <em>-r</em> when the command needs to specify recipient(s).</p>
+</li>
+<li>
+<p>-r <em>&lt;gpg_id&gt;[,&lt;gpg_id2&gt;]</em><br />
+  Provide a new set of recipient(s) to encrypt a tomb key. <em>gpg_ids</em>
+  can be one or more GPG key ID, comma separated. All GPG keys must be
+  trusted keys in GPG.</p>
+</li>
+<li>
+<p>--kdf <em>&lt;itertime&gt;</em><br />
+  Activate the KDF feature against dictionary attacks when creating a key: forces
+  a delay of <em>&lt;itertime&gt;</em> times every time this key is used.  The actual time
+  to wait depends on the CPU speed (default) or the RAM size (argon2) of the
+  computer where the key is used.  Using 5 or 10 is a sane amount for modern
+  computers, the value is multiplied by 1 million.</p>
+</li>
+<li>
+<p>--kdftype <em>argon2 | pbkdf2</em><br />
+  Adopt the <em>argon2</em> algorithm for KDF, stressing the RAM capacity rather
+  than the CPU speed of the computer decrypting the tomb. Requires the
+  <em>argon2</em> binary by P-H-C to be installed, as packaged by most distros.
+  Default is <em>pbkdf2</em>.</p>
+</li>
+<li>
+<p>--kdfmem <em>&lt;memory&gt;</em><br />
+  In case of <em>argon2</em> KDF algorithm, this value specifies the size of RAM
+  used: it consists of a number which is the elevated power of two in kilobytes.
+  Default is 18 which is 250 MiB (2^18 = 262,144 kilobytes).</p>
+</li>
+<li>
+<p>--sudo <em>&lt;executable&gt;</em><br />
+  Select a different tool than sudo for privilege escalation.
+  Alternatives supported so far are: pkexec, doas, sup, sud. For any
+  alternative to work the executable must be included in the current
+  PATH.</p>
+</li>
+<li>
+<p>--sphx-user <em>&lt;username&gt;</em><br />
+  Activate the SPHINX feature for password-authenticated key agreement.
+  This option indicates the <em>&lt;username&gt;</em> used to retrieve the
+  password from a sphinx oracle key reachable via TCP/IP.</p>
+</li>
+<li>
+<p>--sphx-host <em>&lt;domain&gt;</em><br />
+  Activate the SPHINX feature for password-authenticated key agreement.
+  This option indicates the <em>&lt;domain&gt;</em> used to retrieve the password
+  from a sphinx oracle daemon reachable via TCP/IP. This is not the
+  network address of the daemon, which is configured in /etc/sphinx</p>
+</li>
+<li>
+<p>-h<br />
+  Display a help text and quit.</p>
+</li>
+<li>
+<p>-v<br />
+  Display version and quit.</p>
+</li>
+<li>
+<p>-q<br />
+  Run more quietly</p>
+</li>
+<li>
+<p>-D<br />
+  Print more information while running, for debugging purposes</p>
+</li>
+</ul>
+<p><a name="dev-mode"></a></p>
+<h1 id="dev-mode">Dev Mode</h1>
+<ul>
+<li>
+<p>--no-color<br />
+  Suppress colors in console output (needed for string parsing by
+  wrappers).</p>
+</li>
+<li>
+<p>--unsafe<br />
+  Enable using dev-mode arguments, i.e. to pass passwords from
+  commandline options. This is mostly used needed for execution by
+  wrappers and testing suite.</p>
+</li>
+<li>
+<p>--use-random<br />
+  Use a blocking random source. Tomb uses by default /dev/urandom since
+  the non-blocking source of Linux kernel doesn't degrades the quality
+  of random.</p>
+</li>
+<li>
+<p>--tomb-pwd &lt;string&gt;<br />
+  Use string as password when needed on tomb.</p>
+</li>
+<li>
+<p>--tomb-old-pwd &lt;string&gt;<br />
+  Use string as old password when needed in tomb commands requiring
+  multiple keys, like <em>passwd</em> or <em>setkey</em>.</p>
+</li>
+<li>
+<p>-U<br />
+  Switch to this user ID when dropping privileges.</p>
+</li>
+<li>
+<p>-G<br />
+  Switch to this group ID when dropping privileges.</p>
+</li>
+<li>
+<p>-T<br />
+  Switch to this TTY terminal when dropping privileges.</p>
+</li>
+</ul>
+<p><a name="hooks"></a></p>
+<h1 id="hooks">Hooks</h1>
+<p>Hooks are special files that can be placed inside the tomb and trigger
+actions when it is opened and closed; there are two kinds of such
+files: <em>bind-hooks</em> and <em>exec-hooks</em> can be placed in the
+base root of the tomb.</p>
+<ul>
+<li>bind-hooks<br />
+  This hook file consists of a simple text file named <em>bind-hooks</em>
+  containing a two column list of paths to files or directories inside
+  the tomb. The files and directories will be made directly
+  accessible by the tomb <em>open</em> command inside the current user's
+  home directory. Tomb uses internally the "mount -o bind" command to
+  bind locations inside the tomb to locations found in $HOME. In the
+  first column are indicated paths relative to the tomb and in the
+  second column are indicated paths relative to $HOME contents, for
+  example:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    mail          mail
+    .gnupg        .gnupg
+    .fmrc         .fetchmailrc
+    .mozilla      .mozilla
+</code></pre></div>
+<ul>
+<li>exec-hooks<br />
+  This hook file gets executed as user by tomb with the first argument
+  determining the step of execution (<em>open</em> or <em>close</em>) and the second
+  being the full path to the mountpoint. The <em>exec-hooks</em> file should be
+  executable (ELF or shell script) and present inside the Tomb. Tomb
+  executes this hook as user and adds the name, loopback device and
+  dev-mapper device paths as additional arguments for the <em>close</em>
+  command.</li>
+</ul>
+<p><a name="privilege-escalation"></a></p>
+<h1 id="privilege-escalation">Privilege Escalation</h1>
+<p>The tomb commandline tool needs to acquire super user rights to
+execute most of its operations: so it uses sudo(8) or other configured
+tools, while pinentry(1) is adopted to collect passwords from the
+user. Tomb executes as super user only when required.</p>
+<p>To be made available on multi user systems, the superuser execution of
+the tomb script can be authorized for users without jeopardizing the
+whole system's security: just add such a line to <em>/etc/sudoers</em>:</p>
+<div class="highlight"><pre><span></span><code>    username ALL=NOPASSWD: /usr/local/bin/tomb
+</code></pre></div>
+<p>To avoid that tomb execution is logged by <em>syslog</em> also add:</p>
+<div class="highlight"><pre><span></span><code>    Cmnd_Alias TOMB = /usr/local/bin/tomb
+    Defaults!TOMB !syslog
+</code></pre></div>
+<p><a name="password-input"></a></p>
+<h1 id="password-input">Password Input</h1>
+<p>Password input is handled by the pinentry program: it can be text
+based or graphical and is usually configured with a symlink. When
+using Tomb in X11 it is better to use a graphical pinentry-gtk2 or
+pinentry-qt because it helps preventing keylogging by other X
+clients. When using it from a remote ssh connection it might be
+necessary to force use of pinentry-curses for instance by unsetting
+the DISPLAY environment var.</p>
+<p><a name="swap"></a></p>
+<h1 id="swap">Swap</h1>
+<p>On execution of certain commands Tomb will complain about swap memory
+on disk when present and abort if your system has swap
+activated. You can disable this behaviour using the
+<em>--force</em>. Before doing that, however, you may be interested in
+knowing the risks of doing so:</p>
+<ul>
+<li>During such operations a lack of available memory could cause the swap
+  to write your secret key on the disk.</li>
+<li>Even while using an opened tomb, another application could occupy too
+  much memory so that the swap needs to be used, this way it is possible
+  that some contents of files contained into the tomb are physically
+  written on your disk, not encrypted.</li>
+</ul>
+<p>If you don't need swap, execute _ swapoff -a_. If you really need
+it, you could make an encrypted swap partition. Tomb doesn't detect if
+your swap is encrypted, and will complain anyway.</p>
+<p><a name="deniability"></a></p>
+<h1 id="deniability">Deniability</h1>
+<p>The possibility to have an encrypted volume which is invisible and
+cannot be detected is called "deniability". The cryptographic layer of
+the device mapper in Linux (dm-crypt) does not implement
+deniability. Tomb is just a wrapper on top of that and it doesn't add
+cryptographic deniability. However a certain way of using tomb can
+facilitate a weak sort of deniability outside of the scenario of
+seized devices and forensic analysis of files and blocks on disc.</p>
+<p>For instance to eliminate any trace of tomb usage from the shell
+history ZSh users can activate the "HISTIGNORESPACE" feature and
+prefix all invocations of tomb with a blank space, including two lines
+in ".zshrc":</p>
+<div class="highlight"><pre><span></span><code>    export HISTIGNORESPACE=1
+    alias tomb=&#39; tomb&#39;
+</code></pre></div>
+<p><a name="password-input"></a></p>
+<h1 id="password-input_1">Password Input</h1>
+<p>Tomb uses the external program "pinentry" to let users type the key password
+into a terminal or a graphical window. This program works in conjunction with
+"gpg-agent", a daemon running in background to facilitate secret key
+management with gpg. It is recommended one runs "gpg-agent" launching it from
+the X session initialization ("~/.xsession" or "~/.xinitrc" files) with this
+command:</p>
+<div class="highlight"><pre><span></span><code>    eval $(gpg-agent --daemon --write-env-file &quot;${HOME}/.gpg-agent-info&quot;)
+</code></pre></div>
+<p>In the future it may become mandatory to run gpg-agent when using tomb.</p>
+<p><a name="share-a-tomb"></a></p>
+<h1 id="share-a-tomb">Share a Tomb</h1>
+<p>A tomb key can be encrypted with more than one recipient. Therefore, a
+tomb can be shared between different users. The recipients are given
+using the <em>-r</em> (or/and <em>-R</em>) option and if multiple each GPG
+key ID must be separated by a comma (<em>,</em>). Sharing a tomb is a
+very sensitive action and the user needs to trust that all the GPG
+public keys used are kept safe. If one of them its stolen or lost, it
+will be always possible to use it to access the tomb key unless all
+its copies are destroyed. The <em>-r</em> option can be used in the tomb
+commands: <em>open</em>, <em>forge</em> <em>setkey</em>, <em>passwd</em>,
+<em>bury</em>, <em>exhume</em> and <em>resize</em>.</p>
+<p><a name="sphinx-pake"></a></p>
+<h1 id="sphinx-pake">Sphinx (Pake)</h1>
+<p>Using the package libsphinx
+<a href="https://github.com/stef/libsphinx"></a>
+and its python client/daemon implementation pwdsphinx
+<a href="https://github.com/stef/pwdsphinx"></a>
+is possible to store and retrieve safely the password that locks the
+tomb. Using this feature will make it impossible to retrieve the
+password without the oracle sphinx server running and reachable. Each
+key entry needs a username and a domain specified on creation and
+a password that locks it.</p>
+<p>SPHINX makes it impossible to maliciously retrieve the password
+locking the tomb key without an attacker accessing both the
+server, the sphinx password and the tomb key file.</p>
+<p><a name="examples"></a></p>
+<h1 id="examples">Examples</h1>
+<ul>
+<li>Create a 128MB large "secret" tomb and its keys, then open it:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    tomb dig -s 128 secret.tomb
+
+    tomb forge secret.tomb.key
+
+    tomb lock secret.tomb -k secret.tomb.key
+
+    tomb open secret.tomb -k secret.tomb.key
+</code></pre></div>
+<ul>
+<li>Open a Tomb using the key from a remote SSH shell, without saving any
+  local copy of it:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    ssh user@my.shell.net &#39;cat .secrets/tomb.key&#39; | tomb open secret.tomb -k -
+</code></pre></div>
+<ul>
+<li>Open a Tomb on a remote server passing the unencrypted local key on stdin via SSH,
+  without saving any remote copy of it:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    gpg -d .secrets/tomb.key | ssh server tomb open secret.tomb -k cleartext --unsafe
+</code></pre></div>
+<ul>
+<li>Create a bind hook that places your GnuPG folder inside the tomb, but
+  makes it reachable from the standard $HOME/.gnupg location every time
+  the tomb will be opened:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    tomb open GPG.tomb -k GPG.tomb.key
+    echo &quot;.gnupg .gnupg&quot; &amp;gt; /media/GPG.tomb/bind-hooks
+    mv ~/.gnupg /media/GPG.tomb/.gnupg &amp;&amp; mkdir ~/.gnupg
+    tomb close GPG &amp;&amp; tomb open GPG.tomb -k GPG.tomb.key
+</code></pre></div>
+<ul>
+<li>Script a tomb to launch the Firefox browser every time is opened,
+  keeping all its profile data inside it:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    tomb open FOX.tomb -k FOX.tomb.key
+    cat &amp;lt;&amp;lt;EOF &amp;gt; /media/FOX.tomb/exec-hooks
+  #!/bin/sh
+  if [ &quot;$1&quot; = &quot;open&quot; ]; then
+    firefox -no-remote -profile &quot;$2&quot;/firefox-pro &amp;
+  fi
+  EOF
+    chmod +x /media/FOX.tomb/exec-hooks
+    mkdir /media/FOX.tomb/firefox-pro
+</code></pre></div>
+<ul>
+<li>Script a tomb to archive Pictures using Shotwell, launching it on open:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    tomb open Pictures.tomb -k Pictures.tomb.key
+    cat &amp;lt;&amp;lt;EOF &amp;gt; /media/Pictures.tomb/bind-hooks
+  Pictures Pictures
+  EOF
+    cat &amp;lt;&amp;lt;EOF &amp;gt; /media/Pictures.tomb/exec-hooks
+  #!/bin/sh
+  if [ &quot;$1&quot; = &quot;open&quot; ]; then
+    which shotwell &amp;gt; /dev/null
+    if [ &quot;$?&quot; = &quot;0&quot; ]; then
+        shotwell -d &quot;$2&quot;/Pictures/.shotwell &amp;
+    fi
+  fi
+  EOF
+    chmod +x /media/Pictures.tomb/exec-hooks
+</code></pre></div>
+<p><a name="bugs"></a></p>
+<h1 id="bugs">Bugs</h1>
+<p>Please report bugs on the Github issue tracker at
+<a href="https://github.com/dyne/Tomb/issues"></a></p>
+<p>One can also try to get in touch with developers via the #dyne chat
+channel on <em>https://irc.dyne.org</em>.</p>
+<p><a name="copying"></a></p>
+<h1 id="copying">Copying</h1>
+<p>This manual is Copyright (c) 2011-2021 by Denis Roio &lt;<em>jaromil@dyne.org</em>&gt;</p>
+<p>This manual includes contributions by Boyska and Hellekin O. Wolf.</p>
+<p>Permission is  granted to copy,  distribute and/or modify  this manual
+under the terms of the  GNU Free Documentation License, Version 1.1 or
+any  later   version  published  by  the   Free  Software  Foundation.
+Permission is granted  to make and distribute verbatim  copies of this
+manual page  provided the above  copyright notice and  this permission
+notice are preserved on all copies.</p>
+<p><a name="availability"></a></p>
+<h1 id="availability">Availability</h1>
+<p>The most recent version of Tomb sourcecode and up to date
+documentation is available for download from its website on
+<em>https://tomb.dyne.org</em>.</p>
+<p><a name="see-also"></a></p>
+<h1 id="see-also">See Also</h1>
+<ul>
+<li>
+<p>cryptsetup(8)  </p>
+</li>
+<li>
+<p>pinentry(1)  </p>
+</li>
+<li>
+<p>gpg-agent(1)  </p>
+</li>
+</ul>
+<p>GnuPG website: https://www.gnupg.org</p>
+<p>DM-Crypt website: https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt</p>
+<p>LUKS website: https://gitlab.com/cryptsetup/cryptsetup/wikis/home</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>
