@@ -80,10 +80,7 @@ Will close immediately all open tombs, killing all applications using them.
 
 Here is a **lovely review made by the Linux Action Show guys** in August 2014, where they recommend Tomb as a replacement for Veracrypt
 
-<figure markdown="span">
-  [![Alocate diskspace](images/cryptounderstaker.webp "Linux Action Show guys")](https://www.youtube-nocookie.com/embed/CMLJmfjCaGM?si=HZX5rpKEVq_QWSg6)
-  <figcaption>Thumbnail from a Linux Action Show Guys video</figcaption>
-</figure>
+<iframe title="Tomb on LinuxActionShow 2014" width="100%" height="315" src="https://tv.dyne.org/videos/embed/e822db00-3d4f-44d7-9e5e-2e9b8c06eb94" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
 
 
 ## Advanced usage
@@ -128,16 +125,9 @@ Tomb also supports **deniable key storage** using steganography. One can `tomb b
 
 The command `tomb engrave` also allows to backup keys on paper by saving them as printable QR codes, to hide it between the pages of a book. To recover an engraved key, one can scan it with any phone and save the resulting plain text file as the tomb key.
 
-
-
 You can also watch this other video guide by Nerd on the Street.
 
-<figure markdown="span">
-  [![Alocate diskspace](images/nerdonthestreet.webp "Nerd on the street")](https://www.youtube-nocookie.com/embed/IgO19-3ffrY)
-  <figcaption>Thumbnail from a Nerd on the Street video</figcaption>
-</figure>
-
-
+<iframe title="Encrypt Files with Tomb" width="100%" height="315" src="https://tv.dyne.org/videos/embed/d9e62c84-f500-4def-a6c0-cee07f1d6ce7" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
 
 ## External applications
 
