@@ -338,27 +338,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#password-input_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Password Input
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#share-a-tomb" class="md-nav__link">
     <span class="md-ellipsis">
       Share a Tomb
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sphinx-pake" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sphinx (Pake)
     </span>
   </a>
   
@@ -525,27 +507,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#password-input_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Password Input
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#share-a-tomb" class="md-nav__link">
     <span class="md-ellipsis">
       Share a Tomb
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sphinx-pake" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sphinx (Pake)
     </span>
   </a>
   
@@ -721,19 +685,21 @@ harddisk and its key file on a USB stick.</p>
 <p>index<br />
   Creates or updates the search indexes of all tombs currently open:
   enables use of the <em>search</em> command using simple word patterns on
-  file names. Indexes are created using mlocate/plocate's updatedb(8) and
-  swish-e(1) if they are found on the system. Indexes allow one to search
+  file names. Indexes are created using plocate's updatedb(8) and
+  recoll(1) if they are found on the system. Indexes allow one to search
   very fast for filenames and contents inside a tomb, they are stored
   inside it and are not accessible if the Tomb is closed. To avoid
-  indexing a specific tomb simply touch a <em>.noindex</em> file in it.</p>
+  indexing a specific tomb simply touch a <em>.noindex</em> file in it.
+  Useful tools to have: poppler-utils, aspell, xdg-utils, plocate.</p>
 </li>
 <li>
 <p>search<br />
   Takes any string as argument and searches for them through all tombs
   currently open and previously indexed using the <em>index</em> command.
-  The search matches filenames if mlocate/plocate is installed and then also
-  file contents if swish++ is present on the system, results are listed
-  on the console.</p>
+  The search matches filenames if plocate is installed and then also
+  file contents if recoll is installed, all results are listed on the
+  console.
+  One can also run recoll's GUI using <em>recoll -c /media/tomb</em></p>
 </li>
 <li>
 <p>close<br />
@@ -815,22 +781,19 @@ harddisk and its key file on a USB stick.</p>
 </li>
 <li>
 <p>cloak<br />
-  Hides a tomb key (<em>-k</em>) inside a <em>long plain-text file</em> (first
-  argument) using <em>steganography</em>: the text will change in a way
-  that can hardly be noticed by human eye and hardly detected by data
-  analysis. This option is useful to backup tomb keys in unsuspected
-  places; it depends from the availability of <em>cloakify</em> and
-  consequently <em>python2</em>. This function does not support asymmetric
-  encryption using the <em>-g</em> flag.</p>
+  Cloaks a tomb key (<em>-k</em>) disguising it as a text file using a
+  cipher from <em>extras/cloak/ciphers</em> (second argument) using
+  <em>cloakify</em>. This option is useful to backup tomb keys in
+  unsuspected places; it needs <em>extras/cloak</em> installed and
+  <em>python3</em>.</p>
 </li>
 <li>
 <p>uncloak<br />
-  This command recovers from long plain-text files the keys that were
-  previously hidden into them using <em>cloak</em>.  Cloak requires a key
-  filename (<em>-k</em>) and a <em>plain-text</em> file (first argument) known
-  to be containing a key. If the right key password is given, the key
-  will be exhumed. If the password is not known, it is quite hard to
-  verify if a key is buried in a text or not.</p>
+  Recovers a tomb key from a cloaked text file. Uncloak requires a text
+  file (first argument), a cipher file (second argument) and optionally
+  an output file (third argument). If the first two parameters are
+  correct then the output will be a valid tomb key file restored from
+  cloak.</p>
 </li>
 </ul>
 <p><a name="options"></a></p>
@@ -881,7 +844,7 @@ harddisk and its key file on a USB stick.</p>
 </li>
 <li>
 <p>-g<br />
-  Tell tomb to use a asymmetric GnuPG key encryption instead of a
+  Tell tomb to use an asymmetric GnuPG key encryption instead of a
   symmetric passphrase to protect a tomb key. This option can be
   followed by <em>-r</em> when the command needs to specify recipient(s).</p>
 </li>
@@ -918,19 +881,6 @@ harddisk and its key file on a USB stick.</p>
   Alternatives supported so far are: pkexec, doas, sup, sud. For any
   alternative to work the executable must be included in the current
   PATH.</p>
-</li>
-<li>
-<p>--sphx-user <em>&lt;username&gt;</em><br />
-  Activate the SPHINX feature for password-authenticated key agreement.
-  This option indicates the <em>&lt;username&gt;</em> used to retrieve the
-  password from a sphinx oracle key reachable via TCP/IP.</p>
-</li>
-<li>
-<p>--sphx-host <em>&lt;domain&gt;</em><br />
-  Activate the SPHINX feature for password-authenticated key agreement.
-  This option indicates the <em>&lt;domain&gt;</em> used to retrieve the password
-  from a sphinx oracle daemon reachable via TCP/IP. This is not the
-  network address of the daemon, which is configured in /etc/sphinx</p>
 </li>
 <li>
 <p>-h<br />
@@ -1043,11 +993,12 @@ whole system's security: just add such a line to <em>/etc/sudoers</em>:</p>
 <h2 id="password-input">Password Input</h2>
 <p>Password input is handled by the pinentry program: it can be text
 based or graphical and is usually configured with a symlink. When
-using Tomb in X11 it is better to use a graphical pinentry-gtk2 or
-pinentry-qt because it helps preventing keylogging by other X
-clients. When using it from a remote ssh connection it might be
-necessary to force use of pinentry-curses for instance by unsetting
-the DISPLAY environment var.</p>
+using Tomb in a graphical environment (X11 or Wayland) it is better
+to use either pinentry-gtk2 (deprecated), pinentry-gnome or
+pinentry-qt because it helps preventing keylogging by other clients.
+When using it from a remote ssh connection it might be necessary to
+force use of pinentry-tty for instance by unsetting the DISPLAY (X11)
+or WAYLAND_DISPLAY (Wayland) environment var.</p>
 <p><a name="swap"></a></p>
 <h2 id="swap">Swap</h2>
 <p>On execution of certain commands Tomb will complain about swap memory
@@ -1082,17 +1033,6 @@ in ".zshrc":</p>
 <div class="highlight"><pre><span></span><code>    export HISTIGNORESPACE=1
     alias tomb=&#39; tomb&#39;
 </code></pre></div>
-<p><a name="password-input"></a></p>
-<h2 id="password-input_1">Password Input</h2>
-<p>Tomb uses the external program "pinentry" to let users type the key password
-into a terminal or a graphical window. This program works in conjunction with
-"gpg-agent", a daemon running in background to facilitate secret key
-management with gpg. It is recommended one runs "gpg-agent" launching it from
-the X session initialization ("~/.xsession" or "~/.xinitrc" files) with this
-command:</p>
-<div class="highlight"><pre><span></span><code>    eval $(gpg-agent --daemon --write-env-file &quot;${HOME}/.gpg-agent-info&quot;)
-</code></pre></div>
-<p>In the future it may become mandatory to run gpg-agent when using tomb.</p>
 <p><a name="share-a-tomb"></a></p>
 <h2 id="share-a-tomb">Share a Tomb</h2>
 <p>A tomb key can be encrypted with more than one recipient. Therefore, a
@@ -1105,20 +1045,6 @@ will be always possible to use it to access the tomb key unless all
 its copies are destroyed. The <em>-r</em> option can be used in the tomb
 commands: <em>open</em>, <em>forge</em> <em>setkey</em>, <em>passwd</em>,
 <em>bury</em>, <em>exhume</em> and <em>resize</em>.</p>
-<p><a name="sphinx-pake"></a></p>
-<h2 id="sphinx-pake">Sphinx (Pake)</h2>
-<p>Using the package libsphinx
-<a href="https://github.com/stef/libsphinx"></a>
-and its python client/daemon implementation pwdsphinx
-<a href="https://github.com/stef/pwdsphinx"></a>
-is possible to store and retrieve safely the password that locks the
-tomb. Using this feature will make it impossible to retrieve the
-password without the oracle sphinx server running and reachable. Each
-key entry needs a username and a domain specified on creation and
-a password that locks it.</p>
-<p>SPHINX makes it impossible to maliciously retrieve the password
-locking the tomb key without an attacker accessing both the
-server, the sphinx password and the tomb key file.</p>
 <p><a name="examples"></a></p>
 <h2 id="examples">Examples</h2>
 <ul>
