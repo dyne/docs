@@ -71,6 +71,8 @@ This distribution is full with audio software to do all kind of things: electron
 
 Most of the audio applications in dynebolic can be connected together, input to output, in order to form a chain of tools processing the sound: this is done thanks to a technologies like Pipewire, JACK and the Advanced Linux Sound Architecture (ALSA). Instead of keeping separated the tasks of every single application, now it is possible to take advantage of the great variety of approaches that a GNU/Linux system like *dynebolic* has to offer.
 
+*TIP: it happens often that line-out and headphones are inverted, so while Line-out could be selected it's actually outputting on the headphones, if there's no sound always double check this.
+
 ### Audio tools and programs
 
 #### Audacity
