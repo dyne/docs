@@ -2,26 +2,29 @@
 
 ## Your Desktop Environment
 
-*Dynebolic* doesn’t require you to install anything on your harddisks, which can be left untouched while the system is used. Still, depending from your preferred way to operate, it can boot from harddisk, CD, USB or network (explained the following chapter) and it can store data in a single file that can be transported across different media.
+*Dynebolic* doesn’t require you to install anything on your harddisks, which can be left untouched while the system is used. Still, depending on your preferred way to operate, it can boot from harddisk, CD, USB or network (explained in the following chapter) and it can store data in a single file that can be transported across different media.
 
-The default desktop environment is KDE Plasma 6, which offers you multiple desktops (try ctrl+F2 and other numbers) and a menu that you can recall by clicking the right mouse button on the background. On the upper right corner you have your storage devices which you can access with a click.
+The default desktop environment is KDE Plasma 6, which offer you multiple desktops (try ctrl+F2 and the other Function keys) and a menu that can be recall by clicking the right mouse button on the background. On the upper right corner you have your storage devices which you can access with a click.
 
-Inside the application menu software is organized by tasks, so you can easily find your way to play, record, edit and stream both audio and video, communicate and publish text, webpages, 3d animations and much more.
+Inside the application menu organized in tasks you'll find the software available, so you can easily explore the variety of multimedia production tools and much more.
 
-KDE Plasma offers *Activities*, which are a practical way to organize your workflows depending on the task at hand, whether you're editing video, recording and mixing audio, processing digital photographs, or running a live media stream. When you start your *dynebolic* desktop session, you will find a number of pre-configured Activities: *Audio*, *Video*, *Streaming*, etc. You can think of these Activities as workplaces dedicated to a particular line of work. They are, of course, not exclusive: nothing stops you from pulling out *Inkscape* to work on an album cover for a track you're currently mastering in the Audio Activity.
+KDE Plasma offers *Activities*, which are a practical way to organize your workflows depending on the task at hand, whether you're editing video, recording and mixing audio, processing digital photographs, or running a live media stream.
+When you start your *dynebolic* desktop session, there will be a number of pre-configured Activities: *Audio*, *Video*, *Streaming*, etc. You can think of these Activities as workplaces dedicated to a particular line of work. They are, of course, not exclusive: nothing stops you from pulling out *Inkscape* to work on an album cover for a track you're currently mastering in the Audio Activity.
 
 In the following chapters, we will look at what is available to you in each Activity.
 
 
-<!-- ### Package Management -->
+### Package Management
 
-<!-- #### apt -->
+To widen the pool of software available *dynebolic* ships the default package manager for [Devuan](https://www.devuan.org/), the [Flatpak](https://flatpak.org) manager and the [GUIX](https://guix.gnu.org) package manger.
 
-<!-- Tried and True, and now systemd-free thanks to Devuan. -->
+<!-- #### How to activate flatpak and guix -->
+
+#### Tried and True, and now systemd-free thanks to Devuan.
+
+Dynebolic is based on [Devuan](https://www.devuan.org), a fork of Debian with a wider choice of init systems than systemd, not only that, we have replaced the Pulseaudio suite, manager of the whole desktop audio stack, with [Pipewire](https://www.pipewire.org)! A new and emergent audio and video subsystem to manage all your needs.
 
 <!-- #### Dynebolic Modules -->
-
-<!-- #### Guix -->
 
 <!-- The next generation of Linux package management. -->
 
