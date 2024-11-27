@@ -22,7 +22,7 @@ To widen the pool of software available *dynebolic* ships the default package ma
 
 #### Tried and True, and now systemd-free thanks to Devuan.
 
-Dynebolic is based on [Devuan](https://www.devuan.org), a fork of Debian with a wider choice of init systems than systemd, not only that, we have replaced the Pulseaudio suite, manager of the whole desktop audio stack, with [Pipewire](https://www.pipewire.org)! A new and emergent audio and video subsystem to manage all your needs.
+*Dynebolic* is based on [Devuan](https://www.devuan.org), a fork of *Debian* with a wider choice of init systems than systemd, not only that, we have replaced the *Pulseaudio suite*, manager of the whole desktop audio stack, with [Pipewire](https://www.pipewire.org)! A new and emergent audio and video subsystem to manage all your needs.
 
 <!-- #### Dynebolic Modules -->
 
@@ -122,6 +122,9 @@ The zoo of Linux audio servers.
     One media server to rule them all.
 
 ### Pipewire Session Management
+
+Pipewire is the new sound and video layer in between the graphical desktop/the applications and the devices, offer so much more than pulseaudio beside an integration with libcam for all that has to do with webcams, video streaming, desktop sharing, ecc.
+Pipewire also offer a simple utility called *pw-jack* that allows for jackd-only applications to run natively on top of pipewire.
 
 ## Streaming Media
 
