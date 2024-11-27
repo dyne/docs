@@ -2,21 +2,21 @@
 
 ## Your Desktop Environment
 
-*Dynebolic* doesn’t require you to install anything on your harddisks, which can be left untouched while the system is used. Still, depending on your preferred way to operate, it can boot from harddisk, CD, USB or network (explained in the following chapter) and it can store data in a single file that can be transported across different media.
+*Dynebolic* doesn’t require you to install anything on your disks, which can be left untouched while the system is used. Still, depending on your preferred way to operate, it can boot from harddisks, CD, USB or network (explained in the following chapters) and it can store data in a single file that can be transported across different media.
 
-The default desktop environment is KDE Plasma 6, which offer you multiple desktops (try ctrl+F2 and the other Function keys) and a menu that can be recall by clicking the right mouse button on the background. On the upper right corner you have your storage devices which you can access with a click.
+The default desktop environment is KDE Plasma 6, which offer you multiple desktops (try ctrl+F2, F3, ecc) and a menu that can be recall by clicking the right mouse button on the background. On the upper right corner you have your storage devices which you can access with a click.
 
 Inside the application menu organized in tasks you'll find the software available, so you can easily explore the variety of multimedia production tools and much more.
 
 KDE Plasma offers *Activities*, which are a practical way to organize your workflows depending on the task at hand, whether you're editing video, recording and mixing audio, processing digital photographs, or running a live media stream.
 When you start your *dynebolic* desktop session, there will be a number of pre-configured Activities: *Audio*, *Video*, *Streaming*, etc. You can think of these Activities as workplaces dedicated to a particular line of work. They are, of course, not exclusive: nothing stops you from pulling out *Inkscape* to work on an album cover for a track you're currently mastering in the Audio Activity.
 
-In the following chapters, we will look at what is available to you in each Activity.
+In the following chapters we will look at what is available to you in each Activity.
 
 
 ### Package Management
 
-To widen the pool of software available *dynebolic* ships the default package manager for [Devuan](https://www.devuan.org/), the [Flatpak](https://flatpak.org) manager and the [GUIX](https://guix.gnu.org) package manger.
+To widen the pool of software available *Dynebolic* ships the default package manager for [Devuan](https://www.devuan.org/), the [Flatpak](https://flatpak.org) manager and the [GUIX](https://guix.gnu.org) package manger.
 
 <!-- #### How to activate flatpak and guix -->
 
@@ -87,11 +87,11 @@ Most of the audio applications in dynebolic can be connected together, input to 
 
 *Mixxx* is currenly the most popular libre DJ Automation and digital DJ performance application. It includes many features common to digital DJ solutions as well as some unique ones: it natively supports advanced MIDI and HID DJ controllers, is licensed under the GPL-2.0-or-later and runs on all major desktop operating systems. The project was started in early 2001 for a doctoral thesis as one of the first digital DJing systems
 
-<!-- #### Hydrogen (?) -->
+<!-- #### Hydrogen -->
 
+<!-- Hydrogen is a software synthesizer which can be used alone, emulating a drum machine based on patterns, or via an external MIDI keyboard/sequencer software. -->
 
 <!-- #### Pure Data (?) -->
-
 
 <!-- #### SuperCollider (?) -->
 
@@ -121,7 +121,7 @@ The zoo of Linux audio servers.
 
     One media server to rule them all.
 
-### Pipewire Session Management
+### Pipewire
 
 Pipewire is the new sound and video layer in between the graphical desktop/the applications and the devices, offer so much more than pulseaudio beside an integration with libcam for all that has to do with webcams, video streaming, desktop sharing, ecc.
 Pipewire also offer a simple utility called *pw-jack* that allows for jackd-only applications to run natively on top of pipewire.
@@ -135,6 +135,14 @@ Now that you have worked hard on your media, be it a podcast, experimental video
 *OBS Studio* (the Open Broadcaster's Software Studio) is a free and open-source, cross-platform app for screencasting screencasting and live streaming. It is available for Linux and BSD distributions, as well as other operating systems. *OBS Studio* provides real-time capture, scene composition, recording, encoding, and broadcasting via Real-Time Messaging Protocol (RTMP), HLS, SRT, RIST or WebRTC. It can stream videos to any RTMP-supporting destination, including YouTube, Twitch, Instagram and Facebook
 
 In recent years (and especially in the wake of the COVID-19 crisis), *OBS Studio* has become the most popular tool for countless podcasts, live streaming sessions, news broadcasts, or live coding. It can use any number of cameras and sound sources, and can be comfortably configured to stream any computer screen or program window we choose.
+
+The first you'll start OBS it will guide you through some basic settings and wheter you want to record locally, stream online or both.
+You will be greeted by a popup with the news of the latest updates, being a very active software, and the interface composed by the preview, the scene editor and selector, the sources editor and selector, the audio mixer, the transition selector and the controls.
+
+In the scene selector we can create new scenes to wich add new sources, make it a background image, another audio source, a webcam, ecc, a live streamer for example would want and intro scene, with microfones shutoff, some news rolling, a count down and a shiny background animation, with a transparency transition of 3 second while switching to the second scene, in wich there could be a different setup of sources, the capturing of a program window or a game, a webcam, ecc; OBS also has full hotkeys support, so for activating and deactivating sources like microfones or camera without leaving your keyboard or using external usb deck devices. Once an optimal setup is found scene and sources can be locked and even copied/cloned.
+In the case of live streaming you will have to tweak the bitrate based on your upload speed.
+
+OBS has also an advanced interface with two preview screens that can be enabled in the preferences.
 
 ### BUTT
 
