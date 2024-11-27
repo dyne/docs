@@ -124,7 +124,7 @@ The zoo of Linux audio servers.
 ### Pipewire
 
 Pipewire is the new sound and video layer in between the graphical desktop/the applications and the devices, offer so much more than pulseaudio beside an integration with libcam for all that has to do with webcams, video streaming, desktop sharing, ecc.
-Pipewire also offer a simple utility called *pw-jack* that allows for jackd-only applications to run natively on top of pipewire.
+Pipewire also offer a simple utility called *pw-jack* that allows for jackd-only applications to run natively on top of pipewire. For example, lets open up a software called qpwgraph, and after that let's open Ardour in a terminal with the command *pw-jack ardour*, all ardour inputs and outputs will show in pipewire patchbay without a jackd daemon running.
 
 ## Streaming Media
 
