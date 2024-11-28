@@ -13,6 +13,11 @@ When you start your *dynebolic* desktop session, there will be a number of pre-c
 
 In the following chapters we will look at what is available to you in each Activity.
 
+#### Installing dynebolic on a disk
+
+Open the file manager konqueror and click on the disk on the left where you want to install *dynebolic*, on the terminal in the lower part of the window become root with `sudo su`, by default the password is **dyne**, then run `dyne-install`, on next reboot you will be using a persistent storage and your modifications will be saved.
+
+Now you can also activate *Flatpak* and *GUIX* with `dyne-install flatpak` and `dyne-install guix` from the very same terminal. On next reboot you will also have the *flatpak* and *GUIX* package managers. 
 
 ### Package Management
 
@@ -23,6 +28,21 @@ To widen the pool of software available *Dynebolic* ships the default package ma
 #### Tried and True, and now systemd-free thanks to Devuan.
 
 *Dynebolic* is based on [Devuan](https://www.devuan.org), a fork of *Debian* with a wider choice of init systems than systemd, not only that, we have replaced the *Pulseaudio suite*, manager of the whole desktop audio stack, with [Pipewire](https://www.pipewire.org)! A new and emergent audio and video subsystem to manage all your needs.
+
+#### OpenSnitch - network protection
+
+*Dynebolic* ships with *OpenSnitch* a GUI firewall program. By default it will block all traffic in and outcoming.
+
+![OpenSnitch](/docs/dynebolic/images/OpenSnitchMain.png "OpenSnitch main screen")
+
+In this example we see what happens when we open the internet browser *Falkon* for the first time, by default the action is to allow the traffic after 30 seconds.
+
+![OpenSnitch](/docs/dynebolic/images/OpenSnitchFalkonExample.png "OpenSnitch traffic detection example")
+
+In each tab you can see, configure and act on various levels, ip level, application level, ecc.
+
+Among GUI firewalls OpenSnitch is the most intuitive and user friendly.
+
 
 <!-- #### Dynebolic Modules -->
 
