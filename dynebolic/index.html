@@ -10,8 +10,13 @@
       
         <link rel="canonical" href="https://dyne.org/docs/dynebolic/">
       
+      
+      
+        <link rel="next" href="bootingonusb/">
+      
+      
       <link rel="icon" href="images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
     
     
       
@@ -19,13 +24,14 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.2d9f7617.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.6f8fc17f.min.css">
       
-        
-        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
-        
       
+
+
     
+    
+      
     
     
       
@@ -39,23 +45,18 @@
     
       <link rel="stylesheet" href="stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
+    
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr">
   
-    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -75,7 +76,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="Dynebolic Manual" class="md-header__button md-logo" aria-label="Dynebolic Manual" data-md-component="logo">
       
@@ -83,7 +86,8 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -103,9 +107,13 @@
     </div>
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -113,24 +121,27 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -160,6 +171,7 @@
                     
 
 
+
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="." title="Dynebolic Manual" class="md-nav__button md-logo" aria-label="Dynebolic Manual" data-md-component="logo">
@@ -174,28 +186,39 @@
     
       
       
-      
-
   
   
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Home
+          
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="." class="md-nav__link md-nav__link--active">
-        Home
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
       </a>
       
         
@@ -215,63 +238,81 @@
       
         <li class="md-nav__item">
   <a href="#what-is-dynebolic" class="md-nav__link">
-    What Is dynebolic?
+    <span class="md-ellipsis">
+      What Is dynebolic?
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#be-welcome-to-a-gnulinux-world" class="md-nav__link">
-    Be Welcome to a GNU+Linux World!
+    <span class="md-ellipsis">
+      Be Welcome to a GNU+Linux World!
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#100-free-as-in-speech" class="md-nav__link">
-    100% Free, As In Speech
+    <span class="md-ellipsis">
+      100% Free, As In Speech
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#friendly-to-the-environment" class="md-nav__link">
-    Friendly To The Environment
+    <span class="md-ellipsis">
+      Friendly To The Environment
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#digital-resistance" class="md-nav__link">
-    Digital Resistance
+    <span class="md-ellipsis">
+      Digital Resistance
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#freedom-needs-privacy" class="md-nav__link">
-    Freedom Needs Privacy
+    <span class="md-ellipsis">
+      Freedom Needs Privacy
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#freedom-of-expression" class="md-nav__link">
-    Freedom of Expression
+    <span class="md-ellipsis">
+      Freedom of Expression
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#appreciated-worldwide" class="md-nav__link">
-    Appreciated Worldwide
+    <span class="md-ellipsis">
+      Appreciated Worldwide
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#how-is-dynebolic-different-from-other-live-distros" class="md-nav__link">
-    How is dynebolic different from other live distros?
+    <span class="md-ellipsis">
+      How is dynebolic different from other live distros?
+    </span>
   </a>
   
 </li>
@@ -286,14 +327,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="bootingonusb/" class="md-nav__link">
-        Booting Dynebolic
+        
+  
+  <span class="md-ellipsis">
+    Booting Dynebolic
+  </span>
+  
+
       </a>
     </li>
   
@@ -301,14 +347,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="getting_started/" class="md-nav__link">
-        Getting Started
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
       </a>
     </li>
   
@@ -316,14 +367,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="developers/" class="md-nav__link">
-        Contribute to d:b
+        
+  
+  <span class="md-ellipsis">
+    Contribute to d:b
+  </span>
+  
+
       </a>
     </li>
   
@@ -331,14 +387,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="https://git.devuan.org/jaromil/dynebolic" class="md-nav__link">
-        Source code
+        
+  
+  <span class="md-ellipsis">
+    Source code
+  </span>
+  
+
       </a>
     </li>
   
@@ -346,14 +407,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="appendix/" class="md-nav__link">
-        Appendix
+        
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
       </a>
     </li>
   
@@ -361,14 +427,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="disclaimer/" class="md-nav__link">
-        Disclaimer
+        
+  
+  <span class="md-ellipsis">
+    Disclaimer
+  </span>
+  
+
       </a>
     </li>
   
@@ -402,63 +473,81 @@
       
         <li class="md-nav__item">
   <a href="#what-is-dynebolic" class="md-nav__link">
-    What Is dynebolic?
+    <span class="md-ellipsis">
+      What Is dynebolic?
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#be-welcome-to-a-gnulinux-world" class="md-nav__link">
-    Be Welcome to a GNU+Linux World!
+    <span class="md-ellipsis">
+      Be Welcome to a GNU+Linux World!
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#100-free-as-in-speech" class="md-nav__link">
-    100% Free, As In Speech
+    <span class="md-ellipsis">
+      100% Free, As In Speech
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#friendly-to-the-environment" class="md-nav__link">
-    Friendly To The Environment
+    <span class="md-ellipsis">
+      Friendly To The Environment
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#digital-resistance" class="md-nav__link">
-    Digital Resistance
+    <span class="md-ellipsis">
+      Digital Resistance
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#freedom-needs-privacy" class="md-nav__link">
-    Freedom Needs Privacy
+    <span class="md-ellipsis">
+      Freedom Needs Privacy
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#freedom-of-expression" class="md-nav__link">
-    Freedom of Expression
+    <span class="md-ellipsis">
+      Freedom of Expression
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#appreciated-worldwide" class="md-nav__link">
-    Appreciated Worldwide
+    <span class="md-ellipsis">
+      Appreciated Worldwide
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#how-is-dynebolic-different-from-other-live-distros" class="md-nav__link">
-    How is dynebolic different from other live distros?
+    <span class="md-ellipsis">
+      How is dynebolic different from other live distros?
+    </span>
   </a>
   
 </li>
@@ -471,10 +560,11 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="dynebolic-iv-gnulinux-users-guide">Dynebolic IV GNU/Linux User's Guide</h1>
@@ -510,34 +600,28 @@
 <p>Free Software is the idea that, operating-, using-, modifying- and sharing- means of digital production, is the only way for humans to create and communicate safely in the digital realm. With <em>dynebolic</em> we apply this idea, to a carefully curated list of applications and utilities, in ways that align perfectly with the principles of Free Software. More than a distribution, dynebolic is a human centric community, facilitating professional grade multimedia tools to the masses.</p>
 <p><em>dynebolic</em> is a nomadic system, meaning it is ready to move in to your device with a minimum of material friction. But it shall also follow you on the road, where the conditions may be unpredicatble. For many dynes, it is a gateway to the freedom to compute and a reaching hand for travelers looking to onboard the liberty of expression.</p>
 
-              
-            </article>
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-      
-        
-        <a href="bootingonusb/" class="md-footer__link md-footer__link--next" aria-label="Next: Booting Dynebolic" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Booting Dynebolic
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -559,10 +643,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.bd0b6b67.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.467223ff.min.js"></script>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
