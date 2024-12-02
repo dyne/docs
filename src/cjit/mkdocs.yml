@@ -13,6 +13,7 @@ theme:
 
 nav:
   - Introduction: index.md
+  - Graphics: graphics.md
 
 markdown_extensions:
   - attr_list

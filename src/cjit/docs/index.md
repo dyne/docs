@@ -262,7 +262,7 @@ Pretty cool stuff for some "boring" terminal session eh? Have a look
 around the `life.c` file with your favorite text editor and feel free
 to change things and see what happens.
 
-# ⏩ [Next chapter: graphics with CJIT](graphical.md)
+# ⏩ [Next chapter: graphics with CJIT](graphics)
 
 Now you are familiar with the way to execute CJIT! If you think that C
 is fun (and fast!) you are welcome to read the next chapter of this
