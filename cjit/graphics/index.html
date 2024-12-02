@@ -399,16 +399,17 @@ applications that run seamlessly across different operating systems.</p>
 the combination of CJIT's simplicity in C code execution and <a href="https://wiki.libsdl.org/SDL2/Installation">SDL's
 cross-platform
 capabilities</a> offers a
-robust solution for your graphical application needs.</p>
+solution for your graphical application needs.</p>
 <p>As in the previous chapter, the following sections will guide you
 through practical usage examples, demonstrating how to create
 graphical applications. 🌟📚</p>
 <h2 id="the-beauty-of-random">The Beauty of Random</h2>
-<p>First download SDL2 for your platform from their <a href="https://github.com/libsdl-org/SDL/releases">official release page</a>:</p>
+<p>First download SDL for your platform. In Windows we download and extract a zip archive, on other system we install the latest SDL from package managers.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="mswindows" name="__tabbed_1" type="radio" /><input id="appleosx" name="__tabbed_1" type="radio" /><input id="gnulinux" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="mswindows">MS/Windows</label><label for="appleosx">Apple/OSX</label><label for="gnulinux">GNU/Linux</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>Invoke-WebRequest -Uri https://github.com/libsdl-org/SDL/releases/download/release-2.30.9/SDL2-devel-2.30.9-VC.zip
+<div class="highlight"><pre><span></span><code>Invoke-WebRequest -Outfile SDL2-devel.zip -Uri https://github.com/libsdl-org/SDL/releases/download/release-2.30.9/SDL2-devel-2.30.9-mingw.zip
+unzip SDL2-devel.zip
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -421,8 +422,7 @@ graphical applications. 🌟📚</p>
 </div>
 </div>
 </div>
-<p>In case of Windows you need to decompress the zip file to a known location, the important folders are called <code>lib</code> and <code>include</code>.</p>
-<p>Then download the <code>sdl2_noise.c</code> example:</p>
+<p>Then download the <a href="https://github.com/dyne/cjit/blob/main/examples/sdl2_noise.c">sdl2_noise.c</a> example:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="mswindows_1" name="__tabbed_2" type="radio" /><input id="appleosx_1" name="__tabbed_2" type="radio" /><input id="gnulinux_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="mswindows_1">MS/Windows</label><label for="appleosx_1">Apple/OSX</label><label for="gnulinux_1">GNU/Linux</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -439,33 +439,50 @@ graphical applications. 🌟📚</p>
 </div>
 </div>
 </div>
-<p>Then as usual execute it passing the source file as argument to CJIT.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The preview below looks bad because video compression cannot deal well with randomness.</p>
+<p>Then as usual execute it passing the source file as argument to CJIT. Since we are calling functions shared by a library, we'll add some extra parameters:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="mswindows_2" name="__tabbed_3" type="radio" /><input id="appleosx_2" name="__tabbed_3" type="radio" /><input id="gnulinux_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="mswindows_2">MS/Windows</label><label for="appleosx_2">Apple/OSX</label><label for="gnulinux_2">GNU/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>.\cjit.exe .\sdl2_noise.c -I.\SDL2-2.30.9\x86_64-w64-mingw32\include\ -L.\SDL2-2.30.9\x86_64-w64-mingw32\bin\
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>./cjit ./sdl2_noise.c -lSDL2
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>./cjit ./sdl2_noise.c -lSDL2
+</code></pre></div>
+</div>
+</div>
 </div>
 <p><img alt="A lousy rendering quality of random pixels" src="../images/cjit_sdl2_noise.gif" /></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This example still doesn't run on Windows, we are working on it.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This preview looks blurred because video compression cannot deal well with randomness.</p>
 </div>
-<p>Now have a look inside <code>sdl2_noise.c</code> and at the beginning of the file you'll see some particular lines of code:</p>
+<p>Have a look inside <a href="https://github.com/dyne/cjit/blob/main/examples/sdl2_noise.c">sdl2_noise.c</a>, and at the beginning of the file you'll see some particular lines of code worth explaining:</p>
 <h3 id="the-hashbang">The "hashbang"</h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env cjit</span>
 </code></pre></div>
-<p>This line indicates that the source file is a script that can be executed using the <code>cjit</code> interpreter when the executable bit is enabled (<code>chmod +x</code>) and if the CJIT interpreter is found in PATH.</p>
+<p>This line indicates that the source file is a script that can be executed using the <code>cjit</code> interpreter when the executable bit is enabled and if the CJIT interpreter is found in PATH.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The hashbang works only on Apple/OSX and GNU/Linux, where any file can be made executable with <code>chmod +x</code></p>
+</div>
 <h3 id="the-pragma-lib">The pragma lib</h3>
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma comment(lib, &quot;SDL2&quot;)</span>
 </code></pre></div>
-<p>This line tells CJIT to use the <code>libSDL2.so</code> shared library found installed on the system and allow the source code to call functions provided by it. It is the equivaled of <code>-lSDL2</code> on the commandline, with the only difference that it can be specified inside the source code.</p>
+<p>This line tells CJIT to link the <code>SDL2</code> shared library (the one installed on the system or found inside an <code>-L</code> path) and allows the source code to call functions provided by it. It is the equivaled of <code>-lSDL2</code> on the commandline, with the only difference that it can be specified inside the source code.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For Windows this means to look for <code>SDL2.dll</code> in a path indicated by <code>-L</code>. Another way to link libraries in Windows is to copy the <code>dll</code> files inside the same folder of the source code and add their filename to the list of arguments.</p>
+</div>
 <h3 id="the-sdl2-fix">The SDL2 fix</h3>
 <div class="highlight"><pre><span></span><code><span class="cp">#define SDL_DISABLE_IMMINTRIN_H 1</span>
+<span class="cp">#define SDL_MAIN_HANDLED 1</span>
 </code></pre></div>
-<p>This line tells SDL to disable some machine specific modules that break CJIT execution. Without it any SDL2 application will crash.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Work in Progress! If you like, contribute to <a href="https://github.com/dyne/docs">Dyne.org manuals</a></p>
-</div>
+<p>These lines tell SDL to disable some functionalities that break CJIT's execution. Without them defined before the <code>#include &lt;SDL2/SDL.h&gt;</code> line Windows applications will crash.</p>
 
 
 
