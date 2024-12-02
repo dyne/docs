@@ -1,0 +1,524 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://dyne.org/docs/cjit/graphics/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+    
+    
+      
+        <title>Graphics - CJIT Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cjit-for-graphical-applications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CJIT Manual" class="md-header__button md-logo" aria-label="CJIT Manual" data-md-component="logo">
+      
+  <img src="../images/dyneorg.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CJIT Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Graphics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CJIT Manual" class="md-nav__button md-logo" aria-label="CJIT Manual" data-md-component="logo">
+      
+  <img src="../images/dyneorg.svg" alt="logo">
+
+    </a>
+    CJIT Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Graphics
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Graphics
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-beauty-of-random" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Beauty of Random
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Beauty of Random">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-hashbang" class="md-nav__link">
+    <span class="md-ellipsis">
+      The "hashbang"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pragma-lib" class="md-nav__link">
+    <span class="md-ellipsis">
+      The pragma lib
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-sdl2-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      The SDL2 fix
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-beauty-of-random" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Beauty of Random
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Beauty of Random">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-hashbang" class="md-nav__link">
+    <span class="md-ellipsis">
+      The "hashbang"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pragma-lib" class="md-nav__link">
+    <span class="md-ellipsis">
+      The pragma lib
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-sdl2-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      The SDL2 fix
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="cjit-for-graphical-applications">CJIT for graphical applications</h1>
+<p>Be welcome to the exciting world of graphical C applications using SDL
+(<a href="https://sdl.org">Simple DirectMedia Layer</a>). SDL, originally
+developed by Sam Lantinga in 1998, is a powerful, cross-platform
+library designed to provide low-level access to audio, keyboard,
+mouse, and graphics hardware via OpenGL and Direct3D. It is an ideal
+choice of free and open source library to create graphical
+applications that run seamlessly across different operating systems.</p>
+<p>Whether you're developing games, simulations, or interactive tools,
+the combination of CJIT's simplicity in C code execution and <a href="https://wiki.libsdl.org/SDL2/Installation">SDL's
+cross-platform
+capabilities</a> offers a
+robust solution for your graphical application needs.</p>
+<p>As in the previous chapter, the following sections will guide you
+through practical usage examples, demonstrating how to create
+graphical applications. 🌟📚</p>
+<h2 id="the-beauty-of-random">The Beauty of Random</h2>
+<p>First download SDL2 for your platform from their <a href="https://github.com/libsdl-org/SDL/releases">official release page</a>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="mswindows" name="__tabbed_1" type="radio" /><input id="appleosx" name="__tabbed_1" type="radio" /><input id="gnulinux" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="mswindows">MS/Windows</label><label for="appleosx">Apple/OSX</label><label for="gnulinux">GNU/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Invoke-WebRequest -Uri https://github.com/libsdl-org/SDL/releases/download/release-2.30.9/SDL2-devel-2.30.9-VC.zip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>brew install sdl2
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>sudo apt-get install libsdl2-dev
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>In case of Windows you need to decompress the zip file to a known location, the important folders are called <code>lib</code> and <code>include</code>.</p>
+<p>Then download the <code>sdl2_noise.c</code> example:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="mswindows_1" name="__tabbed_2" type="radio" /><input id="appleosx_1" name="__tabbed_2" type="radio" /><input id="gnulinux_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="mswindows_1">MS/Windows</label><label for="appleosx_1">Apple/OSX</label><label for="gnulinux_1">GNU/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Invoke-WebRequest -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/sdl2_noise.c&quot; -OutFile &quot;sdl2_noise.c&quot;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl -sLo sdl2_noise.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/sdl2_noise.c
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl -sLo sdl2_noise.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/sdl2_noise.c
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Then as usual execute it passing the source file as argument to CJIT.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The preview below looks bad because video compression cannot deal well with randomness.</p>
+</div>
+<p><img alt="A lousy rendering quality of random pixels" src="../images/cjit_sdl2_noise.gif" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This example still doesn't run on Windows, we are working on it.</p>
+</div>
+<p>Now have a look inside <code>sdl2_noise.c</code> and at the beginning of the file you'll see some particular lines of code:</p>
+<h3 id="the-hashbang">The "hashbang"</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env cjit</span>
+</code></pre></div>
+<p>This line indicates that the source file is a script that can be executed using the <code>cjit</code> interpreter when the executable bit is enabled (<code>chmod +x</code>) and if the CJIT interpreter is found in PATH.</p>
+<h3 id="the-pragma-lib">The pragma lib</h3>
+<div class="highlight"><pre><span></span><code><span class="cp">#pragma comment(lib, &quot;SDL2&quot;)</span>
+</code></pre></div>
+<p>This line tells CJIT to use the <code>libSDL2.so</code> shared library found installed on the system and allow the source code to call functions provided by it. It is the equivaled of <code>-lSDL2</code> on the commandline, with the only difference that it can be specified inside the source code.</p>
+<h3 id="the-sdl2-fix">The SDL2 fix</h3>
+<div class="highlight"><pre><span></span><code><span class="cp">#define SDL_DISABLE_IMMINTRIN_H 1</span>
+</code></pre></div>
+<p>This line tells SDL to disable some machine specific modules that break CJIT execution. Without it any SDL2 application will crash.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Work in Progress! If you like, contribute to <a href="https://github.com/dyne/docs">Dyne.org manuals</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
