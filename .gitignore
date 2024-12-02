@@ -2,3 +2,5 @@ src
 venv
 env
 site
+.venv
+.envrc
