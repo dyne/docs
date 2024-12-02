@@ -1,0 +1,27 @@
+site_name: CJIT Manual
+site_url: https://dyne.org/docs/cjit
+
+theme:
+  name: material
+  logo: images/dyneorg.svg
+  favicon: images/favicon.png
+  features:
+    - content.tabs.link
+
+#extra_css:
+#  - stylesheets/extra.css
+
+nav:
+  - Introduction: index.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
