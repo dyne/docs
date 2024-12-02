@@ -250,6 +250,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#game-of-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game of Life
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -297,6 +306,15 @@
   <a href="#flying-donuts" class="md-nav__link">
     <span class="md-ellipsis">
       Flying Donuts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-of-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game of Life
     </span>
   </a>
   
@@ -527,6 +545,34 @@ Hello, World!
 </div>
 <p>The state of affairs in CJIT is well demonstrated by this example: right now the terminal is much slower on windows (rightmost donut).</p>
 <p><img alt="Two flying donuts, one running on GNU/Linux to the left and one on MS/Windows to the right" src="images/cjit_donut_race.gif" /></p>
+<h2 id="game-of-life">Game of Life</h2>
+<p>Anothre fascinating example is the "Game of Life," a cellular automaton devised by the British mathematician John Horton Conway in 1970. This zero-player game simulates the evolution of a grid of cells, showcasing complex behaviors emerging from simple rules.</p>
+<p>Download the <code>life.c</code> example pasting a command in the terminal</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="mswindows_5" name="__tabbed_6" type="radio" /><input id="appleosx_5" name="__tabbed_6" type="radio" /><input id="gnulinux_5" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="mswindows_5">MS/Windows</label><label for="appleosx_5">Apple/OSX</label><label for="gnulinux_5">GNU/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Invoke-WebRequest -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c&quot; -OutFile &quot;life.c&quot;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl -sLo life.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl -sLo life.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Then execute the <code>life.c</code> source file passing it as argument to <code>cjit</code>, the same way it was done for the flying donut.</p>
+<p><img alt="Game of Life in ASCII animation" src="images/cjit_life_c.gif" /></p>
+<p>Pretty cool stuff for some "boring" terminal session eh? Have a look
+around the <code>life.c</code> file with your favorite text editor and feel free
+to change things and see what happens.</p>
+<h1 id="next-chapter-graphics-with-cjit">⏩ <a href="graphical.md">Next chapter: graphics with CJIT</a></h1>
+<p>Now you are familiar with the way to execute CJIT! If you think that C
+is fun (and fast!) you are welcome to read the next chapter of this
+manual and discover one of many ways to run graphical applications.</p>
 
 
 
