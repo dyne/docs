@@ -305,6 +305,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#nuklear-widgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nuklear widgets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thats-all-for-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      That's all for now!
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -385,6 +403,24 @@
   <a href="#three-dimensions" class="md-nav__link">
     <span class="md-ellipsis">
       Three Dimensions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nuklear-widgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nuklear widgets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thats-all-for-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      That's all for now!
     </span>
   </a>
   
@@ -578,6 +614,138 @@ unzip SDL2-devel.zip
 </code></pre></div>
 <p>Below the well deserved credits for this example there are different ways to link the OpenGL library, because the library file is named differently on different platforms. We solve the problem by using a <code>#define</code> macro with symbol <code>WINDOWS</code> to branch over a different <code>#pragma</code> directive chosing the case-sensitive name of the library.</p>
 <p>To understand the rest of the code make sure to read the <a href="https://shallowbrooksoftware.com/posts/a-multi-platform-modern-opengl-demo-with-sdl2/">multi-platform-modern-opengl-demo-with-sdl2 tutorial</a>.</p>
+<h2 id="nuklear-widgets">Nuklear widgets</h2>
+<p>Nuklear is a minimal, immediate-mode graphical user interface toolkit
+written in ANSI C and licensed under public domain. It is designed to
+be lightweight and highly customizable, making it an ideal choice for
+developing user interfaces across different platforms.</p>
+<p>With Nuklear, you can easily create a comprehensive set of widgets to
+enhance user experience (UX) in your applications. The library
+provides a wide range of components, including buttons, sliders, text
+input fields, and more, all of which can be integrated seamlessly with
+CJIT. This combination allows for rapid prototyping and real-time
+adjustments, fostering a dynamic development process.</p>
+<p>Nuklear's simplicity and flexibility make it the perfect companion for
+CJIT, enabling you to design and implement intuitive and visually
+appealing interfaces that run consistently on GNU/Linux, MS/Windows,
+and Apple/OSX.</p>
+<p>Let's dive in and discover how to create powerful and responsive
+interfaces with ease! 🎨🛠️</p>
+<p>The
+<a href="https://raw.githubusercontent.com/Immediate-Mode-UI/Nuklear/refs/heads/master/nuklear.h">nuklear.h</a>
+header is all what you need, download it together with CJIT's example
+source code.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="mswindows_6" name="__tabbed_7" type="radio" /><input id="appleosx_6" name="__tabbed_7" type="radio" /><input id="gnulinux_6" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="mswindows_6">MS/Windows</label><label for="appleosx_6">Apple/OSX</label><label for="gnulinux_6">GNU/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Invoke-WebRequest -OutFile &quot;nuklear.h&quot; -Uri &quot;https://raw.githubusercontent.com/Immediate-Mode-UI/Nuklear/refs/heads/master/nuklear.h&quot;
+Invoke-WebRequest -OutFile &quot;nuklear.c&quot; -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear.c&quot;
+mkdir nuklear
+Invoke-WebRequest -OutFile &quot;nuklear/calculator.c&quot; -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/calculator.c&quot;
+Invoke-WebRequest -OutFile &quot;nuklear/canvas.c&quot; -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/canvas.c&quot;
+Invoke-WebRequest -OutFile &quot;nuklear/node_editor.c&quot; -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/node_editor.c&quot;
+Invoke-WebRequest -OutFile &quot;nuklear/overview.c&quot; -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/overview.c&quot;
+Invoke-WebRequest -OutFile &quot;nuklear/style.c&quot; -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/style.c&quot;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl -sLo nuklear.h https://raw.githubusercontent.com/Immediate-Mode-UI/Nuklear/refs/heads/master/nuklear.h
+curl -sLo nuklear.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear.c
+mkdir -p nuklear
+curl -sLo nuklear/calculator.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/calculator.c
+curl -sLo nuklear/canvas.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/canvas.c
+curl -sLo nuklear/node_editor.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/node_editor.c
+curl -sLo nuklear/overview.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/overview.c
+curl -sLo nuklear/style.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/style.c
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl -sLo nuklear.h https://raw.githubusercontent.com/Immediate-Mode-UI/Nuklear/refs/heads/master/nuklear.h
+curl -sLo nuklear.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear.c
+mkdir -p nuklear
+curl -sLo nuklear/calculator.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/calculator.c
+curl -sLo nuklear/canvas.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/canvas.c
+curl -sLo nuklear/node_editor.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/node_editor.c
+curl -sLo nuklear/overview.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/overview.c
+curl -sLo nuklear/style.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/style.c
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>This will create a small directory structure with all the source code files needed for our example:
+<div class="highlight"><pre><span></span><code>.
+├── nuklear
+│   ├── calculator.c
+│   ├── canvas.c
+│   ├── node_editor.c
+│   ├── overview.c
+│   └── style.c
+├── nuklear.c
+└── nuklear.h
+</code></pre></div></p>
+<p>In this multiple file setup we have the main code of our example which
+is
+<a href="https://github.com/dyne/cjit/blob/main/examples/nuklear.c">nuklear.c</a>
+ call one or more example modules according to define flags. By default it will just start all modules, see around line 390:
+<div class="highlight"><pre><span></span><code><span class="cm">/* ===============================================================</span>
+<span class="cm"> *</span>
+<span class="cm"> *                          EXAMPLE</span>
+<span class="cm"> *</span>
+<span class="cm"> * ===============================================================*/</span>
+<span class="cm">/* This are some code examples to provide a small overview of what can be</span>
+<span class="cm"> * done with this library. To try out an example uncomment the defines */</span>
+<span class="cp">#define INCLUDE_ALL</span>
+<span class="cm">/*#define INCLUDE_STYLE */</span>
+<span class="cm">/*#define INCLUDE_CALCULATOR */</span>
+<span class="cm">/*#define INCLUDE_CANVAS */</span>
+<span class="cp">#define INCLUDE_OVERVIEW</span>
+<span class="cm">/*#define INCLUDE_NODE_EDITOR */</span>
+
+<span class="cp">#ifdef INCLUDE_ALL</span>
+<span class="w">  </span><span class="cp">#define INCLUDE_STYLE</span>
+<span class="w">  </span><span class="cp">#define INCLUDE_CALCULATOR</span>
+<span class="w">  </span><span class="cp">#define INCLUDE_CANVAS</span>
+<span class="w">  </span><span class="cp">#define INCLUDE_OVERVIEW</span>
+<span class="w">  </span><span class="cp">#define INCLUDE_NODE_EDITOR</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#ifdef INCLUDE_STYLE</span>
+<span class="w">  </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;nuklear/style.c&quot;</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifdef INCLUDE_CALCULATOR</span>
+<span class="w">  </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;nuklear/calculator.c&quot;</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifdef INCLUDE_CANVAS</span>
+<span class="w">  </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;nuklear/canvas.c&quot;</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifdef INCLUDE_OVERVIEW</span>
+<span class="w">  </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;nuklear/overview.c&quot;</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifdef INCLUDE_NODE_EDITOR</span>
+<span class="w">  </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;nuklear/node_editor.c&quot;</span>
+<span class="cp">#endif</span>
+</code></pre></div></p>
+<p>Starting it up is simple as usual, this time we just need to add <code>-I.</code> to tell CJIT it can look for headers in the current directory, so it will find <code>nuklear.h</code></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="mswindows_7" name="__tabbed_8" type="radio" /><input id="appleosx_7" name="__tabbed_8" type="radio" /><input id="gnulinux_7" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="mswindows_7">MS/Windows</label><label for="appleosx_7">Apple/OSX</label><label for="gnulinux_7">GNU/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>.\cjit.exe ./nuklear.c -I. -I.\SDL2-2.30.9\x86_64-w64-mingw32\include\ -L.\SDL2-2.30.9\x86_64-w64-mingw32\bin
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>./cjit ./nuklear.c -I.
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>./cjit ./nuklear.c -I.
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>And 💥Boom! enjoy Nuklear!</p>
+<p><img alt="Pretty advanced GUI widgets shown" src="../images/cjit_nuklear.gif" /></p>
+<h2 id="thats-all-for-now">That's all for now!</h2>
+<p>If you like this manual, <a href="https://github.com/dyne/cjit">give CJIt a star</a>, <a href="https://dyne.org/contact">let us know</a> what you'd like to see next and consider making a <a href="https://dyne.org/donate">donation to Dyne.org</a>. Thanks!</p>
 
 
 
