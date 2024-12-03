@@ -296,6 +296,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#three-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three Dimensions
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -369,6 +378,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three Dimensions
+    </span>
+  </a>
   
 </li>
       
@@ -483,6 +501,83 @@ unzip SDL2-devel.zip
 <span class="cp">#define SDL_MAIN_HANDLED 1</span>
 </code></pre></div>
 <p>These lines tell SDL to disable some functionalities that break CJIT's execution. Without them defined before the <code>#include &lt;SDL2/SDL.h&gt;</code> line Windows applications will crash.</p>
+<h2 id="three-dimensions">Three Dimensions</h2>
+<p>To draw accelerated graphics and 3D objects we'll use OpenGL, short for Open Graphics Library: this is a cross-language, cross-platform API for rendering 2D and 3D vector graphics. Originally developed by Silicon Graphics Inc. (SGI) in 1992, OpenGL has become a widely adopted standard in the graphics industry.</p>
+<p>Combining OpenGL with CJIT enables you to take full advantage of GPU accelerated graphics rendering while leveraging the dynamic capabilities of in-memory C code compilation, to swiftly prototype and test graphics-intensive applications.</p>
+<p>Here is how to do it. First make sure you have OpenGL on your system: Windows users don't need to worry, it is there already.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="mswindows_3" name="__tabbed_4" type="radio" /><input id="appleosx_3" name="__tabbed_4" type="radio" /><input id="gnulinux_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="mswindows_3">MS/Windows</label><label for="appleosx_3">Apple/OSX</label><label for="gnulinux_3">GNU/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Nothing to do.</p>
+</div>
+<div class="tabbed-block">
+<p>Not sure (help testing this please!)</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>sudo apt-get install libopengl-dev
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Then download the <a href="https://github.com/dyne/cjit/blob/main/examples/opengl.c">opengl.c</a> example we ship in CJIT, adapted from this awesome <a href="https://shallowbrooksoftware.com/posts/a-multi-platform-modern-opengl-demo-with-sdl2/">opengl+SDL2 tutorial by Andrew Dailey</a>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="mswindows_4" name="__tabbed_5" type="radio" /><input id="appleosx_4" name="__tabbed_5" type="radio" /><input id="gnulinux_4" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="mswindows_4">MS/Windows</label><label for="appleosx_4">Apple/OSX</label><label for="gnulinux_4">GNU/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Invoke-WebRequest -OutFile &quot;opengl.c&quot; -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/opengl.c&quot;
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl -sLo opengl.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/opengl.c
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl -sLo opengl.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/opengl.c
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>And execute it as usual, giving the <code>opengl.c</code> file name as argument to CJIT. In case of windows you'll have to include also the path to the SDL2 library which was used in the previous example:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="mswindows_5" name="__tabbed_6" type="radio" /><input id="appleosx_5" name="__tabbed_6" type="radio" /><input id="gnulinux_5" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="mswindows_5">MS/Windows</label><label for="appleosx_5">Apple/OSX</label><label for="gnulinux_5">GNU/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>.\cjit.exe ./opengl.c -DWINDOWS -I .\SDL2-2.30.9\x86_64-w64-mingw32\include\ -L.\SDL2-2.30.9\x86_64-w64-mingw32\bin
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>./cjit ./opengl.c
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>./cjit ./opengl.c
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><img alt="Smoothly rotating red square" src="../images/cjit_opengl.gif" /></p>
+<p>Let's have a quick look at what is happening here: please note the <code>-DWINDOWS</code> execution flag we use for Windows. Then look at the <code>opengl.c</code> code:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Taken from https://github.com/theandrew168/sdl2-opengl-demo</span>
+<span class="c1">//</span>
+<span class="c1">// Copyright (c) 2020 Andrew Dailey</span>
+<span class="c1">//</span>
+<span class="c1">// Slightly modified to be one-file and work in CJIT by Jaromil</span>
+<span class="c1">//</span>
+<span class="c1">// MIT License</span>
+<span class="c1">//</span>
+<span class="c1">// Tutorial explanation:</span>
+<span class="c1">// https://shallowbrooksoftware.com/posts/a-multi-platform-modern-opengl-demo-with-sdl2/</span>
+
+<span class="cp">#pragma comment(lib, &quot;SDL2&quot;)</span>
+
+<span class="cp">#ifdef WINDOWS</span>
+<span class="cp">#pragma comment(lib, &quot;opengl32&quot;)</span>
+<span class="cp">#elif LINUX</span>
+<span class="cp">#pragma comment(lib, &quot;OpenGL&quot;)</span>
+<span class="cp">#else</span>
+<span class="cp">#pragma comment(lib, &quot;OpenGL&quot;)</span>
+<span class="cp">#endif</span>
+</code></pre></div>
+<p>Below the well deserved credits for this example there are different ways to link the OpenGL library, because the library file is named differently on different platforms. We solve the problem by using a <code>#define</code> macro with symbol <code>WINDOWS</code> to branch over a different <code>#pragma</code> directive chosing the case-sensitive name of the library.</p>
+<p>To understand the rest of the code make sure to read the <a href="https://shallowbrooksoftware.com/posts/a-multi-platform-modern-opengl-demo-with-sdl2/">multi-platform-modern-opengl-demo-with-sdl2 tutorial</a>.</p>
 
 
 
