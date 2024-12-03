@@ -1,5 +1,6 @@
 site_name: CJIT Manual
 site_url: https://dyne.org/docs/cjit
+copyright: CJIT Manual written by <a href="https://jaromil.dyne.org">Jaromil</a>, Copyright &copy; 2024 Dyne.org Foundation
 
 theme:
   name: material
@@ -7,6 +8,14 @@ theme:
   favicon: images/favicon.png
   features:
     - content.tabs.link
+
+extra:
+ social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dyne/cjit
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/dyne-org/
+ generator: false
 
 #extra_css:
 #  - stylesheets/extra.css
