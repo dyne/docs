@@ -47,6 +47,12 @@ We grant to everyone the freedome to use, study, modify, and
 redistribute modifications of CJIT as long as such modifications are
 licensed with one of the licenses already present: MIT, GPL or LGPL.
 
+## Where to I send my corrections to this documentation?
+
+You are welcome to [open an issue or a PR to the dyne/docs project](https://github.com/dyne/docs).
+
+The source of the CJIT manual is in the markdown formatted files in `src/cjit/docs` inside the repository.
+
 ## I have a new question, whom can I ask?
 
 You are welcome to interact in public with Dyne.org hackers over any
