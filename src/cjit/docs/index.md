@@ -108,9 +108,7 @@ Finally execute hello.c using CJIT with:
 As a result you will see CJIT starting and printing "Hello World!"
 
 ```
-CJIT v0.8.7 by Dyne.org
-inc: C:\Users\utente\AppData\Local\Temp\CJIT-v0.8.7
-lib paths: C:\Users\utente\AppData\Local\Temp\CJIT-v0.8.7
+CJIT v0.8.12 by Dyne.org
 Source code:
 + .\hello.c
 Execution start
@@ -119,6 +117,11 @@ Hello, World!
 ```
 
 You can now play with `hello.c`, change what you want and run it again!
+
+!!! warning
+    When using a Windows Terminal configured in a language that is not
+    English, beware it may be set to UTF-16: this will break the example code
+    pasted from clipboard. Switch the terminal to UTF-8 encoding.
 
 ## Flying Donuts
 
@@ -262,7 +265,7 @@ Pretty cool stuff for some "boring" terminal session eh? Have a look
 around the `life.c` file with your favorite text editor and feel free
 to change things and see what happens.
 
-# ⏩ [Next chapter: graphics with CJIT](graphics)
+# ⏩ [Next: graphics with CJIT](graphics)
 
 Now you are familiar with the way to execute CJIT! If you think that C
 is fun (and fast!) you are welcome to read the next chapter of this
