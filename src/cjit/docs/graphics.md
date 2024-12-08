@@ -45,7 +45,7 @@ Then download the [sdl2_noise.c](https://github.com/dyne/cjit/blob/main/examples
 === "MS/Windows"
 
     ```
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/sdl2_noise.c" -OutFile "sdl2_noise.c"
+    Invoke-WebRequest -OutFile "sdl2_noise.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/sdl2_noise.c" -Encoding ASCII
     ```
 
 === "Apple/OSX"
@@ -140,7 +140,7 @@ Then download the [opengl.c](https://github.com/dyne/cjit/blob/main/examples/ope
 
 === "MS/Windows"
     ```
-    Invoke-WebRequest -OutFile "opengl.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/opengl.c"
+    Invoke-WebRequest -OutFile "opengl.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/opengl.c" -Encoding ASCII
     ```
 
 === "Apple/OSX"
@@ -230,14 +230,14 @@ source code.
 
 === "MS/Windows"
     ```
-    Invoke-WebRequest -OutFile "nuklear.h" -Uri "https://raw.githubusercontent.com/Immediate-Mode-UI/Nuklear/refs/heads/master/nuklear.h"
-    Invoke-WebRequest -OutFile "nuklear.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear.c"
+    Invoke-WebRequest -OutFile "nuklear.h" -Uri "https://raw.githubusercontent.com/Immediate-Mode-UI/Nuklear/refs/heads/master/nuklear.h" -Encoding ASCII
+    Invoke-WebRequest -OutFile "nuklear.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear.c" -Encoding ASCII
     mkdir nuklear
-    Invoke-WebRequest -OutFile "nuklear/calculator.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/calculator.c"
-    Invoke-WebRequest -OutFile "nuklear/canvas.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/canvas.c"
-    Invoke-WebRequest -OutFile "nuklear/node_editor.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/node_editor.c"
-    Invoke-WebRequest -OutFile "nuklear/overview.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/overview.c"
-    Invoke-WebRequest -OutFile "nuklear/style.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/style.c"
+    Invoke-WebRequest -OutFile "nuklear/calculator.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/calculator.c" -Encoding ASCII
+    Invoke-WebRequest -OutFile "nuklear/canvas.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/canvas.c" -Encoding ASCII
+    Invoke-WebRequest -OutFile "nuklear/node_editor.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/node_editor.c" -Encoding ASCII
+    Invoke-WebRequest -OutFile "nuklear/overview.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/overview.c" -Encoding ASCII
+    Invoke-WebRequest -OutFile "nuklear/style.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/nuklear/style.c" -Encoding ASCII
     ```
 
 === "Apple/OSX"

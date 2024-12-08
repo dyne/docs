@@ -30,7 +30,7 @@ Download CJIT pasting a command in the terminal
 === "MS/Windows"
 
     ```
-    Invoke-WebRequest -Uri "https://github.com/dyne/cjit/releases/latest/download/cjit.exe" -OutFile "cjit.exe"
+    Invoke-WebRequest -OutFile "cjit.exe" -Uri "https://github.com/dyne/cjit/releases/latest/download/cjit.exe"
     ```
 
 === "Apple/OSX"
@@ -58,7 +58,7 @@ Then create hello.c by pasting these lines in the terminal:
       fprintf(stderr,"Hello, World!\n");
       exit(0);
     }
-    "@| Out-File -FilePath "hello.c"
+    "@| Out-File -FilePath "hello.c" -Encoding ASCII
     ```
 
 === "Apple/OSX"
@@ -153,7 +153,7 @@ Create the `donut.c` file using the artful code below:
             " donut.c! \x1b[23A"));}}
               /*no math lib needed
                  .@a1k0n 2021.*/
-    "@| Out-File -FilePath "donut.c"
+    "@| Out-File -FilePath "donut.c" -Encoding ASCII
     ```
 
 === "Apple/OSX"
@@ -242,7 +242,7 @@ Download the `life.c` example pasting a command in the terminal
 === "MS/Windows"
 
     ```
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c" -OutFile "life.c"
+    Invoke-WebRequest -OutFile "life.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c" -Encoding ASCII
     ```
 
 === "Apple/OSX"
