@@ -401,7 +401,7 @@ workflow. 📚🔧</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="mswindows" name="__tabbed_1" type="radio" /><input id="appleosx" name="__tabbed_1" type="radio" /><input id="gnulinux" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="mswindows">MS/Windows</label><label for="appleosx">Apple/OSX</label><label for="gnulinux">GNU/Linux</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>Invoke-WebRequest -Uri &quot;https://github.com/dyne/cjit/releases/latest/download/cjit.exe&quot; -OutFile &quot;cjit.exe&quot;
+<div class="highlight"><pre><span></span><code>Invoke-WebRequest -OutFile &quot;cjit.exe&quot; -Uri &quot;https://github.com/dyne/cjit/releases/latest/download/cjit.exe&quot;
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -425,7 +425,7 @@ workflow. 📚🔧</p>
 <span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="s">&quot;@| Out-File -FilePath &quot;</span><span class="n">hello</span><span class="p">.</span><span class="n">c</span><span class="s">&quot;</span>
+<span class="s">&quot;@| Out-File -FilePath &quot;</span><span class="n">hello</span><span class="p">.</span><span class="n">c</span><span class="s">&quot; -Encoding ASCII</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -513,7 +513,7 @@ pasted from clipboard. Switch the terminal to UTF-8 encoding.</p>
 <span class="w">        </span><span class="s">&quot; donut.c! </span><span class="se">\x1b</span><span class="s">[23A&quot;</span><span class="p">));}}</span>
 <span class="w">          </span><span class="cm">/*no math lib needed</span>
 <span class="cm">             .@a1k0n 2021.*/</span>
-<span class="s">&quot;@| Out-File -FilePath &quot;</span><span class="n">donut</span><span class="p">.</span><span class="n">c</span><span class="s">&quot;</span>
+<span class="s">&quot;@| Out-File -FilePath &quot;</span><span class="n">donut</span><span class="p">.</span><span class="n">c</span><span class="s">&quot; -Encoding ASCII</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -597,7 +597,7 @@ pasted from clipboard. Switch the terminal to UTF-8 encoding.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="mswindows_5" name="__tabbed_6" type="radio" /><input id="appleosx_5" name="__tabbed_6" type="radio" /><input id="gnulinux_5" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="mswindows_5">MS/Windows</label><label for="appleosx_5">Apple/OSX</label><label for="gnulinux_5">GNU/Linux</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>Invoke-WebRequest -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c&quot; -OutFile &quot;life.c&quot;
+<div class="highlight"><pre><span></span><code>Invoke-WebRequest -OutFile &quot;life.c&quot; -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c&quot; -Encoding ASCII
 </code></pre></div>
 </div>
 <div class="tabbed-block">
