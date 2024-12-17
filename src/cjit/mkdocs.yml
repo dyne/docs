@@ -24,6 +24,7 @@ nav:
   - Introduction: index.md
   - Graphics: graphics.md
   - FAQ: faq.md
+  - Builtin extensions: builtins.md
 
 markdown_extensions:
   - attr_list
