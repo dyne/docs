@@ -49,7 +49,8 @@ static void watch_callback(dmon_watch_id watch_id,
         fprintf(stderr,"MODIFY: [%s]%s\n", rootdir, filepath);
         break;
     case DMON_ACTION_MOVE:
-        fprintf(stderr,"MOVE: [%s]%s -> [%s]%s\n", rootdir, oldfilepath, rootdir, filepath);
+        fprintf(stderr,"MOVE: [%s]%s -> [%s]%s\n",
+          rootdir, oldfilepath, rootdir, filepath);
         break;
     }
 }
@@ -58,7 +59,8 @@ int main(int argc, char* argv[]) {
     if (argc > 1) {
         dmon_init();
         puts("waiting for changes ..");
-        dmon_watch(argv[1], watch_callback, DMON_WATCHFLAGS_RECURSIVE, NULL);
+        dmon_watch(argv[1], watch_callback,
+          DMON_WATCHFLAGS_RECURSIVE, NULL);
         getchar();
         dmon_deinit();
     } else {
@@ -68,22 +70,23 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-## Audio playback and recording
+## Audio play and record
 
-The (miniaudio.h)[https://miniaud.io] built-in handles audio playback
+The [miniaudio](https://miniaud.io) built-in handles audio playback
 and capture with ease. With this extension, you can seamlessly
 integrate audio functionality into your C scripts, creating immersive
 and interactive experiences for your users.
 
 Miniaudio provides two main sources of documentation
-- [A Programmer's manual](https://miniaud.io/docs/manual/index.html)
-- [Various examples](https://miniaud.io/docs/examples/index.html)
 
-Its full API reference is a work in progress.  Miniaudio includes both
-low level and high level APIs. The low level API is good for those who
-want to do all of their mixing themselves and only require a light
-weight interface to the underlying audio device. The high level API is
-good for those who have complex mixing and effect requirements.
+  - [The miniaudio Programmer's manual](https://miniaud.io/docs/manual/index.html)
+  - [Various miniaudio examples](https://miniaud.io/docs/examples/index.html)
+
+Miniaudio includes both low level and high level APIs. The low level
+API is good for those who want to do all of their mixing themselves
+and only require a light weight interface to the underlying audio
+device. The high level API is good for those who have complex mixing
+and effect requirements.
 
 In miniaudio, objects are transparent structures. Unlike many other
 libraries, there are no handles to opaque objects which means you need
@@ -109,13 +112,16 @@ is an example of sin wave synthesis that runs smoothly in CJIT:
 #define DEVICE_CHANNELS     2
 #define DEVICE_SAMPLE_RATE  48000
 
-void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount) {
+void data_callback(ma_device* pDevice,
+                   void* pOutput,
+                   const void* pInput,
+                   ma_uint32 frameCount) {
     ma_waveform* pSineWave;
     MA_ASSERT(pDevice->playback.channels == DEVICE_CHANNELS);
     pSineWave = (ma_waveform*)pDevice->pUserData;
     MA_ASSERT(pSineWave != NULL);
     ma_waveform_read_pcm_frames(pSineWave, pOutput, frameCount, NULL);
-    (void)pInput;   /* Unused. */
+    (void)pInput;   /* Unused in this example. */
 }
 
 int main(int argc, char** argv) {
@@ -153,3 +159,80 @@ int main(int argc, char** argv) {
     return 0;
 }
 ```
+
+## Terminal User Interface
+
+Believe it or not, one can draw a beautiful terminal user interface
+(also called TUI) on a text console, with colors and blinking lights
+too. Our built-in [termbox2](https://github.com/termbox/termbox2)
+allows this in an API that improves a lot on old approaches as ncurses
+or slang, by [sucking much less](https://suckless.org) `:^)`
+
+Here is a quick synopsis:
+
+```c
+#define TB_IMPL
+#include "termbox2.h"
+
+int main(int argc, char **argv) {
+    struct tb_event ev;
+    int y = 0;
+
+    tb_init();
+
+    tb_printf(0, y++, TB_GREEN, 0, "hello from termbox");
+    tb_printf(0, y++, 0, 0, "width=%d height=%d",
+              tb_width(), tb_height());
+    tb_printf(0, y++, 0, 0, "press any key...");
+    tb_present();
+
+    tb_poll_event(&ev);
+
+    y++;
+    tb_printf(0, y++, 0, 0, "event type=%d key=%d ch=%c",
+              ev.type, ev.key, ev.ch);
+    tb_printf(0, y++, 0, 0, "press any key to quit...");
+    tb_present();
+
+    tb_poll_event(&ev);
+    tb_shutdown();
+
+    return 0;
+}
+```
+
+The termbox2 basic API is self explanatory:
+
+```c
+int tb_init();
+int tb_shutdown();
+
+int tb_width();
+int tb_height();
+
+int tb_clear();
+int tb_present();
+
+int tb_set_cursor(int cx, int cy);
+int tb_hide_cursor();
+
+int tb_set_cell(int x, int y, uint32_t ch,
+                uintattr_t fg, uintattr_t bg);
+
+int tb_peek_event(struct tb_event *event,
+                  int timeout_ms);
+int tb_poll_event(struct tb_event *event);
+
+int tb_print(int x, int y,
+             uintattr_t fg, uintattr_t bg,
+             const char *str);
+int tb_printf(int x, int y,
+              uintattr_t fg, uintattr_t bg,
+              const char *fmt, ...);
+```
+
+To see a demo of what it can do, see the
+[examples/termbox.c](https://github.com/dyne/cjit/blob/main/examples/termbox2.c)
+example which will draw a keyboard on your terminal and show the keys
+you are pressing in real-time. Its code is a great source of knowledge
+about what termbox2 can do!
