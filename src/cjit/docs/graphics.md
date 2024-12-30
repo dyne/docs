@@ -7,99 +7,44 @@ developed by Sam Lantinga in 1998, is a powerful, cross-platform
 library designed to provide low-level access to audio, keyboard,
 mouse, and graphics hardware via OpenGL and Direct3D.
 
-Whether you're developing games, simulations, or interactive tools,
-the combination of CJIT's simplicity in C code execution and [SDL's
-cross-platform
-capabilities](https://wiki.libsdl.org/SDL2/Installation) offers a
-solution for your graphical application needs.
+!!! warn
+    This part of the tutorial may be incomplete for Apple/OSX, please help testing and refining it!
 
 ## Download the cjit-demo package
 
-As in the previous chapter, the following sections will guide you
-through practical usage examples, demonstrating how to create
-graphical applications. 🌟📚
+From now on this tutorial will guide you to launch more complex
+applications, showing how to use libraries that are installed on your
+system and shipped along with the source code.
 
-If you haven't done already, make sure you have downloaded and
-unpacked the [cjit-demo.tar.gz](https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz) package and copied the [cjit executable](https://github.com/dyne/cjit/releases) inside it. Here some quick terminal commands to do that:
+To setup the demo environment you can simply run the command below:
 
 === "MS/Windows"
 
     ```
-    Invoke-WebRequest -OutFile "cjit.exe" -Uri "https://github.com/dyne/cjit/releases/latest/download/cjit.exe"
-    Invoke-WebRequest -OutFile "cjit-demo.tar.gz" -Uri "https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz"
-    cjit.exe --xtgz cjit-demo.tar.gz
-    cp cjit.exe cjit-demo
-    cd cjit-demo
+    iex ((New-Object System.Net.WebClient).DownloadString('https://dyne.org/cjit/demo'))
     ```
 
 === "Apple/OSX"
 
     ```
-    curl -sLo cjit https://github.com/dyne/cjit/releases/latest/download/cjit-$(uname)-$(uname -m)
-    chmod +x cjit
-    curl -sLo cjit-demo.tar.gz https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz
-    ./cjit --xtgz cjit-demo.tar.gz
-    cp ./cjit cjit-demo/
-    cd cjit-demo
+    curl -sL https://dyne.org/cjit/demo.sh | bash
     ```
 
 === "GNU/Linux"
 
     ```
-    curl -sLo cjit-demo.tar.gz https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz
-    ./cjit --xtgz cjit-demo.tar.gz
-    cp ./cjit cjit-demo/
-    cd cjit-demo
+    curl -sL https://dyne.org/cjit/demo.sh | bash
     ```
 
 
 ## The Beauty of Random
 
-First download SDL for your platform. In Windows we download and extract a zip archive, on other system we install the latest SDL from package managers.
-
-
-=== "MS/Windows"
-    ```
-    Invoke-WebRequest -Outfile SDL2-devel.zip -Uri https://github.com/libsdl-org/SDL/releases/download/release-2.30.9/SDL2-devel-2.30.9-mingw.zip
-    unzip SDL2-devel.zip
-    ```
-
-=== "Apple/OSX"
-    ```
-    brew install sdl2
-    ```
-
-=== "GNU/Linux"
-    ```
-    sudo apt-get install libsdl2-dev
-    ```
-
-Then download the [sdl2_noise.c](https://github.com/dyne/cjit/blob/main/examples/sdl2_noise.c) example:
+Execute `sdl2_noise.c` passing the source file as argument to CJIT. Since we are also using a library, there may be the need for some extra parameters:
 
 === "MS/Windows"
 
     ```
-    Invoke-WebRequest -OutFile "sdl2_noise.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/sdl2_noise.c" -Encoding ASCII
-    ```
-
-=== "Apple/OSX"
-
-    ```
-    curl -sLo sdl2_noise.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/sdl2_noise.c
-    ```
-
-=== "GNU/Linux"
-
-    ```
-    curl -sLo sdl2_noise.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/sdl2_noise.c
-    ```
-
-Then as usual execute it passing the source file as argument to CJIT. Since we are calling functions shared by a library, we'll add some extra parameters:
-
-=== "MS/Windows"
-
-    ```
-    .\cjit.exe .\sdl2_noise.c -I.\SDL2-2.30.9\x86_64-w64-mingw32\include\ -L.\SDL2-2.30.9\x86_64-w64-mingw32\bin\
+    .\cjit.exe sdl2_noise.c SDL2.dll
     ```
 
 === "Apple/OSX"
@@ -111,7 +56,7 @@ Then as usual execute it passing the source file as argument to CJIT. Since we a
 === "GNU/Linux"
 
     ```
-    ./cjit ./sdl2_noise.c -lSDL2
+    ./cjit ./sdl2_noise.c /usr/lib/x86_64-linux-gnu/libSDL2.so
     ```
 
 
@@ -120,47 +65,36 @@ Then as usual execute it passing the source file as argument to CJIT. Since we a
 !!! info
     This preview looks blurred because video compression cannot deal well with randomness.
 
-Have a look inside [sdl2_noise.c](https://github.com/dyne/cjit/blob/main/examples/sdl2_noise.c), and at the beginning of the file you'll see some particular lines of code worth explaining:
+Have a look inside [sdl2_noise.c](https://github.com/dyne/cjit/blob/main/examples/sdl2_noise.c), and see the first line of code:
 
 ### The "hashbang"
 ```sh
 #!/usr/bin/env cjit
 ```
 
-This line indicates that the source file is a script that can be executed using the `cjit` interpreter when the executable bit is enabled and if the CJIT interpreter is found in PATH.
+The source file can be launched as a script, when the CJIT interpreter is found in PATH.
 
 !!! warning
-    The hashbang works only on Apple/OSX and GNU/Linux, where any file can be made executable with `chmod +x`
+    The hashbang works only on Apple/OSX and GNU/Linux, where scripts can be made executable with `chmod +x`
 
 ### The pragma lib
+
+Also see this pre-processor directive:
 ```c
 #pragma comment(lib, "SDL2")
 ```
 
-This line tells CJIT to link the `SDL2` shared library (the one installed on the system or found inside an `-L` path) and allows the source code to call functions provided by it. It is the equivaled of `-lSDL2` on the commandline, with the only difference that it can be specified inside the source code.
+This line tells CJIT to link the `SDL2` shared library. It is the equivaled of `SDL2.dll` on the commandline, with the only difference that it can be specified inside the source code.
 
 !!! info
-    For Windows this means to look for `SDL2.dll` in a path indicated by `-L`. Another way to link libraries in Windows is to copy the `dll` files inside the same folder of the source code and add their filename to the list of arguments.
-
-### The SDL2 fix
-
-```c
-#define SDL_DISABLE_IMMINTRIN_H 1
-#define SDL_MAIN_HANDLED 1
-```
-
-These lines tell SDL to disable some functionalities that break CJIT's execution. Without them defined before the `#include <SDL2/SDL.h>` line Windows applications will crash.
+    On Windows the DLL files need to be in the same directory of execution, or installed system-wide.
 
 ## Three Dimensions
 
-To draw accelerated graphics and 3D objects we'll use OpenGL, short for Open Graphics Library: this is a cross-language, cross-platform API for rendering 2D and 3D vector graphics. Originally developed by Silicon Graphics Inc. (SGI) in 1992, OpenGL has become a widely adopted standard in the graphics industry.
-
-Combining OpenGL with CJIT enables you to take full advantage of GPU accelerated graphics rendering while leveraging the dynamic capabilities of in-memory C code compilation, to swiftly prototype and test graphics-intensive applications.
-
-Here is how to do it. First make sure you have OpenGL on your system: Windows users don't need to worry, it is there already.
+To draw accelerated graphics and 3D objects we'll use OpenGL libraries, which need to be installed on the system.
 
 === "MS/Windows"
-    Nothing to do.
+    [Install the Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/) which is distributed gratis by Microsoft.
 
 === "Apple/OSX"
     Not sure (help testing this please!)
@@ -170,39 +104,7 @@ Here is how to do it. First make sure you have OpenGL on your system: Windows us
     sudo apt-get install libopengl-dev
     ```
 
-Then download the [opengl.c](https://github.com/dyne/cjit/blob/main/examples/opengl.c) example we ship in CJIT, adapted from this awesome [opengl+SDL2 tutorial by Andrew Dailey](https://shallowbrooksoftware.com/posts/a-multi-platform-modern-opengl-demo-with-sdl2/).
-
-=== "MS/Windows"
-    ```
-    Invoke-WebRequest -OutFile "opengl.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/opengl.c" -Encoding ASCII
-    ```
-
-=== "Apple/OSX"
-    ```
-    curl -sLo opengl.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/opengl.c
-    ```
-
-=== "GNU/Linux"
-    ```
-    curl -sLo opengl.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/opengl.c
-    ```
-
-And execute it as usual, giving the `opengl.c` file name as argument to CJIT. In case of windows you'll have to include also the path to the SDL2 library which was used in the previous example:
-
-=== "MS/Windows"
-    ```
-    .\cjit.exe ./opengl.c -DWINDOWS -I .\SDL2-2.30.9\x86_64-w64-mingw32\include\ -L.\SDL2-2.30.9\x86_64-w64-mingw32\bin
-    ```
-
-=== "Apple/OSX"
-    ```
-    ./cjit ./opengl.c
-    ```
-
-=== "GNU/Linux"
-    ```
-    ./cjit ./opengl.c
-    ```
+Then run CJIT passing `examples/opengl.c` as argument.
 
 ![Smoothly rotating red square](images/cjit_opengl.gif)
 
