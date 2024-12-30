@@ -5,9 +5,7 @@ Be welcome to the exciting world of graphical C applications using SDL
 ([Simple DirectMedia Layer](https://sdl.org)). SDL, originally
 developed by Sam Lantinga in 1998, is a powerful, cross-platform
 library designed to provide low-level access to audio, keyboard,
-mouse, and graphics hardware via OpenGL and Direct3D. It is an ideal
-choice of free and open source library to create graphical
-applications that run seamlessly across different operating systems.
+mouse, and graphics hardware via OpenGL and Direct3D.
 
 Whether you're developing games, simulations, or interactive tools,
 the combination of CJIT's simplicity in C code execution and [SDL's
@@ -15,9 +13,45 @@ cross-platform
 capabilities](https://wiki.libsdl.org/SDL2/Installation) offers a
 solution for your graphical application needs.
 
+## Download the cjit-demo package
+
 As in the previous chapter, the following sections will guide you
 through practical usage examples, demonstrating how to create
 graphical applications. 🌟📚
+
+If you haven't done already, make sure you have downloaded and
+unpacked the [cjit-demo.tar.gz](https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz) package and copied the [cjit executable](https://github.com/dyne/cjit/releases) inside it. Here some quick terminal commands to do that:
+
+=== "MS/Windows"
+
+    ```
+    Invoke-WebRequest -OutFile "cjit.exe" -Uri "https://github.com/dyne/cjit/releases/latest/download/cjit.exe"
+    Invoke-WebRequest -OutFile "cjit-demo.tar.gz" -Uri "https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz"
+    cjit.exe --xtgz cjit-demo.tar.gz
+    cp cjit.exe cjit-demo
+    cd cjit-demo
+    ```
+
+=== "Apple/OSX"
+
+    ```
+    curl -sLo cjit https://github.com/dyne/cjit/releases/latest/download/cjit-$(uname)-$(uname -m)
+    chmod +x cjit
+    curl -sLo cjit-demo.tar.gz https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz
+    ./cjit --xtgz cjit-demo.tar.gz
+    cp ./cjit cjit-demo/
+    cd cjit-demo
+    ```
+
+=== "GNU/Linux"
+
+    ```
+    curl -sLo cjit-demo.tar.gz https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz
+    ./cjit --xtgz cjit-demo.tar.gz
+    cp ./cjit cjit-demo/
+    cd cjit-demo
+    ```
+
 
 ## The Beauty of Random
 

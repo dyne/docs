@@ -1,6 +1,6 @@
 site_name: CJIT Manual
 site_url: https://dyne.org/docs/cjit
-copyright: CJIT Manual written by <a href="https://jaromil.dyne.org">Jaromil</a>, Copyright &copy; 2024 Dyne.org Foundation
+copyright: CJIT Manual written by <a href="https://jaromil.dyne.org">Jaromil</a>, Copyright &copy; 2024-2025 <a href="https://dyne.org">Dyne.org Foundation</a>
 
 theme:
   name: material

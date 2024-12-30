@@ -18,9 +18,11 @@ workflow. 📚🔧
 
 ## Hello World!
 
-This classic example will make you create a `hello.c` file and execute it with CJIT to print the string "Hello World!" in the terminal.
+This classic example will make you create a `hello.c` file and execute
+it with CJIT to print the string "Hello World!" in the terminal.
 
-Please chose the right example code using tabs: MS/Windows, Apple/OSX or GNU/Linux
+Please chose the right example code using tabs: MS/Windows, Apple/OSX
+or GNU/Linux
 
 !!! info
     **All Windows based examples are made for the PowerShell terminal**, if you are on WSL then chose GNU/Linux
@@ -37,12 +39,14 @@ Download CJIT pasting a command in the terminal
 
     ```
     curl -sLo cjit https://github.com/dyne/cjit/releases/latest/download/cjit-$(uname)-$(uname -m)
+    chmod +x cjit
     ```
 
 === "GNU/Linux"
 
     ```
     curl -sLo cjit https://github.com/dyne/cjit/releases/latest/download/cjit-$(uname)-$(uname -m)
+    chmod +x cjit
     ```
 
 
@@ -117,11 +121,6 @@ Hello, World!
 ```
 
 You can now play with `hello.c`, change what you want and run it again!
-
-!!! warning
-    When using a Windows Terminal configured in a language that is not
-    English, beware it may be set to UTF-16: this will break the example code
-    pasted from clipboard. Switch the terminal to UTF-8 encoding.
 
 ## Flying Donuts
 
@@ -235,29 +234,64 @@ The state of affairs in CJIT is well demonstrated by this example: right now the
 
 ## Game of Life
 
-Anothre fascinating example is the "Game of Life," a cellular automaton devised by the British mathematician John Horton Conway in 1970. This zero-player game simulates the evolution of a grid of cells, showcasing complex behaviors emerging from simple rules.
+Another fascinating example is the "Game of Life," a cellular
+automaton devised by the British mathematician John Horton Conway
+in 1970. This zero-player game simulates the evolution of a grid of
+cells, showcasing complex behaviors emerging from simple rules.
 
-Download the `life.c` example pasting a command in the terminal
+Our `life.c` example is part of the [cjit-demo.tar.gz](https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz) package you should download to enjoy this and other demos in this tutorial. Download, extract and **copy the cjit executable inside the cjit-demo folder**. Below are quick sequence of commands to do that:
 
 === "MS/Windows"
 
     ```
-    Invoke-WebRequest -OutFile "life.c" -Uri "https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c" -Encoding ASCII
+    Invoke-WebRequest -OutFile "cjit-demo.tar.gz" -Uri "https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz"
+    cjit.exe --xtgz cjit-demo.tar.gz
+    cp cjit.exe cjit-demo
+    cd cjit-demo
     ```
 
 === "Apple/OSX"
 
     ```
-    curl -sLo life.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c
+    curl -sLo cjit-demo.tar.gz https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz
+    ./cjit --xtgz cjit-demo.tar.gz
+    cp ./cjit cjit-demo/
+    cd cjit-demo
     ```
 
 === "GNU/Linux"
 
     ```
-    curl -sLo life.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c
+    curl -sLo cjit-demo.tar.gz https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz
+    ./cjit --xtgz cjit-demo.tar.gz
+    cp ./cjit cjit-demo/
+    cd cjit-demo
     ```
 
+You may notice from the commands above that cjit is capable of decompressing `tar.gz` packages, which are like compressed zip files containing files and folders.
+
 Then execute the `life.c` source file passing it as argument to `cjit`, the same way it was done for the flying donut.
+
+=== "MS/Windows"
+
+    ```
+    cjit.exe life.c
+    ```
+
+=== "Apple/OSX"
+
+    ```
+    ./cjit life.c
+    ```
+
+=== "GNU/Linux"
+
+    ```
+    ./cjit life.c
+    ```
+
+
+Enjoy watching this basic terminal version of the Game of Life, then move on to the next section to see its graphical version in its full glory 🎇
 
 ![Game of Life in ASCII animation](images/cjit_life_c.gif)
 
