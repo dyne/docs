@@ -1,20 +1,13 @@
 
-# Welcome to the CJIT Manual
+# Welcome to the CJIT Tutorial
 
 CJIT is a versatile C interpreter based on TinyCC, designed to compile
 C code in-memory and execute it live. This manual serves as a guide to
 the full potential of CJIT, empowering you to efficiently develop and
 test C programs in real-time.
 
-CJIT is distributed as a small, all-in-one executable, ensuring a
-lightweight and portable solution for your coding needs. One of its
-standout features is the ability to call functions from any installed
-library, making it a robust tool for rapid prototyping and dynamic
-code execution on Linux, Windows, and macOS. 🖥️
-
-The following sections will guide you through practical usage
-examples, helping you to swiftly integrate CJIT into your
-workflow. 📚🔧
+This tutorial will guide you through practical usage examples, helping
+you to swiftly integrate CJIT into your workflow. 📚🔧
 
 ## Hello World!
 
@@ -25,9 +18,9 @@ Please chose the right example code using tabs: MS/Windows, Apple/OSX
 or GNU/Linux
 
 !!! info
-    **All Windows based examples are made for the PowerShell terminal**, if you are on WSL then chose GNU/Linux
+    All Windows examples are made for PowerShell, on WSL then pick GNU/Linux.
 
-Download CJIT pasting a command in the terminal
+To download CJIT paste the following command in the terminal
 
 === "MS/Windows"
 
@@ -48,7 +41,6 @@ Download CJIT pasting a command in the terminal
     curl -sLo cjit https://github.com/dyne/cjit/releases/latest/download/cjit-$(uname)-$(uname -m)
     chmod +x cjit
     ```
-
 
 Then create hello.c by pasting these lines in the terminal:
 
@@ -93,7 +85,7 @@ Then create hello.c by pasting these lines in the terminal:
     EOF
     ```
 
-Finally execute hello.c using CJIT with:
+Finally execute hello.c with CJIT:
 
 === "MS/Windows"
     ```
@@ -112,15 +104,11 @@ Finally execute hello.c using CJIT with:
 As a result you will see CJIT starting and printing "Hello World!"
 
 ```
-CJIT v0.8.12 by Dyne.org
-Source code:
-+ .\hello.c
-Execution start
----
-Hello, World!
+CJIT v0.13.2 by Dyne.org
+Hello World!
 ```
 
-You can now play with `hello.c`, change what you want and run it again!
+You can play with `hello.c`, change what you want and run it again!
 
 ## Flying Donuts
 
@@ -236,46 +224,34 @@ The state of affairs in CJIT is well demonstrated by this example: right now the
 
 Another fascinating example is the "Game of Life," a cellular
 automaton devised by the British mathematician John Horton Conway
-in 1970. This zero-player game simulates the evolution of a grid of
-cells, showcasing complex behaviors emerging from simple rules.
+in 1970.
 
 Our `life.c` example is part of the [cjit-demo.tar.gz](https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz) package you should download to enjoy this and other demos in this tutorial. Download, extract and **copy the cjit executable inside the cjit-demo folder**. Below are quick sequence of commands to do that:
 
 === "MS/Windows"
 
     ```
-    Invoke-WebRequest -OutFile "cjit-demo.tar.gz" -Uri "https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz"
-    cjit.exe --xtgz cjit-demo.tar.gz
-    cp cjit.exe cjit-demo
-    cd cjit-demo
+    Invoke-WebRequest -OutFile "life.c" -Uri "https://github.com/dyne/cjit/raw/refs/heads/main/examples/life.c"
     ```
 
 === "Apple/OSX"
 
     ```
-    curl -sLo cjit-demo.tar.gz https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz
-    ./cjit --xtgz cjit-demo.tar.gz
-    cp ./cjit cjit-demo/
-    cd cjit-demo
+    curl -sLo life.c https://github.com/dyne/cjit/raw/refs/heads/main/examples/life.c
     ```
 
 === "GNU/Linux"
 
     ```
-    curl -sLo cjit-demo.tar.gz https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz
-    ./cjit --xtgz cjit-demo.tar.gz
-    cp ./cjit cjit-demo/
-    cd cjit-demo
+    curl -sLo life.c https://github.com/dyne/cjit/raw/refs/heads/main/examples/life.c
     ```
-
-You may notice from the commands above that cjit is capable of decompressing `tar.gz` packages, which are like compressed zip files containing files and folders.
 
 Then execute the `life.c` source file passing it as argument to `cjit`, the same way it was done for the flying donut.
 
 === "MS/Windows"
 
     ```
-    cjit.exe life.c
+    .\cjit.exe life.c
     ```
 
 === "Apple/OSX"
@@ -290,17 +266,13 @@ Then execute the `life.c` source file passing it as argument to `cjit`, the same
     ./cjit life.c
     ```
 
-
-Enjoy watching this basic terminal version of the Game of Life, then move on to the next section to see its graphical version in its full glory 🎇
+Have a look around the `life.c` file with your favorite text editor and
+feel free to change things and see what happens.
 
 ![Game of Life in ASCII animation](images/cjit_life_c.gif)
 
-Pretty cool stuff for some "boring" terminal session eh? Have a look
-around the `life.c` file with your favorite text editor and feel free
-to change things and see what happens.
+If you like it so far, move on to the next section to see CJIT running graphical demo applications 🎇
 
 # ⏩ [Next: graphics with CJIT](graphics)
 
-Now you are familiar with the way to execute CJIT! If you think that C
-is fun (and fast!) you are welcome to read the next chapter of this
-manual and discover one of many ways to run graphical applications.
+Go to the next chapter of this tutorial.
