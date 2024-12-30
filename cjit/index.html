@@ -411,8 +411,10 @@ code execution on Linux, Windows, and macOS. 🖥️</p>
 examples, helping you to swiftly integrate CJIT into your
 workflow. 📚🔧</p>
 <h2 id="hello-world">Hello World!</h2>
-<p>This classic example will make you create a <code>hello.c</code> file and execute it with CJIT to print the string "Hello World!" in the terminal.</p>
-<p>Please chose the right example code using tabs: MS/Windows, Apple/OSX or GNU/Linux</p>
+<p>This classic example will make you create a <code>hello.c</code> file and execute
+it with CJIT to print the string "Hello World!" in the terminal.</p>
+<p>Please chose the right example code using tabs: MS/Windows, Apple/OSX
+or GNU/Linux</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p><strong>All Windows based examples are made for the PowerShell terminal</strong>, if you are on WSL then chose GNU/Linux</p>
@@ -426,10 +428,12 @@ workflow. 📚🔧</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl -sLo cjit https://github.com/dyne/cjit/releases/latest/download/cjit-$(uname)-$(uname -m)
+chmod +x cjit
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl -sLo cjit https://github.com/dyne/cjit/releases/latest/download/cjit-$(uname)-$(uname -m)
+chmod +x cjit
 </code></pre></div>
 </div>
 </div>
@@ -500,12 +504,6 @@ Execution start
 Hello, World!
 </code></pre></div>
 <p>You can now play with <code>hello.c</code>, change what you want and run it again!</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>When using a Windows Terminal configured in a language that is not
-English, beware it may be set to UTF-16: this will break the example code
-pasted from clipboard. Switch the terminal to UTF-8 encoding.</p>
-</div>
 <h2 id="flying-donuts">Flying Donuts</h2>
 <p>This example will print an animated donut on the terminal!</p>
 <p>Create the <code>donut.c</code> file using the artful code below:</p>
@@ -612,25 +610,55 @@ pasted from clipboard. Switch the terminal to UTF-8 encoding.</p>
 <p>The state of affairs in CJIT is well demonstrated by this example: right now the terminal is much slower on windows (rightmost donut).</p>
 <p><img alt="Two flying donuts, one running on GNU/Linux to the left and one on MS/Windows to the right" src="images/cjit_donut_race.gif" /></p>
 <h2 id="game-of-life">Game of Life</h2>
-<p>Anothre fascinating example is the "Game of Life," a cellular automaton devised by the British mathematician John Horton Conway in 1970. This zero-player game simulates the evolution of a grid of cells, showcasing complex behaviors emerging from simple rules.</p>
-<p>Download the <code>life.c</code> example pasting a command in the terminal</p>
+<p>Another fascinating example is the "Game of Life," a cellular
+automaton devised by the British mathematician John Horton Conway
+in 1970. This zero-player game simulates the evolution of a grid of
+cells, showcasing complex behaviors emerging from simple rules.</p>
+<p>Our <code>life.c</code> example is part of the <a href="https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz">cjit-demo.tar.gz</a> package you should download to enjoy this and other demos in this tutorial. Download, extract and <strong>copy the cjit executable inside the cjit-demo folder</strong>. Below are quick sequence of commands to do that:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="mswindows_5" name="__tabbed_6" type="radio" /><input id="appleosx_5" name="__tabbed_6" type="radio" /><input id="gnulinux_5" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="mswindows_5">MS/Windows</label><label for="appleosx_5">Apple/OSX</label><label for="gnulinux_5">GNU/Linux</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>Invoke-WebRequest -OutFile &quot;life.c&quot; -Uri &quot;https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c&quot; -Encoding ASCII
+<div class="highlight"><pre><span></span><code>Invoke-WebRequest -OutFile &quot;cjit-demo.tar.gz&quot; -Uri &quot;https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz&quot;
+cjit.exe --xtgz cjit-demo.tar.gz
+cp cjit.exe cjit-demo
+cd cjit-demo
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>curl -sLo life.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c
+<div class="highlight"><pre><span></span><code>curl -sLo cjit-demo.tar.gz https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz
+./cjit --xtgz cjit-demo.tar.gz
+cp ./cjit cjit-demo/
+cd cjit-demo
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>curl -sLo life.c https://raw.githubusercontent.com/dyne/cjit/refs/heads/main/examples/life.c
+<div class="highlight"><pre><span></span><code>curl -sLo cjit-demo.tar.gz https://github.com/dyne/cjit/releases/latest/download/cjit-demo.tar.gz
+./cjit --xtgz cjit-demo.tar.gz
+cp ./cjit cjit-demo/
+cd cjit-demo
 </code></pre></div>
 </div>
 </div>
 </div>
+<p>You may notice from the commands above that cjit is capable of decompressing <code>tar.gz</code> packages, which are like compressed zip files containing files and folders.</p>
 <p>Then execute the <code>life.c</code> source file passing it as argument to <code>cjit</code>, the same way it was done for the flying donut.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="mswindows_6" name="__tabbed_7" type="radio" /><input id="appleosx_6" name="__tabbed_7" type="radio" /><input id="gnulinux_6" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="mswindows_6">MS/Windows</label><label for="appleosx_6">Apple/OSX</label><label for="gnulinux_6">GNU/Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>cjit.exe life.c
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>./cjit life.c
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>./cjit life.c
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Enjoy watching this basic terminal version of the Game of Life, then move on to the next section to see its graphical version in its full glory 🎇</p>
 <p><img alt="Game of Life in ASCII animation" src="images/cjit_life_c.gif" /></p>
 <p>Pretty cool stuff for some "boring" terminal session eh? Have a look
 around the <code>life.c</code> file with your favorite text editor and feel free
@@ -670,7 +698,7 @@ manual and discover one of many ways to run graphical applications.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      CJIT Manual written by <a href="https://jaromil.dyne.org">Jaromil</a>, Copyright &copy; 2024 Dyne.org Foundation
+      CJIT Manual written by <a href="https://jaromil.dyne.org">Jaromil</a>, Copyright &copy; 2024-2025 <a href="https://dyne.org">Dyne.org Foundation</a>
     </div>
   
   
