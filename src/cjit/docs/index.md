@@ -1,4 +1,3 @@
-
 # Welcome to the CJIT Tutorial
 
 CJIT is a versatile C interpreter based on TinyCC, designed to compile
@@ -42,7 +41,7 @@ To download CJIT paste the following command in the terminal
     chmod +x cjit
     ```
 
-Then create hello.c by pasting these lines in the terminal:
+Then create `hello.c` by pasting these lines in the terminal:
 
 === "MS/Windows"
 
@@ -61,7 +60,6 @@ Then create hello.c by pasting these lines in the terminal:
 
     ```bash
     cat << EOF > hello.c
-    #!/usr/bin/env cjit
     #include <stdio.h>
     #include <stdlib.h>
     int main(int argc, char **argv) {
@@ -75,7 +73,6 @@ Then create hello.c by pasting these lines in the terminal:
 
     ```bash
     cat << EOF > hello.c
-    #!/usr/bin/env cjit
     #include <stdio.h>
     #include <stdlib.h>
     int main(int argc, char **argv) {
@@ -85,7 +82,7 @@ Then create hello.c by pasting these lines in the terminal:
     EOF
     ```
 
-Finally execute hello.c with CJIT:
+Finally execute `hello.c` with CJIT:
 
 === "MS/Windows"
     ```
