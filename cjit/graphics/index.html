@@ -515,19 +515,19 @@ system and shipped along with the source code.</p>
 </div>
 </div>
 <h2 id="the-beauty-of-random">The Beauty of Random</h2>
-<p>Execute <code>sdl2_noise.c</code> passing the source file as argument to CJIT. Since we are also using a library, there may be the need for some extra parameters:</p>
+<p>Execute <a href="https://github.com/dyne/cjit/blob/main/examples/sdl2_noise.c">sdl2_noise.c</a> passing the source file as argument to CJIT, and since we are also using the SDL2 library we also need an extra parameter:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="mswindows_1" name="__tabbed_2" type="radio" /><input id="appleosx_1" name="__tabbed_2" type="radio" /><input id="gnulinux_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="mswindows_1">MS/Windows</label><label for="appleosx_1">Apple/OSX</label><label for="gnulinux_1">GNU/Linux</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>.\cjit.exe sdl2_noise.c SDL2.dll
+<div class="highlight"><pre><span></span><code>.\cjit.exe examples/sdl2_noise.c SDL2.dll
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>./cjit ./sdl2_noise.c -lSDL2
+<div class="highlight"><pre><span></span><code>./cjit examples/sdl2_noise.c -lSDL2
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>./cjit ./sdl2_noise.c /usr/lib/x86_64-linux-gnu/libSDL2.so
+<div class="highlight"><pre><span></span><code>./cjit examples/sdl2_noise.c -lSDL2
 </code></pre></div>
 </div>
 </div>
@@ -571,7 +571,7 @@ system and shipped along with the source code.</p>
 </div>
 </div>
 </div>
-<p>Then run CJIT passing <code>examples/opengl.c</code> as argument.</p>
+<p>Then run CJIT passing the file [examples/opengl.c]((https://github.com/dyne/cjit/blob/main/examples/opengl.c) as argument, along with the same parameter to link SDL2.</p>
 <p><img alt="Smoothly rotating red square" src="../images/cjit_opengl.gif" /></p>
 <p>For more details on using OpenGL and SDL2 in C with shaders, read the
 <a href="https://shallowbrooksoftware.com/posts/a-multi-platform-modern-opengl-demo-with-sdl2/">multi-platform-modern-opengl-demo-with-sdl2
