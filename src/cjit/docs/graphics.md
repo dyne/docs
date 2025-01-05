@@ -39,24 +39,24 @@ To setup the demo environment you can simply run the command below:
 
 ## The Beauty of Random
 
-Execute `sdl2_noise.c` passing the source file as argument to CJIT. Since we are also using a library, there may be the need for some extra parameters:
+Execute [sdl2_noise.c](https://github.com/dyne/cjit/blob/main/examples/sdl2_noise.c) passing the source file as argument to CJIT, and since we are also using the SDL2 library we also need an extra parameter:
 
 === "MS/Windows"
 
     ```
-    .\cjit.exe sdl2_noise.c SDL2.dll
+    .\cjit.exe examples/sdl2_noise.c SDL2.dll
     ```
 
 === "Apple/OSX"
 
     ```
-    ./cjit ./sdl2_noise.c -lSDL2
+    ./cjit examples/sdl2_noise.c -lSDL2
     ```
 
 === "GNU/Linux"
 
     ```
-    ./cjit ./sdl2_noise.c /usr/lib/x86_64-linux-gnu/libSDL2.so
+    ./cjit examples/sdl2_noise.c -lSDL2
     ```
 
 
@@ -104,7 +104,7 @@ To draw accelerated graphics and 3D objects we'll use OpenGL libraries, which ne
     sudo apt-get install libopengl-dev
     ```
 
-Then run CJIT passing `examples/opengl.c` as argument.
+Then run CJIT passing the file [examples/opengl.c]((https://github.com/dyne/cjit/blob/main/examples/opengl.c) as argument, along with the same parameter to link SDL2.
 
 ![Smoothly rotating red square](images/cjit_opengl.gif)
 
