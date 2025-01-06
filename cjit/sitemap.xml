@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dyne.org/docs/cjit/</loc>
-         <lastmod>2025-01-05</lastmod>
-    </url>
-    <url>
-         <loc>https://dyne.org/docs/cjit/builtins/</loc>
-         <lastmod>2025-01-05</lastmod>
+         <lastmod>2025-01-06</lastmod>
     </url>
     <url>
          <loc>https://dyne.org/docs/cjit/faq/</loc>
-         <lastmod>2025-01-05</lastmod>
+         <lastmod>2025-01-06</lastmod>
+    </url>
+    <url>
+         <loc>https://dyne.org/docs/cjit/filesystem/</loc>
+         <lastmod>2025-01-06</lastmod>
     </url>
     <url>
          <loc>https://dyne.org/docs/cjit/graphics/</loc>
-         <lastmod>2025-01-05</lastmod>
+         <lastmod>2025-01-06</lastmod>
+    </url>
+    <url>
+         <loc>https://dyne.org/docs/cjit/manpage/</loc>
+         <lastmod>2025-01-06</lastmod>
     </url>
 </urlset>
