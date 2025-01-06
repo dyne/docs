@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://dyne.org/docs/cjit/filesystem/">
       
       
-        <link rel="prev" href="../graphics/">
+        <link rel="prev" href="../sound/">
       
       
-        <link rel="next" href="../manpage/">
+        <link rel="next" href="../tui/">
       
       
       <link rel="icon" href="../images/favicon.png">
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cjit-built-in-extensions" class="md-skip">
+        <a href="#filesystem-operations" class="md-skip">
           Skip to content
         </a>
       
@@ -228,6 +228,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../sound/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sound
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -240,17 +260,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Filesystem
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -261,52 +270,26 @@
 
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
-        <li class="md-nav__item">
-  <a href="#filesystem-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Filesystem monitoring
-    </span>
-  </a>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#audio-play-and-record" class="md-nav__link">
-    <span class="md-ellipsis">
-      Audio play and record
-    </span>
-  </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#terminal-user-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      Terminal User Interface
-    </span>
-  </a>
   
-</li>
-      
-    </ul>
   
-</nav>
-      
+  
+    <li class="md-nav__item">
+      <a href="../tui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Text UI
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -371,41 +354,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#filesystem-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Filesystem monitoring
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audio-play-and-record" class="md-nav__link">
-    <span class="md-ellipsis">
-      Audio play and record
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#terminal-user-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      Terminal User Interface
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -419,27 +367,14 @@
                   
 
 
-<h1 id="cjit-built-in-extensions">CJIT built-in extensions</h1>
-<p>CJIT is equipped with a range of built-in extensions designed to
-enhance the capabilities of your C scripts. These extensions allow you
-to perform a variety of operations easily and efficiently, adding a
-layer of versatility to your coding experience. Whether you're
-manipulating data, handling complex computations, accessing 3D
-acceleration or drawing on the terminal or monitoring filesystem
-changes, our built-ins extensions provide additional function calls to
-make your scripting both powerful and fun.</p>
-<p>Our selection of extension is guided by a choice of minimalism and
-portability. Below you'll see a list of what we ship and link to
-respective vendors.</p>
-<h2 id="filesystem-monitoring">Filesystem monitoring</h2>
-<p>The <a href="https://github.com/septag/dmon/">dmon</a> built-in is designed for
-monitoring changes in the filesystem. This extension simplifies the
-process of tracking file modifications, deletions, and creations,
-allowing you to respond to these events in real time within your C
-scripts.</p>
-<p>Here and in
+<h1 id="filesystem-operations">Filesystem operations</h1>
+<p>The <a href="https://github.com/septag/dmon/">dmon</a> header is designed for
+monitoring changes in the filesystem: simplifies the process of
+tracking file modifications, deletions, and creations, allowing you to
+respond to these events in real time within your C scripts.</p>
+<p>Here is
 <a href="https://github.com/dyne/cjit/blob/main/examples/dmon.c">examples/dmon.c</a>
-is some example code working on all platforms:</p>
+wich is tested to run on all CJIT platforms:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;dmon.h&gt;</span>
 
@@ -482,156 +417,8 @@ is some example code working on all platforms:</p>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="audio-play-and-record">Audio play and record</h2>
-<p>The <a href="https://miniaud.io">miniaudio</a> built-in handles audio playback
-and capture with ease. With this extension, you can seamlessly
-integrate audio functionality into your C scripts, creating immersive
-and interactive experiences for your users.</p>
-<p>Miniaudio provides two main sources of documentation</p>
-<ul>
-<li><a href="https://miniaud.io/docs/manual/index.html">The miniaudio Programmer's manual</a></li>
-<li><a href="https://miniaud.io/docs/examples/index.html">Various miniaudio examples</a></li>
-</ul>
-<p>Miniaudio includes both low level and high level APIs. The low level
-API is good for those who want to do all of their mixing themselves
-and only require a light weight interface to the underlying audio
-device. The high level API is good for those who have complex mixing
-and effect requirements.</p>
-<p>In miniaudio, objects are transparent structures. Unlike many other
-libraries, there are no handles to opaque objects which means you need
-to allocate memory for objects yourself.</p>
-<p>A config/init pattern is used throughout the entire library. The idea
-is that you set up a config object and pass that into the
-initialization routine. The advantage to this system is that the
-config object can be initialized with logical defaults and new
-properties added to it without breaking the API.</p>
-<p>Below and in
-<a href="https://github.com/dyne/cjit/blob/main/examples/miniaudio.c">examples/miniaudio.c</a>
-is an example of sin wave synthesis that runs smoothly in CJIT:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#define MA_NO_DECODING</span>
-<span class="cp">#define MA_NO_ENCODING</span>
-<span class="cp">#define MINIAUDIO_IMPLEMENTATION</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;miniaudio.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<span class="cp">#define DEVICE_FORMAT       ma_format_f32</span>
-<span class="cp">#define DEVICE_CHANNELS     2</span>
-<span class="cp">#define DEVICE_SAMPLE_RATE  48000</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">data_callback</span><span class="p">(</span><span class="n">ma_device</span><span class="o">*</span><span class="w"> </span><span class="n">pDevice</span><span class="p">,</span>
-<span class="w">                   </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">pOutput</span><span class="p">,</span>
-<span class="w">                   </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">pInput</span><span class="p">,</span>
-<span class="w">                   </span><span class="n">ma_uint32</span><span class="w"> </span><span class="n">frameCount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">ma_waveform</span><span class="o">*</span><span class="w"> </span><span class="n">pSineWave</span><span class="p">;</span>
-<span class="w">    </span><span class="n">MA_ASSERT</span><span class="p">(</span><span class="n">pDevice</span><span class="o">-&gt;</span><span class="n">playback</span><span class="p">.</span><span class="n">channels</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DEVICE_CHANNELS</span><span class="p">);</span>
-<span class="w">    </span><span class="n">pSineWave</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ma_waveform</span><span class="o">*</span><span class="p">)</span><span class="n">pDevice</span><span class="o">-&gt;</span><span class="n">pUserData</span><span class="p">;</span>
-<span class="w">    </span><span class="n">MA_ASSERT</span><span class="p">(</span><span class="n">pSineWave</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<span class="w">    </span><span class="n">ma_waveform_read_pcm_frames</span><span class="p">(</span><span class="n">pSineWave</span><span class="p">,</span><span class="w"> </span><span class="n">pOutput</span><span class="p">,</span><span class="w"> </span><span class="n">frameCount</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">pInput</span><span class="p">;</span><span class="w">   </span><span class="cm">/* Unused in this example. */</span>
-<span class="p">}</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">ma_waveform</span><span class="w"> </span><span class="n">sineWave</span><span class="p">;</span>
-<span class="w">    </span><span class="n">ma_device_config</span><span class="w"> </span><span class="n">deviceConfig</span><span class="p">;</span>
-<span class="w">    </span><span class="n">ma_device</span><span class="w"> </span><span class="n">device</span><span class="p">;</span>
-<span class="w">    </span><span class="n">ma_waveform_config</span><span class="w"> </span><span class="n">sineWaveConfig</span><span class="p">;</span>
-<span class="w">    </span><span class="n">deviceConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ma_device_config_init</span><span class="p">(</span><span class="n">ma_device_type_playback</span><span class="p">);</span>
-<span class="w">    </span><span class="n">deviceConfig</span><span class="p">.</span><span class="n">playback</span><span class="p">.</span><span class="n">format</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">DEVICE_FORMAT</span><span class="p">;</span>
-<span class="w">    </span><span class="n">deviceConfig</span><span class="p">.</span><span class="n">playback</span><span class="p">.</span><span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DEVICE_CHANNELS</span><span class="p">;</span>
-<span class="w">    </span><span class="n">deviceConfig</span><span class="p">.</span><span class="n">sampleRate</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="n">DEVICE_SAMPLE_RATE</span><span class="p">;</span>
-<span class="w">    </span><span class="n">deviceConfig</span><span class="p">.</span><span class="n">dataCallback</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">data_callback</span><span class="p">;</span>
-<span class="w">    </span><span class="n">deviceConfig</span><span class="p">.</span><span class="n">pUserData</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sineWave</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ma_device_init</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">deviceConfig</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">device</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">MA_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to open playback device.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-4</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Device Name: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">device</span><span class="p">.</span><span class="n">playback</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
-<span class="w">    </span><span class="n">sineWaveConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ma_waveform_config_init</span><span class="p">(</span><span class="n">device</span><span class="p">.</span><span class="n">playback</span><span class="p">.</span><span class="n">format</span><span class="p">,</span>
-<span class="w">                                             </span><span class="n">device</span><span class="p">.</span><span class="n">playback</span><span class="p">.</span><span class="n">channels</span><span class="p">,</span>
-<span class="w">                                             </span><span class="n">device</span><span class="p">.</span><span class="n">sampleRate</span><span class="p">,</span>
-<span class="w">                                             </span><span class="n">ma_waveform_type_sine</span><span class="p">,</span>
-<span class="w">                                             </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mi">220</span><span class="p">);</span>
-<span class="w">    </span><span class="n">ma_waveform_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sineWaveConfig</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sineWave</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ma_device_start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">device</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">MA_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to start playback device.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="n">ma_device_uninit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">device</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-5</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Press Enter to quit...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">getchar</span><span class="p">();</span>
-<span class="w">    </span><span class="n">ma_device_uninit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">device</span><span class="p">);</span>
-<span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">argc</span><span class="p">;</span>
-<span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">argv</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2 id="terminal-user-interface">Terminal User Interface</h2>
-<p>Believe it or not, one can draw a beautiful terminal user interface
-(also called TUI) on a text console, with colors and blinking lights
-too. Our built-in <a href="https://github.com/termbox/termbox2">termbox2</a>
-allows this in an API that improves a lot on old approaches as ncurses
-or slang, by <a href="https://suckless.org">sucking much less</a> <code>:^)</code></p>
-<p>Here is a quick synopsis:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#define TB_IMPL</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;termbox2.h&quot;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">tb_event</span><span class="w"> </span><span class="n">ev</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-
-<span class="w">    </span><span class="n">tb_init</span><span class="p">();</span>
-
-<span class="w">    </span><span class="n">tb_printf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">TB_GREEN</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello from termbox&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">tb_printf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;width=%d height=%d&quot;</span><span class="p">,</span>
-<span class="w">              </span><span class="n">tb_width</span><span class="p">(),</span><span class="w"> </span><span class="n">tb_height</span><span class="p">());</span>
-<span class="w">    </span><span class="n">tb_printf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;press any key...&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">tb_present</span><span class="p">();</span>
-
-<span class="w">    </span><span class="n">tb_poll_event</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ev</span><span class="p">);</span>
-
-<span class="w">    </span><span class="n">y</span><span class="o">++</span><span class="p">;</span>
-<span class="w">    </span><span class="n">tb_printf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;event type=%d key=%d ch=%c&quot;</span><span class="p">,</span>
-<span class="w">              </span><span class="n">ev</span><span class="p">.</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">ch</span><span class="p">);</span>
-<span class="w">    </span><span class="n">tb_printf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;press any key to quit...&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">tb_present</span><span class="p">();</span>
-
-<span class="w">    </span><span class="n">tb_poll_event</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ev</span><span class="p">);</span>
-<span class="w">    </span><span class="n">tb_shutdown</span><span class="p">();</span>
-
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>The termbox2 basic API is self explanatory:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">tb_init</span><span class="p">();</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_shutdown</span><span class="p">();</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_width</span><span class="p">();</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_height</span><span class="p">();</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_clear</span><span class="p">();</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_present</span><span class="p">();</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_set_cursor</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">cx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cy</span><span class="p">);</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_hide_cursor</span><span class="p">();</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_set_cell</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ch</span><span class="p">,</span>
-<span class="w">                </span><span class="n">uintattr_t</span><span class="w"> </span><span class="n">fg</span><span class="p">,</span><span class="w"> </span><span class="n">uintattr_t</span><span class="w"> </span><span class="n">bg</span><span class="p">);</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_peek_event</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">tb_event</span><span class="w"> </span><span class="o">*</span><span class="n">event</span><span class="p">,</span>
-<span class="w">                  </span><span class="kt">int</span><span class="w"> </span><span class="n">timeout_ms</span><span class="p">);</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_poll_event</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">tb_event</span><span class="w"> </span><span class="o">*</span><span class="n">event</span><span class="p">);</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span>
-<span class="w">             </span><span class="n">uintattr_t</span><span class="w"> </span><span class="n">fg</span><span class="p">,</span><span class="w"> </span><span class="n">uintattr_t</span><span class="w"> </span><span class="n">bg</span><span class="p">,</span>
-<span class="w">             </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">tb_printf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span>
-<span class="w">              </span><span class="n">uintattr_t</span><span class="w"> </span><span class="n">fg</span><span class="p">,</span><span class="w"> </span><span class="n">uintattr_t</span><span class="w"> </span><span class="n">bg</span><span class="p">,</span>
-<span class="w">              </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">fmt</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
-</code></pre></div>
-<p>To see a demo of what it can do, see the
-<a href="https://github.com/dyne/cjit/blob/main/examples/termbox2.c">examples/termbox.c</a>
-example which will draw a keyboard on your terminal and show the keys
-you are pressing in real-time. Its code is a great source of knowledge
-about what termbox2 can do!</p>
+<h1 id="next-terminal-user-interface">⏩ <a href="../tui/">Next: Terminal User Interface</a></h1>
+<p>Go to the next chapter of this tutorial.</p>
 
 
 
