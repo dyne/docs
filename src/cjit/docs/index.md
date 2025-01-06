@@ -271,8 +271,7 @@ feel free to change things and see what happens.
 
 ![Game of Life in ASCII animation](images/cjit_life_c.gif)
 
-If you like it so far, move on to the next section to see CJIT running graphical demo applications 🎇
 
-# ⏩ [Next: graphics with CJIT](graphics)
+# ⏩ [Next: graphics with CJIT](graphics.md)
 
 Go to the next chapter of this tutorial.

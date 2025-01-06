@@ -144,6 +144,6 @@ And 💥Boom! enjoy Nuklear!
 
 ![Pretty advanced GUI widgets shown](images/cjit_nuklear.gif)
 
-## That's all for now!
+# ⏩ [Next: sound with CJIT](sound.md)
 
-If you like this manual, [give CJIt a star](https://github.com/dyne/cjit), [let us know](https://dyne.org/contact) what you'd like to see next and consider making a [donation to Dyne.org](https://dyne.org/donate). Thanks!
+Go to the next chapter of this tutorial.

@@ -23,7 +23,9 @@ extra:
 nav:
   - Introduction: index.md
   - Graphics: graphics.md
+  - Sound: sound.md
   - Filesystem: filesystem.md
+  - Text UI: tui.md
   - Manpage: manpage.md
   - FAQ: faq.md
 

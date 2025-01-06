@@ -47,6 +47,8 @@ We grant to everyone the freedome to use, study, modify, and
 redistribute modifications of CJIT as long as such modifications are
 licensed with one of the licenses already present: MIT, GPL or LGPL.
 
+More information about CJIT's licensing is also found in its [manpage section on LICENSING](https://dyne.org/docs/cjit/manpage/#licensing).
+
 ## Where to I send my corrections to this documentation?
 
 You are welcome to [open an issue or a PR to the dyne/docs project](https://github.com/dyne/docs).
