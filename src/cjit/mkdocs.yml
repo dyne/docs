@@ -23,7 +23,8 @@ extra:
 nav:
   - Introduction: index.md
   - Graphics: graphics.md
-  - Builtins: builtins.md
+  - Filesystem: filesystem.md
+  - Manpage: manpage.md
   - FAQ: faq.md
 
 markdown_extensions:
