@@ -9,18 +9,14 @@ test C programs in real-time.
 This tutorial will guide you through practical usage examples, helping
 you to swiftly integrate CJIT into your workflow. 📚🔧
 
-## Hello World!
+## Download CJIT
 
-This classic example will make you create a `hello.c` file and execute
-it with CJIT to print the string "Hello World!" in the terminal.
+If you have already downloaded the CJIT executable for your running
+system them you can skip this section.
 
-Please chose the right example code using tabs: MS/Windows, Apple/OSX
-or GNU/Linux
+If you like to download it by hand, go to the [CJIT release page](https://github.com/dyne/cjit/releases).
 
-!!! info
-    All Windows examples are made for PowerShell, on WSL then pick GNU/Linux.
-
-To download CJIT paste the following command in the terminal
+If you prefer to cut & paste a terminal script, pick one below for your running system:
 
 === "MS/Windows"
 
@@ -38,11 +34,21 @@ To download CJIT paste the following command in the terminal
 === "GNU/Linux"
 
     ```
-    curl -sLo cjit https://github.com/dyne/cjit/releases/latest/download/cjit-$(uname)-$(uname -m)
+    source /etc/os-release
+    curl -sLo cjit "https://github.com/dyne/cjit/releases/latest/download/cjit-$(uname -m)-${NAME,,}-${VERSION_ID}"
     chmod +x cjit
     ```
 
-Then create hello.c by pasting these lines in the terminal:
+
+!!! info
+    All Windows examples are made for PowerShell, on WSL then pick GNU/Linux.
+
+## Hello World!
+
+This classic example will make you create a `hello.c` file and execute
+it with CJIT to print the string "Hello World!" in the terminal.
+
+Create hello.c by pasting these lines in the terminal:
 
 === "MS/Windows"
 
@@ -104,7 +110,7 @@ Finally execute hello.c with CJIT:
 As a result you will see CJIT starting and printing "Hello World!"
 
 ```
-CJIT v0.13.2 by Dyne.org
+CJIT v0.16.2 by Dyne.org
 Hello World!
 ```
 
