@@ -4,3 +4,7 @@ env
 site
 .venv
 .envrc
+bin
+lib
+lib64
+pyvenv.cfg
