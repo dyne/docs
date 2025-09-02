@@ -10,9 +10,11 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
+  - Terminal: /docs/terminal
   - Dynebolic: /docs/dynebolic
   - Jaromail: /docs/jaromail
   - Tomb: /docs/tomb
+  - CJIT: /docs/cjit
 
 markdown_extensions:
   - attr_list
